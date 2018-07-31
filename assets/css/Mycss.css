@@ -1,0 +1,277 @@
+.navbar-default{
+  background-color: #DF013A !important;
+  color: white !important;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+background-color: #DF013A;
+}
+/*Aqui meti codigo io*/
+main .registro{
+	background: #fff;
+	border-top: 5px solid #3da5e2;
+	padding: 0 20px;
+	margin-bottom: 40px;
+	text-align: center;
+	display: inline-flex;
+	/*
+	padding-left:300px;
+	padding-right: 200px;
+	height: 100%;
+	padding-top: 10px;
+	padding-bottom: 100px;
+	/*min-height: 100vh;*/
+}
+main .busca{
+    display: inline-block; zoom: 1; /* ie7 hack para display:inline-block */ 
+	border: solid 1px #3da5e2; 
+	padding: 20px 30px; 
+	-webkit-border-radius: 2em; 
+	-moz-border-radius: 2em; 
+	border-radius: 2em; 
+	-webkit-box-shadow: 0 1px 0px rgba(0,0,0,.1); 
+	-moz-box-shadow: 0 1px 0px rgba(0,0,0,.1); 
+	box-shadow: 0 1px 0px rgba(0,0,0,.1); 
+	background: #f1f1f1; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed)); 
+	background: -moz-linear-gradient(top, #fff, #ededed); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie7 */ 
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie8 */ 
+}
+main .registro .busca1 {
+	display: inline-block; zoom: 1; 
+	padding: 20px 30px; 
+	-webkit-border-radius: 2em; 
+	-moz-border-radius: 2em; 
+	border-radius: 2em; 
+	-webkit-box-shadow: 0 1px 0px rgba(0,0,0,.1); 
+	-moz-box-shadow: 0 1px 0px rgba(0,0,0,.1); 
+	box-shadow: 0 1px 0px rgba(0,0,0,.1); 
+	background: #f1f1f1; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed)); 
+	background: -moz-linear-gradient(top, #fff, #ededed); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie7 */ 
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie8 */ 
+}
+main .registro .busca input{
+	width: 600px;
+	height:auto;
+    padding: 10px;
+    float: left;
+    border: 0;
+    background: #eee;
+    padding: 6px 6px 6px 8px;
+    border-radius: 3px 0 0 3px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.4) inset;
+	border: solid 1px #3da5e2;
+}
+
+main .registro .busca input:focus{
+	outline: 0;
+	height:auto;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+main .registro .busca .bo{
+	padding: 30px;
+	width: 100%;
+}
+/*Barra para la busqueda en general*/
+main .titulo{
+	color:  #005385;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 40px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+main .registro .marco a{
+	display: inline-flex;
+	text-decoration: none;
+	border-radius: 15px;
+}
+/* aqui tenemos esto no se para que jale pero si algo se despedora quita el comentario
+main .registro .consultar input{
+	height: 100px;
+	width: 250px;
+}
+*/
+.site {
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+.content{
+	flex: 1;
+}
+footer {
+	padding-bottom: 3px;
+	min-width: 100%;
+	background-color: #DF010A;
+	text-align: center;
+	color: #fff;
+}
+main .panelP{
+	max-height: 100%;
+	max-width: 100%;
+	display: block;
+	text-align: center;
+}
+main .panelP .barraA a{
+	max-width: 100%;
+	max-height: 100%;
+	text-align: center;
+	display: inline-table;
+	text-decoration: none;
+	/*color: #004162;*/
+	border-radius: 15px;
+}
+main .panelP .navo h3{
+	font-size: 15px;
+	text-align: center;
+	padding: 15px;
+}
+main .panelP .c1{background: #FFF;}
+main .panelP .c1:hover {transform: scale(.9,.9);}
+
+main .mensaje{
+	border-top: 5px solid #3da5e2;
+	text-align: center;
+	width: 1000px;
+	height: auto;
+	margin-right: 300px;
+	margin-left: 250px;
+}
+main .mensaje .titulo{
+	padding: 10px 0;
+	text-align: center;
+	color: #3da5e2;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-size: 100px;
+}
+main .mensaje .nom{
+	font-size: 20px;
+	letter-spacing: 3px;
+	text-align: center;
+	margin: 6px;
+}
+main .mensaje p{
+	font-size: 50px;
+	text-align: center;
+	margin: 0;
+}
+main .foto{
+	padding: 10px;
+	display: block;
+	text-align: center;
+	background: #fff;
+	border-top: 5px solid #3da5e2;
+	padding: 0 20px;
+	margin-bottom: 40px;
+}
+main .foto a{
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	text-decoration: none;
+	color: #004162;
+	border-radius: 15px;
+	display: inline-flex;
+}
+main .foto .perfil {background: #FFF;}
+main .foto .perfil:hover {transform: scale(1.1,1.1);}
+
+main .tabcontent{
+	display: none;
+}
+/*Aqui ira el responsive/*
+/* para 980px o menos */
+	@media screen and (max-width:980px) {
+		main .registro{
+			width: 80%;
+		}
+		main .registro .busca{
+			width: 90%;
+		}
+		main .registro .busca input{
+			width: 90%;
+		}
+		main .panelP{
+			width: 90%;
+		}
+		main .panelP .barraA a{
+			width: 90%;
+		}
+		main .tapcontent{
+			width: 90%;
+		}
+	}
+ 
+	/* para 700px o menos */
+	@media screen and (max-width:700px) {
+		main .registro{
+			width: 50%;
+		}
+		main .registro .busca{
+			width: 80%;
+		}
+		main .registro .busca input{
+			width: 100%;
+		}
+		main .panelP{
+			width: 80%;
+		}
+		main .panelP .barraA a{
+			width: 80%;
+		}
+		main .tapcontent{
+			width: 80%;
+		}
+	}
+ 
+	/* para 480px o menos */
+	@media screen and (max-width:480px) {
+		main .registro{
+			width: 480px;
+		}
+		main .registro .busca{
+			width: 20%;
+		}
+		main .registro .busca input{
+			width: 20%;
+		}
+		main .panelP{
+			display: inline-table;
+			width: 100%;
+			height: 100%;
+		}
+		main .panelP .barraA a{
+			width: 100%;
+		}
+		main .tapcontent{
+			width: 100%;
+		}
+		/*
+		aside {
+			display:none;
+		}
+		nav, section {
+			font-size:1.5em;
+		}
+		section {
+			width:94%;
+		}
+		nav ul {
+			float:left;
+			clear:none;
+			width:50%;
+		}
+		nav ul li {
+			float:none;
+		}
+		*/
+	}
+/*Componentes para lo delp pdf
+
+
