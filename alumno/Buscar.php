@@ -58,10 +58,6 @@
       $('#CResp').html(data);
       });         
     }
-    function PreCitas(num){    
-      $.post("../php/PreCitas.php", { empleo: num }, function(){
-      });         
-    }
     //Para un modal aca perron
     function InfoSolicitudes(num,cad,cad1,numero,curp1){    
       $.post("../php/InfoEmpleo.php", { id_Usuario:  num, nombreN: cad, caso:cad1, es:numero, curp: curp1}, function(data){
@@ -74,14 +70,9 @@
       });
     }
     //Quitar con un div solamente en el modal sin abrir uno nuevo
-    function subirArchivo(cad,cad1,cad2,cad3,cad4){
-      $.post("../php/SubirPdf.php", { source: cad, tipo :cad1, curp: cad2, nombreA: cad3, accion: cad4}, function(data){
-      $('#InfoAlert').html(data);
-      });
-    }
     function subirT(cad1,cad2,cad3){
-      $.post("../php/subirYmoverArchivos.php", { archivo: cad1, accion: cad2, curp: cad3}, function(data){
-        $('#Alert').html(data);
+      $.post("../php/interSube.php", { archivo: cad1, tipo: cad2, curp: cad3}, function(data){
+        $('#InfoAlert').html(data);
       });
     }
     function limpiar(){

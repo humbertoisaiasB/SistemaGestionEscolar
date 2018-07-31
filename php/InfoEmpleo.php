@@ -4,7 +4,7 @@
   $Descripcion = array("La boleta corresponde a tu ultimas calificaciones entregadas a tus padres cuando tu estabas en la escula primaria","Esto corresponde al certificado de primaria que se te entrego al comcluir tu escuela primaria","La clave unica de poblacion que se te fue asignada al nacer","Ife de tu madre en caso de no tener omitir...");
   //Aqui esta para el alumno.
   $NombreDo = $nombresArchivos1[$_POST['es']];
-	$sql=mysqli_query($con,"SELECT u.Nom, u.Ap, u.Am, u.id_Usuario, u.Documento FROM usuarios as u WHERE u.id_Usuario=".$_POST['id_Usuario']);
+	$sql=mysqli_query($con,"SELECT u.Nom, u.Ap, u.Am, u.id_Usuario,u.Tipo, u.Documento FROM usuarios as u WHERE u.id_Usuario=".$_POST['id_Usuario']);
 	$row=mysqli_fetch_array($sql);
   $variable = "'".$_POST['nombreN']."'";
   $variable1 = "'"."uno"."'";
@@ -24,8 +24,8 @@
           <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
       </div>
       <div class="modal-footer" align="center">
-      	<button align="center" type="button" class="btn btn-info" >Ver PDF</button>
-        <button align="center" type="button" onclick="return subirF('.$variable.','."'".''."subeA".''."'".','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert1" class="btn btn-success">Actualizacion de archivo</button>
+      	<button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
+        <button align="center" type="button" onclick="return subirF('.$variable.','."'".''."subeA".''."'".','."'".''.$_POST['curp'].''."'".'); subirT('.$variable.','."'".''.$row['Tipo'].''."'".','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert1" class="btn btn-success">Actualizacion de archivo</button>
       </div>
     </div>
   </div>';

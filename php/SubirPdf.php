@@ -13,12 +13,9 @@
 	          <p>'.$_POST['clave'].'</p>
 	          <p>'.$_POST['archivo'].'</p>
 	          <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >';
-	    $abajo = '<div id="div_Documento">
-	    				<form action="../php/subirYmoverArchivos.php" method="POST" enctype="multipart/form-data">
-		                  <label>Seleciona un documento:</label><input id="txt_Documento" onfocus="validacion4all(/[a-zA-Z0-9-.]/,'."'".'Documento'."'".',this.value);" type="file" class="form-control" name="txt_Documento"><span id="span_Documento"></span>
-                    	<input class="btn btn-primary" type="submit" onclick="return subirT('."'".''.$_POST['archivo'].''."'".','."'".''."subirArchivoYa".''."'".','."'".''.$_POST['clave'].''."'".');" name="subir" id="subir">Subir</input>
-                    	</form>
-                   	</div>';	    
+	    $abajo = '<div class="embed-responsive embed-responsive-16by9">
+	                <iframe class="embed-responsive-item" src="../php/interSube.php"></iframe>
+	              </div>';	    
         modalC($arriba,$cuerpo,$abajo);
 	}
 	elseif($_POST['accion']=="subirArchivoYa") {
