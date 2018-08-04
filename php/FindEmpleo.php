@@ -36,14 +36,16 @@
                         }
                         else{
                         	$caso = "no";
-                        	echo  '<div class="col-sm-3 thumbnail"> <a onclick="return InfoDocumento('.$row['id_Usuario'].','."'".$nombresArchivos[$cont]."'".','."'".$caso."'".'); " >
+                        	echo  '<div class="col-sm-3 thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
 			<img src="../assets/images/Empleos/'.rand(1,9).'.png" height="70px" width="70px">
 		   <h5 align=center><b>'.$nombresArchivos[$cont].'</b> </h5>
 		   <h5 align=center><b>'.$nombreArchivoC.'</b> </h5>
-		   <h5 align=center><b> Archivo no gestionado, preciona para actualizar este archivo. </b> </h5>
+		   <h5 align=center><b> Archivo con un nombre distinto, por favor sube de nuevo tu archivo. </b> </h5>
 		     </a>
-		     <p align=center><a onclick="return InfoDocumento('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".');" class="btn btn-danger" role="button">Modificar el archivo por otro.</a></p> 
-		     </div>';
+		     
+		     </div>
+		     <div id="InfoAlert" class="modal fade" role="dialog"></div>
+		     ';
 		     $cont=$cont+1;
                         }
                     }
@@ -53,14 +55,16 @@
                 	while ($cont<=$documentos) {
                 		$nombreArchivoC = $nombresArchivos[$cont];
                 		$caso = "no";
-                        echo  '<div class="col-sm-3 thumbnail"> <a onclick="return InfoDocumento('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".'); " >
+                        echo  '<div class="col-sm-3 thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
 			<img src="../assets/images/Empleos/'.rand(1,9).'.png" height="70px" width="70px">
 		   <h5 align=center><b>'.$nombresArchivos[$cont].'</b> </h5>
 		   <h5 align=center><b>'.$nombreArchivoC.'</b> </h5>
-		   <h5 align=center><b> Archivo no gestionado, preciona para subir este archivo </b> </h5>
+		   <h5 align=center><b>Archivo faltante, por favor sube el archivo. </b> </h5>
 		     </a>
-		     <p align=center><a onclick="return InfoDocumento('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".');" class="btn btn-danger" role="button">Subir archivo.</a></p> 
-		     </div>';
+		     
+		     </div>
+		     <div id="InfoAlert" class="modal fade" role="dialog"></div>
+		     ';
                         $cont=$cont+1;
                 	}
                 }

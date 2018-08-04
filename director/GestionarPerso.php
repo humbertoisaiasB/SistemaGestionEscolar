@@ -85,15 +85,11 @@
                  </div>
                </div> 
             </div>
-            
-    
-           <div class="col-sm-5" id="Mod"></div>
-
         </div>
 
       </div><!-- Container-Fluid -->    
   </main>  
-  
+  <div class="modal fade" id="Mod" role="dialog"></div>
 </body>
 </html>
 

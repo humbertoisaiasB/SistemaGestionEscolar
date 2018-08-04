@@ -1,5 +1,4 @@
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -22,20 +21,17 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-7">
-              <ul class="nav nav-tabs">
-                <li role="presentation" class="active" onclick="return CEmpleosAdmin('','Consultar','Administrador','Alumno','#ConsA2');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
-                <li role="presentation" onclick="return CEmpleosAdmin('','Eliminar','Administrador','Alumno','#ConsA');"><a href="#Eliminar" data-toggle="tab"><img src="../assets/images/Eliminar.png"  height="30px" width="30px" > Eliminar</a></li>
-              </ul>
+            <ul class="nav nav-tabs">
+              <li role="presentation" class="active" onclick="return CEmpleosAdmin('','Consultar','Administrador','Alumno','#ConsA2');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
+              <li role="presentation" onclick="return CEmpleosAdmin('','Eliminar','Administrador','Alumno','#ConsA');"><a href="#Eliminar" data-toggle="tab"><img src="../assets/images/Eliminar.png"  height="30px" width="30px" > Eliminar</a></li>
+            </ul>
           </div>
-          
-        </div>  
-
+        </div>
         <div class="row">
             <div class="col-sm-7">
-
               <div class="tab-content"> 
-                 <br>
-                 <div class="tab-pane fade in active" id="Consultar">
+                <br>
+                <div class="tab-pane fade in active" id="Consultar">
                       <div class="col-sm-12 busca well">
                         <h1>Consultar Alumno</h1>
                           <div class="input-group">
@@ -58,7 +54,7 @@
                           </div>
                         </div><br><br>
                         <div id="ConsA2"></div>
-                 </div>
+                </div>
                 <div class="tab-pane fade" id="Eliminar">
                       <div class="col-sm-12 busca well">
                         <h1>Eliminar Alumno</h1>
@@ -80,21 +76,24 @@
                               </div>
                               <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                             </div>
-                          </div><br><br>
-                          <div id="ConsA"></div>
-                 </div>
-               </div> 
-            </div>
-            
-    
-           <div class="col-sm-5" id="Mod"></div>
-
+                      </div><br><br>
+                      <div id="ConsA"></div>
+                </div>
+              </div> 
+            </div>    
         </div>
-
-      </div><!-- Container-Fluid -->    
-  </main>  
-  
+      </div><!-- Container-Fluid -->  
+  </main>
+  <div id="Mod" class="modal fade" role="dialog"></div>
+  <script type="text/javascript">
+    function BuscarDocumentos(cad,cad1){    
+      $.post("../php/FindEmpleo.php", { busqueda: cad, curp: cad1 }, function(data){
+      $('#CResp').html(data);
+      });         
+    }
+  </script>
 </body>
+
 </html>
 
 

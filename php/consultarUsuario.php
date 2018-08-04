@@ -6,15 +6,16 @@
     if($_POST['filtro']=="Alumno"){
       $sql = mysqli_query($con,"select Nom,Ap,Am,u.id_Usuario,Tipo from usuarios u where Tipo='$_POST[filtro]' and Nom like '$_POST[busqueda]%' limit 0,6");
       while ($row=mysqli_fetch_array($sql)){
-      echo  '<div class="col-sm-4"> <a  class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');">
+      echo  '<div class="col-sm-4"><a class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');" data-toggle="modal" href="#Mod">
       <img src="../assets/images/estudiante.png" height="70px" width="70px">
          <h5 align=center> '.$row['Nom'].'  </h5>
-         </a> </div>';
+         </a> </div>
+        ';
       }
     }elseif ($_POST['filtro'] == "Maestro") {
       $sql = mysqli_query($con,"select Nom,Ap,Am,u.id_Usuario,Tipo from usuarios u where Tipo='$_POST[filtro]' and Nom like '$_POST[busqueda]%' limit 0,6");
       while ($row=mysqli_fetch_array($sql)){
-      echo  '<div class="col-sm-4"> <a  class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');">
+      echo  '<div class="col-sm-4"> <a  class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');" data-toggle="modal" href="#Mod">
       <img src="../assets/images/maestro.png" height="70px" width="70px">
          <h5 align=center> '.$row['Nom'].'  </h5>
          </a> </div>';
@@ -22,7 +23,7 @@
     }elseif ($_POST['filtro']=="PersonalA") {
       $sql = mysqli_query($con,"select Nom,Ap,Am,u.id_Usuario,Tipo from usuarios u where Tipo='$_POST[filtro]' and Nom like '$_POST[busqueda]%' limit 0,6");
       while ($row=mysqli_fetch_array($sql)){
-      echo  '<div class="col-sm-4"> <a  class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');">
+      echo  '<div class="col-sm-4"> <a  class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');" data-toggle="modal" href="#Mod">
       <img src="../assets/images/perso.png" height="70px" width="70px">
          <h5 align=center> '.$row['Nom'].'  </h5>
          </a> </div>';
@@ -30,7 +31,7 @@
     }elseif ($_POST['filtro']=="Materia") {
       $sql = mysqli_query($con,"select Nom,Ap,Am,u.id_Usuario,Tipo from usuarios u where Tipo='$_POST[filtro]' and Nom like '$_POST[busqueda]%' limit 0,6");
       while ($row=mysqli_fetch_array($sql)){
-      echo  '<div class="col-sm-4"> <a  class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');">
+      echo  '<div class="col-sm-4"> <a  class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');" data-toggle="modal" href="#Mod">
       <img src="../assets/images/materia.png" height="70px" width="70px">
          <h5 align=center> '.$row['Nom'].'  </h5>
          </a> </div>';
@@ -57,7 +58,7 @@
               </a>
               <div class="caption">
                 <h3>'.$row['Nom'].'</h3>
-                <p><a onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');" class="btn btn-primary" role="button">Consultar!</a>
+                <p><a onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');" data-toggle="modal" href="#Mod" class="btn btn-primary" role="button">Consultar!</a>
               </div>
             </div>
           </div>';

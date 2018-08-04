@@ -8,54 +8,49 @@ include 'Conexion.php';
   //INNER JOIN empleo AS e ON ( em.id_Empleador= e.id_Empleador AND e.id_Empleador=em.id_Empleador) where em.id_Empleador=e.id_Empleador and u.id_Usuario='$_POST[info]'");
   $asd = mysqli_query($con,"select Nom,Ap,Am,id_Usuario,Tipo,Pais,Estado,Ciudad,Correo from usuarios where id_Usuario='$_POST[info]'");
   $row = mysqli_fetch_array($asd);
+  $curp = "";
   //if ($row['Tipo'] == "Empresa") {
 ?>
-  <div class="modal-dialog modal-sm">
-  <!-- Modal content-->
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title" style="text-align:center;">Consultar información</h4>
-    </div>
-    <div class="modal-body">
-  <font size="4"></font>
-          <?php
-              if ($row['Tipo'] == "Alumno") {
-                echo "<p><b>Nombre: </b>".$row['Nom']."</p>";
-                echo "<p><b>Apeido paterno: </b>".$row['Ap']."</p>";
-                echo "<p><b>Apeido materno: </b>".$row['Am']."</p>";
-                echo "<p><b>Correo Electronico: </b>".$row['Correo']."</p>";
+  <div class="modal-dialog modal-md" onload="return BuscarDocumentos(<?php echo $_POST['info'];?>,<?php echo $curp ?>)">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"  >&times;</button>
+              <h4 class="modal-title">Subir archivo de: </h4> 
+            </div>
+            <div class="modal-body" align="center">
+              <?php
+                if($row['Tipo']=="Alumno"){
+                $sql = mysqli_query($con,"select curpAlumno,id_Usuario from alumnos where id_Usuario='$_POST[info]'");
+                $row1 = mysqli_fetch_array($sql);
+                $curp = "'".$row1['curpAlumno']."'";
+                echo "<p><b>El nombre del alumno es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
                 echo "<p><b>Pais: </b>".$row['Pais']."</p>";
                 echo "<p><b>Estado: </b>".$row['Estado']."</p>";
-                echo "<p><b>Ciudad: </b>".$row['Ciudad']."</p>";
-                //echo "<p><b>Colonia: </b>".$row['Colonia']."</p>";
+                echo "<p><b>Ciudad:  </b>".$row['Ciudad']."</p>";
                 echo "<p><b>Correo: </b>".$row['Correo']."</p>";
-              }
-              elseif ($row['Tipo'] == "Maestro") {
-                echo "<p><b>Nombre: </b>".$row['Nom']."</p>";
-                echo "<p><b>Apeido paterno: </b>".$row['Ap']."</p>";
-                echo "<p><b>Apeido materno: </b>".$row['Am']."</p>";
-                echo "<p><b>Correo Electronico: </b>".$row['Correo']."</p>";
-                echo "<p><b>Pais: </b>".$row['Pais']."</p>";
-                echo "<p><b>Estado: </b>".$row['Estado']."</p>";
-                echo "<p><b>Ciudad: </b>".$row['Ciudad']."</p>";
-                //echo "<p><b>Colonia: </b>".$row['Colonia']."</p>";
-                echo "<p><b>Correo: </b>".$row['Correo']."</p>";
-              }
-              elseif ($row['Tipo'] == "PersonalA") {
-                echo "<p><b>Nombre: </b>".$row['Nom']."</p>";
-                echo "<p><b>Apeido paterno: </b>".$row['Ap']."</p>";
-                echo "<p><b>Apeido materno: </b>".$row['Am']."</p>";
-                echo "<p><b>Correo Electronico: </b>".$row['Correo']."</p>";
-                echo "<p><b>Pais: </b>".$row['Pais']."</p>";
-                echo "<p><b>Estado: </b>".$row['Estado']."</p>";
-                echo "<p><b>Ciudad: </b>".$row['Ciudad']."</p>";
-                echo "<p><b>Correo: </b>".$row['Correo']."</p>";
-              }
-          ?>
-     </div>
-  </div>
-</div>
+                }elseif($row['Tipo']=="maestro") {
+                  echo "<p><b>El nombre del alumno es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
+                  echo "<p><b>Pais: </b>".$row['Pais']."</p>";
+                  echo "<p><b>Estado: </b>".$row['Estado']."</p>";
+                  echo "<p><b>Ciudad:  </b>".$row['Ciudad']."</p>";
+                  echo "<p><b>Correo: </b>".$row['Correo']."</p>";
+                }elseif ($row['Tipo']=="maestro") {
+                  echo "<p><b>El nombre del alumno es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
+                  echo "<p><b>Pais: </b>".$row['Pais']."</p>";
+                  echo "<p><b>Estado: </b>".$row['Estado']."</p>";
+                  echo "<p><b>Ciudad:  </b>".$row['Ciudad']."</p>";
+                  echo "<p><b>Correo: </b>".$row['Correo']."</p>";
+                }else {
+                  echo "Valio verga".$row['Tipo'];
+                }
+                ?>
+            </div>
+            <div class="modal-footer" align="center">
+              <div id="CResp"></div>
+            </div>
+          </div>
+        </div>;
 <?php  
   //}
 

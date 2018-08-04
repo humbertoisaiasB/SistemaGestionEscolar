@@ -10,46 +10,48 @@
   $variable1 = "'"."uno"."'";
 	if($_POST['caso']=='si'){
 		echo '<div class="modal-dialog modal-md">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"  >&times;</button>
-        <h4 class="modal-title">Subir archivo de '.$row['Nom'].' '.$row['Ap'].' '.$row['Am'].'.</h4> 
-      </div>
-      <div class="modal-body" align="center">
-      		<h3><b>'.$NombreDo.'</b></h3>
-          <p>'.$_SERVER['PHP_SELF'].'</p>
-          <p>'.$Descripcion[$_POST['es']].'</p>
-          <p>'.$variable.'</p>
-          <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
-      </div>
-      <div class="modal-footer" align="center">
-      	<button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
-        <button align="center" type="button" onclick="return subirF('.$variable.','."'".''."subeA".''."'".','."'".''.$_POST['curp'].''."'".'); subirT('.$variable.','."'".''.$row['Tipo'].''."'".','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert1" class="btn btn-success">Actualizacion de archivo</button>
-      </div>
-    </div>
-  </div>';
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"  >&times;</button>
+                <h4 class="modal-title">Subir archivo de '.$row['Nom'].' '.$row['Ap'].' '.$row['Am'].'.</h4> 
+              </div>
+              <div class="modal-body" align="center">
+              		<h3><b>'.$NombreDo.'</b></h3>
+                  <p>'.$_SERVER['PHP_SELF'].'</p>
+                  <p>'.$Descripcion[$_POST['es']].'</p>
+                  <p>'.$variable.'</p>
+                  <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
+              </div>
+              <div class="modal-footer" align="center">
+              	<button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
+                <button align="center" type="button" onclick="return subirF('.$variable.','."'".''."subeA".''."'".','."'".''.$_POST['curp'].''."'".'); subirT('.$variable.','."'".''.$row['Tipo'].''."'".','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert1" class="btn btn-success">Actualizacion de archivo</button>
+              </div>
+            </div>
+          </div>';
 	}elseif($_POST['caso']=='no'){
-		echo '<div class="modal-dialog modal-sm">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"  >&times;</button>
-        <h4 class="modal-title">'.$row['Ap'].' </h4> 
-      </div>
-      <div class="modal-body" align=center>
-      		<h3><b>Estoy Interesado</b> </h3>
-          	<img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
-
-      </div>
-      <div class="modal-footer">
-      	<button type="button" class="btn btn-info" >Ver PDF</button>
-        <button type="button" class="btn btn-success" data-toggle="modal"  >Agendar</button>
-        <button type="button" class="btn btn-danger" >Rechazar</button>
-      </div>
-    </div>
-
-  </div>';
+    echo '<div class="modal-dialog modal-md">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"  >&times;</button>
+                <h4 class="modal-title">Subir archivo de '.$row['Nom'].' '.$row['Ap'].' '.$row['Am'].'.</h4> 
+              </div>
+              <div class="modal-body" align="center">
+                  <h3><b>'.$NombreDo.'</b></h3>
+                  <p>'.$_SERVER['PHP_SELF'].'</p>
+                  <p>'.$Descripcion[$_POST['es']].'</p>
+                  <p>'.$variable.'</p>
+                  <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
+              </div>
+              <div class="modal-footer" align="center">
+                <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="../php/interSube.php"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>';
 	}  
 
 ?>

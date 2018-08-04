@@ -127,7 +127,7 @@
 
 
   </main> 
-
+  <div id="Mod" class="modal fade" role="dialog"></div>
   <footer>
     <i class="fa fa-facebook-official f2c-hover-opacity"></i>
       <i class="fa fa-instagram f2c-hover-opacity"></i>

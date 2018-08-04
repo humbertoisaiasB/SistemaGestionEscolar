@@ -6,7 +6,7 @@
 		VALUES ('$_POST[txt_Nom]','$_POST[txt_Ap]','$_POST[txt_Am]','$_POST[txt_Telcelular]','$_POST[txt_Telcasa]','$_POST[txt_Correo]','$_POST[txt_Psw]','$_POST[txt_CP]','$_POST[Sl_Pais]', '$_POST[Sl_Estado]', '$_POST[Sl_Ciudad]' ,'$_POST[Sl_Colonia]' ,'$_POST[txt_Calle]','Alumno','$_POST[Sl_Sexo]')")){
 			printf("Error: %s\n", mysqli_error($con));
 		}
-		//Aquihago una consulta para vefificar el grado y el grupo. select turno, grado, grupo, id_escuela FROM grupos WHERE id_escuela=1  
+		//Aqui hago una consulta para vefificar el grado y el grupo. select turno, grado, grupo, id_escuela FROM grupos WHERE id_escuela=1  
 	    $sql = mysqli_query($con,"select id_Usuario from usuarios where Tipo='Alumno' and Correo='$_POST[txt_Correo]'" );
 	    $row = mysqli_fetch_array($sql);
 	    $grado = $_POST['txt_Grado'];

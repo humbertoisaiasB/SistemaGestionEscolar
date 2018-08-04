@@ -48,10 +48,9 @@
      </div>
 
   </main>
-  <div id="InfoAlert" class="modal fade" role="dialog">
-  </div>
+  <div id="InfoAlert" class="modal fade" role="dialog"></div>
   <div id="Alert"></div>
-
+  
   <script type="text/javascript">
     function BuscarDocumentos(cad,cad1){    
       $.post("../php/FindEmpleo.php", { busqueda: cad, curp: cad1 }, function(data){
