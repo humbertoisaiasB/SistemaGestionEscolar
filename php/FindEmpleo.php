@@ -1,11 +1,12 @@
 <?php 
 	include 'Conexion.php';
 	//Los documentos son 8 y son:
+	session_start();
 	$nombreArchivoC = "";
 	$compara = $_POST['curp']."_";
 	$nombreDocu = array("".$compara."BG","".$compara."CP","".$compara."CU","".$compara."IM","".$compara."IP","".$compara."CD","".$compara."CM","".$compara."AN");
 	$nombresArchivos = array("Boleta de calificaciones de 6 grado.","Certificado de primaria.","CURP del alumno.","Ife de la madre.","Ife del padre.","Comprobante de domicilio.","Certificado Medico.","Acta de nacimiento.");
-	$documentos = 4;
+	$documentos = 7;
 	$caso = "no";
 	$cont = 0;
 	$sql=mysqli_query($con,"select u.id_Usuario, u.Nom, a.id_Alumno, a.curpAlumno, u.Documento FROM usuarios AS u INNER JOIN alumnos AS a ON (a.id_Usuario=u.id_Usuario)WHERE u.id_Usuario='$_POST[busqueda]' && u.id_Usuario=a.id_Usuario");
@@ -22,11 +23,11 @@
                     	$caso = "si";
                         if($nombreDocu[$cont]==$nombreArchivoC){
                         	$nombreArchivoC = $nombreArchivoC;
-                        	echo  '<div class="col-sm-3 thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
+                        	echo  '<div class="col-sm-3 cambio thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
 			<img src="../assets/images/Empleos/'.rand(1,9).'.png" height="70px" width="70px">
-		   <h5 align=center><b>'.$nombresArchivos[$cont].'</b> </h5>
-		   <h5 align=center><b>'.$nombreArchivoC.'</b> </h5>
-		   <h5 align=center><b> Archivo gestionado. </b> </h5>
+		   <h5 align=center><b>'.$nombresArchivos[$cont].'</b></h5>
+		   <h5 align=center><b>'.$nombreArchivoC.'</b></h5>
+		   <h5 align=center><b> Archivo gestionado. </b></h5>
 		     </a>
 		     
 		     </div>
@@ -36,11 +37,16 @@
                         }
                         else{
                         	$caso = "no";
-                        	echo  '<div class="col-sm-3 thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
+                        	echo  '<div class="col-sm-3 thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreDocu[$cont]."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
 			<img src="../assets/images/Empleos/'.rand(1,9).'.png" height="70px" width="70px">
 		   <h5 align=center><b>'.$nombresArchivos[$cont].'</b> </h5>
-		   <h5 align=center><b>'.$nombreArchivoC.'</b> </h5>
+		   <h5 align=center><b>'.$nombreDocu[$cont].'</b> </h5>
+		   <h5 align=center><b>'.$_SERVER['PHP_SELF'].'</b></h5>
 		   <h5 align=center><b> Archivo con un nombre distinto, por favor sube de nuevo tu archivo. </b> </h5>
+		   <form action="../php/interSube.php" method="POST">
+		   	   <input type="text" id="curp" value="'.$nombreDocu[$cont].'">
+		   	   <input type="submit" id="inputDes" class="btn btn-primary" onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" value="Enviar">
+           </form>
 		     </a>
 		     
 		     </div>
@@ -51,14 +57,14 @@
                     }
                 }
                 if($cont<=$documentos){
-                	$cont = $cont+1;
+                	//$cont = $cont+1;
                 	while ($cont<=$documentos) {
                 		$nombreArchivoC = $nombresArchivos[$cont];
                 		$caso = "no";
-                        echo  '<div class="col-sm-3 thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreArchivoC."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
+                        echo  '<div class="col-sm-3 thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreDocu[$cont]."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
 			<img src="../assets/images/Empleos/'.rand(1,9).'.png" height="70px" width="70px">
 		   <h5 align=center><b>'.$nombresArchivos[$cont].'</b> </h5>
-		   <h5 align=center><b>'.$nombreArchivoC.'</b> </h5>
+		   <h5 align=center><b>'.$nombreDocu[$cont].'</b> </h5>
 		   <h5 align=center><b>Archivo faltante, por favor sube el archivo. </b> </h5>
 		     </a>
 		     

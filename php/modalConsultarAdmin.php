@@ -9,9 +9,13 @@ include 'Conexion.php';
   $asd = mysqli_query($con,"select Nom,Ap,Am,id_Usuario,Tipo,Pais,Estado,Ciudad,Correo from usuarios where id_Usuario='$_POST[info]'");
   $row = mysqli_fetch_array($asd);
   $curp = "";
+  $directorio = "";
+  $cont = 0;
+  $queso1 = "";
+  $queso2= "";
   //if ($row['Tipo'] == "Empresa") {
 ?>
-  <div class="modal-dialog modal-md" onload="return BuscarDocumentos(<?php echo $_POST['info'];?>,<?php echo $curp ?>)">
+  <div class="modal-dialog " onload="return BuscarDocumentos(<?php echo $_POST['info'];?>,<?php echo $curp ?>)">
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
@@ -21,22 +25,19 @@ include 'Conexion.php';
             <div class="modal-body" align="center">
               <?php
                 if($row['Tipo']=="Alumno"){
-                $sql = mysqli_query($con,"select curpAlumno,id_Usuario from alumnos where id_Usuario='$_POST[info]'");
-                $row1 = mysqli_fetch_array($sql);
-                $curp = "'".$row1['curpAlumno']."'";
                 echo "<p><b>El nombre del alumno es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
                 echo "<p><b>Pais: </b>".$row['Pais']."</p>";
                 echo "<p><b>Estado: </b>".$row['Estado']."</p>";
                 echo "<p><b>Ciudad:  </b>".$row['Ciudad']."</p>";
                 echo "<p><b>Correo: </b>".$row['Correo']."</p>";
-                }elseif($row['Tipo']=="maestro") {
-                  echo "<p><b>El nombre del alumno es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
+                }elseif($row['Tipo']=="Maestro") {
+                  echo "<p><b>El nombre del maestro es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
                   echo "<p><b>Pais: </b>".$row['Pais']."</p>";
                   echo "<p><b>Estado: </b>".$row['Estado']."</p>";
                   echo "<p><b>Ciudad:  </b>".$row['Ciudad']."</p>";
                   echo "<p><b>Correo: </b>".$row['Correo']."</p>";
-                }elseif ($row['Tipo']=="maestro") {
-                  echo "<p><b>El nombre del alumno es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
+                }elseif ($row['Tipo']=="PersonalA") {
+                  echo "<p><b>El nombre del personal de apoyo es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
                   echo "<p><b>Pais: </b>".$row['Pais']."</p>";
                   echo "<p><b>Estado: </b>".$row['Estado']."</p>";
                   echo "<p><b>Ciudad:  </b>".$row['Ciudad']."</p>";
@@ -47,7 +48,39 @@ include 'Conexion.php';
                 ?>
             </div>
             <div class="modal-footer" align="center">
-              <div id="CResp"></div>
+
+                <?php
+                  if($row['Tipo']=="Alumno"){
+                    $sql = mysqli_query($con,"select curpAlumno,id_Usuario from alumnos where id_Usuario='$_POST[info]'");
+                    $row1 = mysqli_fetch_array($sql);
+                    $nombreDocu = array("".$row1['curpAlumno']."_BG","".$row1['curpAlumno']."_CP","".$row1['curpAlumno']."_CU","".$row1['curpAlumno']."_IM","".$row1['curpAlumno']."_IP","".$row1['curpAlumno']."_CD","".$row1['curpAlumno']."_CM","".$row1['curpAlumno']."_AN");
+                    $nombreBoton = array("Boleta de calificaciones de 6 grado.","Certificado de primaria.","CURP del alumno.","Ife de la madre.","Ife del padre.","Comprobante de domicilio.","Certificado Medico.","Acta de nacimiento.");
+                    $directorio = opendir("../php/documentos/".$row['Tipo']."/".$row1['curpAlumno']."/"); //ruta actual
+                    while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro sucesivamente
+                    {
+                      if (!is_dir($archivo))//verificamos si es o no un directorio
+                        { 
+                          if($archivo==$nombreDocu[$cont].".pdf"){
+                            $queso1 = $queso1.
+                            '<div class="col-sm-12 thumbnail">
+                                      <img src="../assets/images/curp.png">
+                                      <div class="caption">
+                                        <h3 align="center">'.$nombreBoton[$cont].'</h3>
+                                        <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$row1['curpAlumno'].'/'.$nombreDocu[$cont].'.pdf'."'".')">Ver '.$nombreBoton[$cont].'</button>
+                                      </div>
+                                    </div>
+                                  </div>';
+                            $cont=$cont+1;
+                          }
+                        }
+                    }
+                    $queso2 = '<div class="row">
+                              '.$queso1.'
+                             </div>';
+                    echo '<h3 align="center">Archivos disponibles para su visualizacion: '.$cont.'</h3>';
+                    echo $queso2;
+                  }  
+                ?>
             </div>
           </div>
         </div>;
@@ -60,7 +93,20 @@ include 'Conexion.php';
             /*echo '<div class="col-md-6" style="word-wrap:break-word; display: inline-table;">';
             echo '<ul class="list-unstyled">';
             if(mysqli_num_rows($asd)>1){
-              
+
+               <div class="row">
+                      <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                          <img src="../assets/images/curp.png">
+                          <div class="caption">
+                            <h3></h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
               while ($row = mysqli_fetch_array($asd)) {
                 //echo '<div class="col-md-4" style="word-wrap:break-word";>';
                 echo '<li>';

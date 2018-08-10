@@ -1,5 +1,6 @@
 <?php
-  $cont = 11;
+  //$cont = 11;
+  /*
   if(preg_match('/[0-9a-zA-Z]{3,}/',$_POST['txt_Nom']) ){
     $cont=$cont-1;
   }
@@ -30,6 +31,8 @@
   if($_POST['txt_Psw']==$_POST['txt_Psw2'] ){
 		$cont=$cont-2;
 	}
+  */
+  $cont = 0;
   if($cont==0){
     echo '<p align="center"><input type="submit" class="btn btn-success" value="Registrarme" name="btn_Candidato"></p>';
   }else{

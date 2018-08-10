@@ -1,5 +1,6 @@
 <?php
   $cont = 10;
+  /*
   if(preg_match('/[0-9a-zA-Z]{3,}/',$_POST['txt_Nom']) ){
     $cont=$cont-1;
   }
@@ -30,8 +31,10 @@
   if($_POST['txt_Pw']==$_POST['txt_Pw2'] ){
     $cont=$cont-1;
   }
+  */
+  $cont = 0;
   if($cont==0){
-    echo '<p align="center"><input type="submit" class="btn btn-success" value="Agregar empleador" name="btn_addEmpleador"></p>';
+    echo '<p align="center"><input type="submit" class="btn btn-success" value="Registrar" name="btn_personalA"></p>';
   }else{
     echo '<p align="center"><button type="button" class="btn btn-danger" onmousemove="return validar3();">Check</button>';
   }

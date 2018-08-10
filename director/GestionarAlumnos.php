@@ -85,13 +85,6 @@
       </div><!-- Container-Fluid -->  
   </main>
   <div id="Mod" class="modal fade" role="dialog"></div>
-  <script type="text/javascript">
-    function BuscarDocumentos(cad,cad1){    
-      $.post("../php/FindEmpleo.php", { busqueda: cad, curp: cad1 }, function(data){
-      $('#CResp').html(data);
-      });         
-    }
-  </script>
 </body>
 
 </html>

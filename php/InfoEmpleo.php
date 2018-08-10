@@ -1,5 +1,6 @@
 <?php 
 	include 'Conexion.php';
+  session_start();
   $nombresArchivos1 = array("Boleta de calificaciones de 6 grado.","Certificado de primaria.","CURP del alumno.","Ife de la madre.","Ife del padre.","Comprobante de domicilio.","Certificado Medico.","Acta de nacimiento.");
   $Descripcion = array("La boleta corresponde a tu ultimas calificaciones entregadas a tus padres cuando tu estabas en la escula primaria","Esto corresponde al certificado de primaria que se te entrego al comcluir tu escuela primaria","La clave unica de poblacion que se te fue asignada al nacer","Ife de tu madre en caso de no tener omitir...");
   //Aqui esta para el alumno.
@@ -9,6 +10,8 @@
   $variable = "'".$_POST['nombreN']."'";
   $variable1 = "'"."uno"."'";
 	if($_POST['caso']=='si'){
+    $_SESSION['nombreD'] = $VARIABLE_HOST;
+    $_SESSION['nombreD'] = $_POST['nombreN'];
 		echo '<div class="modal-dialog modal-md">
             <!-- Modal content-->
             <div class="modal-content">
@@ -21,6 +24,7 @@
                   <p>'.$_SERVER['PHP_SELF'].'</p>
                   <p>'.$Descripcion[$_POST['es']].'</p>
                   <p>'.$variable.'</p>
+                  <p>'.$_SESSION['nombreD'].'</p>
                   <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
               </div>
               <div class="modal-footer" align="center">
@@ -30,6 +34,8 @@
             </div>
           </div>';
 	}elseif($_POST['caso']=='no'){
+    $_SESSION['nombreD'] = $VARIABLE_HOST;
+    $_SESSION['nombreD'] = $_POST['nombreN'];
     echo '<div class="modal-dialog modal-md">
             <!-- Modal content-->
             <div class="modal-content">
@@ -42,16 +48,17 @@
                   <p>'.$_SERVER['PHP_SELF'].'</p>
                   <p>'.$Descripcion[$_POST['es']].'</p>
                   <p>'.$variable.'</p>
+                  <p>'.$_SESSION['nombreD'].'</p>
                   <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
               </div>
               <div class="modal-footer" align="center">
-                <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
                 <div class="embed-responsive embed-responsive-16by9">
                   <iframe class="embed-responsive-item" src="../php/interSube.php"></iframe>
                 </div>
               </div>
             </div>
           </div>';
+
 	}  
 
 ?>

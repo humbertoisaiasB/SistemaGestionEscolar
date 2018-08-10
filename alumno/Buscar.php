@@ -57,6 +57,7 @@
       $('#CResp').html(data);
       });         
     }
+
     //Para un modal aca perron
     function InfoSolicitudes(num,cad,cad1,numero,curp1){    
       $.post("../php/InfoEmpleo.php", { id_Usuario:  num, nombreN: cad, caso:cad1, es:numero, curp: curp1}, function(data){

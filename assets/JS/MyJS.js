@@ -244,7 +244,7 @@ function validar(){
         return false;
 }
 function validar2(){
-    var Nom=document.getElementById('txt_NomCandidato').value;
+    /*var Nom=document.getElementById('txt_NomCandidato').value;
     var Ap=document.getElementById('txt_Ap').value;
     var Am=document.getElementById('txt_Am').value;
     var Correo=document.getElementById('txt_CorreoCan').value;
@@ -254,8 +254,11 @@ function validar2(){
     var Cp=document.getElementById('txt_CPCan').value;
     var Calle=document.getElementById('txt_CalleCan').value;
     var Pass=document.getElementById('txt_PswCan').value;
-    var Pass2=document.getElementById('txt_Psw2Can').value;
-    var datos='txt_Nom='+Nom+'&txt_Ap='+Ap+'&txt_Am='+Am+'&txt_Correo='+Correo+'&txt_TelCasa='+TelCasa+'&txt_TelCelular='+TelCelular+'&txt_Curp='+Curp+'&txt_CP='+Cp+'&txt_Calle='+Calle+'&txt_Psw='+Pass+'&txt_Psw2='+Pass2;
+    var Pass2=document.getElementById('txt_Psw2Can').value;*/
+
+    var datos='';
+    /*'txt_Nom='+Nom+'&txt_Ap='+Ap+'&txt_Am='+Am+'&txt_Correo='+Correo+'&txt_TelCasa='+TelCasa+'&txt_TelCelular='+TelCelular+'&txt_Curp='+Curp+'&txt_CP='+Cp+'&txt_Calle='+Calle+'&txt_Psw='+Pass+'&txt_Psw2='+Pass2;
+       */ 
         $.ajax({
           type:'post',
           url:'php/ValidarCan.php',
@@ -268,7 +271,7 @@ function validar2(){
 }
 
 function validar3(){
-  var Nom = document.getElementById('txt_NomEmpleador').value;
+  /*var Nom = document.getElementById('txt_NomEmpleador').value;
   var Ap = document.getElementById('txt_Ap').value;
   var Am = document.getElementById('txt_Am').value;
   var TelTrabajo = document.getElementById('txt_Teltrabajo').value;
@@ -279,13 +282,15 @@ function validar3(){
   var Calle = document.getElementById('txt_Calle').value;
   var Pw = document.getElementById('txt_Psw').value;
   var Pw2 = document.getElementById('txt_Psw2').value;
-  var datos = 'txt_Nom='+Nom+'&txt_Ap='+Ap+'&txt_Am='+Am+'&txt_Correo='+Correo+'&txt_Teltrabajo='+TelTrabajo+'&txt_TelCelular='+TelCelular+'&txt_CP='+Cp+'&txt_Departamento='+Departamento+'&txt_Calle='+Calle+'&txt_Pw='+Pw+'&txt_Pw2='+Pw2;
-    $.ajax({
+  */
+  var datos = ''; 
+/*'txt_Nom='+Nom+'&txt_Ap='+Ap+'&txt_Am='+Am+'&txt_Correo='+Correo+'&txt_Teltrabajo='+TelTrabajo+'&txt_TelCelular='+TelCelular+'&txt_CP='+Cp+'&txt_Departamento='+Departamento+'&txt_Calle='+Calle+'&txt_Pw='+Pw+'&txt_Pw2='+Pw2;
+    */$.ajax({
       type:'post',
-      url:'../php/ValidarEmpleador.php',
+      url:'php/ValidarPersonalA.php',
       data:datos,
       success:function(resp){
-        $("#btn").html(resp);
+        $("#btnPersonal").html(resp);
       }
     });
     return false;

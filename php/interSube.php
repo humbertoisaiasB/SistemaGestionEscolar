@@ -20,7 +20,7 @@
 					<label for="">Archivo a subir: con</label>
 					<input type="file" name="archivo" required>
 				</div>
-				<div class="barra">
+				<div class="barra">			
 					<div class="barra_azul" id="barra_estado">
 						<span></span>
 					</div>
