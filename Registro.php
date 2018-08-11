@@ -54,7 +54,7 @@
 							<h1 align="center">Registro</h1>
 							<div class="alert alert-dismissable alert-info">
 										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-										<h4>Info!</h4> <strong>Seleciona el tipo de usuario que eres!</strong> <br>
+										<strong>Seleciona el tipo de usuario al que perteneces</strong> <br>
 										<strong>Alumno: </strong>Ingresa como un alumno<br>
 										<strong>Personal Administrativo: Ingrese como personal auxiliar del plantel</strong>
 							</div>

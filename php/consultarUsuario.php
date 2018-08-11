@@ -6,6 +6,8 @@
     if($_POST['filtro']=="Alumno"){
       $sql = mysqli_query($con,"select Nom,Ap,Am,u.id_Usuario,Tipo from usuarios u where Tipo='$_POST[filtro]' and Nom like '$_POST[busqueda]%' limit 0,6");
       while ($row=mysqli_fetch_array($sql)){
+      $_SESSION['alu'] = $VARIABLE_HOST;
+      $_SESSION['alu'] = $row['id_Usuario'];
       echo  '<div class="col-sm-4"><a class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');" data-toggle="modal" href="#Mod">
       <img src="../assets/images/estudiante.png" height="70px" width="70px">
          <h5 align=center> '.$row['Nom'].'  </h5>

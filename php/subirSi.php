@@ -9,7 +9,10 @@
 		$nombre_temporal = $_FILES['archivo']['tmp_name'];
 		$nombre = $_FILES['archivo']['name'];
 		$nombreF = $_SESSION['nombreD'].".pdf";
-		move_uploaded_file($nombre_temporal,'documentos/'.$row['tipo'].'/'.$row['curpAlumno'].'/'.$nombreF); 
+		echo '<script type="text/javascript">
+         alert ("Ya llegamos aqui we '.$nombreF.'");
+      </script>';
+		move_uploaded_file($nombre_temporal,'documentos/alumno/'.$row['curpAlumno'].'/'.$nombreF); 
 		echo "es : ".$_POST['tipo'];
 	}
 	

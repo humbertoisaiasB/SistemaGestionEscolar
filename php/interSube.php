@@ -17,7 +17,7 @@
 		<div class="col">
 			<form action="" id="form_subir">
 				<div class="">
-					<label for="">Archivo a subir: con</label>
+					<label for="">Archivo a subir: con <?php echo $_SESSION['nombreD']?></label>
 					<input type="file" name="archivo" required>
 				</div>
 				<div class="barra">			

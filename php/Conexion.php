@@ -1,9 +1,14 @@
 <?php 
+	//$SERVER = 'localhost';
 	$SERVER = 'localhost';
 	$USER = 'root';
+	//$USER = 'gestion_User';
+	
+	//$PASS = ']VOe)5MOz5iF';
 	$PASS = '';
-	$DB = 'gestion';
-
+	//'bH3Vn:=>koD';
+	//$DB = 'gestion_database';
+	$DB = 'gestion'; 
 	$con = mysqli_connect($SERVER, $USER, $PASS, $DB);
    
 	if (!$con) {

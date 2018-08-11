@@ -6,11 +6,16 @@
 background-color: #DF013A;
 }
 .cambio {
-	background: #786387;
+	background: #04B404;
 	color: white;
 	border-radius: 15px;
 	margin-bottom: 10px;
-
+}
+.cambioN{
+	background: #B40404;
+	color: white;
+	border-radius: 15px;
+	margin-bottom: 10px;
 }
 /*Aqui meti codigo io*/
 main .registro{

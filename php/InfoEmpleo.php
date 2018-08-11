@@ -34,7 +34,7 @@
             </div>
           </div>';
 	}elseif($_POST['caso']=='no'){
-    $_SESSION['nombreD'] = $VARIABLE_HOST;
+    //$_SESSION['nombreD'] = $VARIABLE_HOST;
     $_SESSION['nombreD'] = $_POST['nombreN'];
     echo '<div class="modal-dialog modal-md">
             <!-- Modal content-->

@@ -10,7 +10,7 @@
 -->
 <html>
 	<head>
-		<title>Sistema gestion escolar</title>
+		<title>Sistema Gestión Escolar</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -29,7 +29,7 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<h1><a href="index.php">Sistema gestion escolar</a></h1>
+					<h1><a href="index.php">Sistema Gestión Escolar</a></h1>
 					<nav id="mySidebar" class="col-sm-4">
 						<ul>
 							<li><a href="index.php">Inicio</a></li>
@@ -50,8 +50,8 @@
 
 			<!-- Banner -->
 				<section id="banner">
-					<h2>Sistema gestion escolar</h2>
-					<p>Ingresa con tu cuenta correspondiente, oh registrate.</p>
+					<h2>Sistema Gestión Escolar</h2>
+					<p>Ingresa con tu cuenta correspondiente, o registrate.</p>
 					<ul class="actions special">
 						<li><a href="#" data-toggle="modal" data-target="#Mod" class="button primary">Iniciar Sesion</a></li>
 						<li><a href="Registro.php" class="button">Registrarse</a></li>
