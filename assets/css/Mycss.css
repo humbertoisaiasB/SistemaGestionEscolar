@@ -7,13 +7,13 @@ background-color: #DF013A;
 }
 .cambio {
 	background: #04B404;
-	color: white;
+	color: #fff !important;
 	border-radius: 15px;
 	margin-bottom: 10px;
 }
 .cambioN{
 	background: #B40404;
-	color: white;
+	color: #fff !important;
 	border-radius: 15px;
 	margin-bottom: 10px;
 }
@@ -22,9 +22,11 @@ main .registro{
 	background: #fff;
 	border-top: 5px solid #3da5e2;
 	padding: 0 20px;
-	margin-bottom: 40px;
+	margin-bottom: 10px;
 	text-align: center;
 	display: inline-flex;
+	min-width: 100%;
+	min-height: 100%;
 	/*
 	padding-left:300px;
 	padding-right: 200px;
@@ -32,6 +34,15 @@ main .registro{
 	padding-top: 10px;
 	padding-bottom: 100px;
 	/*min-height: 100vh;*/
+}
+main .registro1{
+	background: #fff;
+	border-top: 5px solid #3da5e2;
+	padding: 0 20px;
+	margin-bottom: 10px;
+	text-align: center;
+	min-width: 100%;
+	min-height: 100%;
 }
 main .busca{
     display: inline-block; zoom: 1; /* ie7 hack para display:inline-block */ 
@@ -89,12 +100,9 @@ main .registro .busca .bo{
 }
 /*Barra para la busqueda en general*/
 main .titulo{
-	color:  #005385;
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
-	font-size: 40px;
-	margin-bottom: 20px;
 	text-align: center;
+	min-width: 100%;
 }
 main .registro .marco a{
 	display: inline-flex;
@@ -157,7 +165,7 @@ main .mensaje{
 main .mensaje .titulo{
 	padding: 10px 0;
 	text-align: center;
-	color: #3da5e2;
+	/*color: #3da5e2;*/
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	font-size: 100px;

@@ -121,7 +121,7 @@ function login(){
         });
         return false;
 }
-
+//Funcion para el codigo postal registro 
 function codigoEmp(urle,ids,divs){
        var Code=document.getElementById(ids).value;
         var datos='txt_CP='+Code;
@@ -135,8 +135,7 @@ function codigoEmp(urle,ids,divs){
         });
         return false;
 }
-
-
+//Funcion para el codigo postal registro candidato 
 function codigoCan(){
        var Code=document.getElementById('txt_CPCan').value;
         var datos='txt_CPCan='+Code;
@@ -150,10 +149,23 @@ function codigoCan(){
         });
         return false;
 }
-
-
-function ConsEmpleador(){
-       var cons=document.getElementById('myInput').value;
+//Registro 
+function codigoCan(){
+       var Code=document.getElementById('txt_CPCan').value;
+        var datos='txt_CPCan='+Code;
+        $.ajax({
+          type:'post',
+          url:'php/PostalCan.php',
+          data:datos,
+          success:function(resp){
+            $("#codigoC").html(resp);
+          }
+        });
+        return false;
+}
+//funcion para el registrob del maestro 
+function ConsMaestro(){
+       var cons=document.getElementById('txt_CPCanMaestro').value;
         var datos='input='+cons;
         $.ajax({
           type:'post',
@@ -516,4 +528,14 @@ function DeleteEmpleo1(num){
     $.post("../php/DeleteEmpleo.php", { empleo: num }, function(){
     return CEmpleos('','Eliminar','#ConsE');
     });  
+}
+function zonaR(num){
+  $.post("php/zonas.php", { numeroZ: num}, function(data){
+    $('#zonaY').html(data);
+  });
+}
+function zonaRM(num){
+  $.post("php/zonas.php", { numeroZ: num}, function(data){
+    $('#zonaYM').html(data);
+  });
 }

@@ -29,7 +29,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" style="color:white !important;"  href="Main.php">Escuela</a>
+        <a class="navbar-brand" style="color:white !important;"  href="Main.php">Gestion</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right" >

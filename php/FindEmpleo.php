@@ -6,7 +6,7 @@
 	$compara = $_POST['curp']."_";
 	$nombreDocu = array("".$compara."BG","".$compara."CP","".$compara."CU","".$compara."IMF","".$compara."IMD","".$compara."IPF","".$compara."IPD","".$compara."CD","".$compara."CM","".$compara."AN");
 	$nombresArchivos = array("Boleta de calificaciones de 6 grado.","Certificado de primaria.","CURP del alumno.","INE de la Mamá(Frente).","INE de la Mamá(Detrás)","INE del Papá(Frente).","INE del Papá(Detrás)","Comprobante de Domicilio.","Certificado Medico.","Acta de Nacimiento.");
-	$aux = array("no","no","no","no","no","no","no","no");
+	$aux = array("no","no","no","no","no","no","no","no","no","no");
 	$documentos = 9;
 	$caso = "no";
 	$cont = 0;
@@ -29,11 +29,10 @@
 							if($nombreDocu[$i]==$aux[$j]){
 								$aux1=$aux[$j];
 								$caso = "si";
-								echo  '<div class="col-sm-3 cambio thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$aux1."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
+								echo  '<div class="col-sm-3 cambio thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$aux1."'".','."'".$caso."'".','.$i.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
 			<img src="../assets/images/Empleos/'.rand(1,9).'.png" height="70px" width="70px">
 		   <h5 align=center><b>'.$nombresArchivos[$i].'</b></h5>
 		   <h5 align=center><b> Archivo gestionado. </b></h5>
-		   <h5 align=center><b>'.$aux[$j].'</b></h5>
 		     </a>
 		     
 		     </div>
@@ -43,11 +42,10 @@
 						}
 						if($nombreDocu[$i]!=$aux1){
 							$caso = "no";
-                        		echo  '<div class="col-sm-3 cambioN thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreDocu[$i]."'".','."'".$caso."'".','.$cont.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
+                        		echo  '<div class="col-sm-3 cambioN thumbnail"> <a onclick="return InfoSolicitudes('.$row['id_Usuario'].','."'".$nombreDocu[$i]."'".','."'".$caso."'".','.$i.','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert">
 			<img src="../assets/images/Empleos/'.rand(1,9).'.png" height="70px" width="70px">
 		   <h5 align=center><b>'.$nombresArchivos[$i].'</b> </h5>
 		   <h5 align=center><b> Archivo no gestionado </b> </h5>
-		   <h5 align=center><b> '.$nombreDocu[$i].' </b> </h5>
 		     </a>
 		     
 		     </div>
