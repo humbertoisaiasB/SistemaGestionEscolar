@@ -4,7 +4,7 @@
   //Consultar Usuarios
   if(isset($_POST['tipo']) && $_POST['tipo']=="Consultar" && $_POST['tipoC']=="Administrador"){
     if($_POST['filtro']=="Alumno"){
-      $sql = mysqli_query($con,"select Nom,Ap,Am,u.id_Usuario,Tipo from usuarios u where Tipo='$_POST[filtro]' and Nom like '$_POST[busqueda]%' limit 0,6");
+      $sql = mysqli_query($con,"select Nom,Ap,Am,u.id_Usuario,Tipo from usuarios u where Tipo='$_POST[filtro]' and claveEscuela='$_POST[claveE]' and Nom like '$_POST[busqueda]%' limit 0,6");
       while ($row=mysqli_fetch_array($sql)){
       echo  '<div class="col-sm-4"><a class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');" data-toggle="modal" href="#Mod">
       <img src="../assets/images/estudiante.png" height="70px" width="70px">
@@ -66,7 +66,7 @@
     }
     //Eliminar empleos
     }elseif (isset($_POST['tipo']) && $_POST['tipo']=="Eliminar" && $_POST['tipoC']=="Administrador") {
-      $sql = mysqli_query($con,"select Tipo,Nom,Ap,Am,u.id_Usuario,Tipo from usuarios u where Nom like '$_POST[busqueda]%' && Tipo='$_POST[filtro]' limit 0,6");
+      $sql = mysqli_query($con,"select Tipo,Nom,Ap,Am,u.id_Usuario,Tipo from usuarios u where Nom like '$_POST[busqueda]%' and claveEscuela='$_POST[claveE]' and Tipo='$_POST[filtro]' limit 0,6");
       $cambio="";
       while ($row=mysqli_fetch_array($sql)){
         if ($row['Tipo']=="Alumno") {

@@ -41,7 +41,7 @@
 									<li><a href="elements.html">Elements</a></li>
 								</ul>
 							</li>
-							<li><a href="#" data-toggle="modal" data-target="#Mod" class="button primary" onclick="f2c_open();" >Iniciar Sesion</a></li>
+							<li><a href="#" data-toggle="modal" data-target="#Mod" class="button primary" onclick="f2c_open();" >Iniciar Sesión</a></li>
 							<li><a href="Registro.php" class="button">Registrarse</a></li>
 						</ul>
 						
@@ -51,9 +51,9 @@
 			<!-- Banner -->
 				<section id="banner">
 					<h2>Sistema Gestión Escolar</h2>
-					<p>Ingresa con tu cuenta correspondiente, o registrate.</p>
+					<p>Ingresa con tu cuenta correspondiente, o regístrate.</p>
 					<ul class="actions special">
-						<li><a href="#" data-toggle="modal" data-target="#Mod" class="button primary">Iniciar Sesion</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#Mod" class="button primary">Iniciar Sesión</a></li>
 						<li><a href="Registro.php" class="button">Registrarse</a></li>
 					</ul>
 				</section>
@@ -63,7 +63,7 @@
 
 					<section class="box special">
 						<header class="major">
-							<h2>Introduciendo la tecnologia responsive
+							<h2>Introduciendo la tecnología responsive
 							<br />
 							Para que todos tus dispositivos sean compatibles.</h2>
 						</header>

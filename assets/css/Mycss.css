@@ -1,19 +1,25 @@
 .navbar-default{
-  background-color: #DF013A !important;
+  background-color: #02049f !important;
   color: white !important;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
-background-color: #DF013A;
+background-color: #02049f;
 }
-.cambio {
-	background: #04B404;
-	color: #fff !important;
+.cambio{
+	/*background: #04B404;*/
+	border-top:  25px solid #04B404;
+	border-right-color: #04B404;
+  	border-bottom-color: #04B404;
+  	border-left-color: #04B404;
 	border-radius: 15px;
 	margin-bottom: 10px;
 }
 .cambioN{
-	background: #B40404;
-	color: #fff !important;
+	/*background: #B40404;*/
+	border-top:  25px solid #B40404;
+	border-right-color: #B40404;
+  	border-bottom-color: #B40404;
+  	border-left-color: #B40404;
 	border-radius: 15px;
 	margin-bottom: 10px;
 }
@@ -27,6 +33,8 @@ main .registro{
 	display: inline-flex;
 	min-width: 100%;
 	min-height: 100%;
+
+
 	/*
 	padding-left:300px;
 	padding-right: 200px;
@@ -127,14 +135,14 @@ main .registro .consultar input{
 footer {
 	padding-bottom: 3px;
 	min-width: 100%;
-	background-color: #DF010A;
+	background-color: #02049f;
 	text-align: center;
 	color: #fff;
 }
 main .panelP{
 	max-height: 100%;
 	max-width: 100%;
-	display: block;
+	display: inline-table;
 	text-align: center;
 }
 main .panelP .barraA a{
@@ -199,6 +207,10 @@ main .foto a{
 	border-radius: 15px;
 	display: inline-flex;
 }
+.queso{
+	width: 100%;
+	height: 100vh;
+}
 main .foto .perfil {background: #FFF;}
 main .foto .perfil:hover {transform: scale(1.1,1.1);}
 
@@ -251,27 +263,49 @@ main .tabcontent{
 	}
  
 	/* para 480px o menos */
-	@media screen and (max-width:480px) {
+	@media screen and (max-width:490px) {
 		main .registro{
-			width: 480px;
-		}
-		main .registro .busca{
-			width: 20%;
-		}
-		main .registro .busca input{
-			width: 20%;
-		}
-		main .panelP{
-			display: inline-table;
 			width: 100%;
 			height: 100%;
 		}
-		main .panelP .barraA a{
+		main .registro1{
 			width: 100%;
+			height: 100%;
+		}
+		.queso{
+			width: 100%;
+			height: 600px;
+		}
+		.cambioN{
+			width: 100%;
+		}
+		.cambio{
+			width: 100%;
+		}
+		main .registro .busca{
+			width: 100%;
+		}
+		main .registro .busca input{
+			width: 100%;
+		}
+		main .panelP{
+			display: inline-flex;
+			width: 50%;
+			height: 100%;
+			border-radius: 80px;
+		}
+		main .panelP .barraA a{
+			width: 50%;
+			border-radius: 80px;
+		}
+		main .panelP .navo h3{
+			font-size: 3px;
+			text-align: center;
 		}
 		main .tapcontent{
 			width: 100%;
 		}
+
 		/*
 		aside {
 			display:none;
@@ -291,6 +325,46 @@ main .tabcontent{
 			float:none;
 		}
 		*/
+	}
+	@media screen and (max-width:380px) {
+		main .registro{
+			width: 100%;
+			height: 100%;
+		}
+		main .registro1{
+			width: 100%;
+			height: 100%;
+		}
+		.queso{
+			width: 100%;
+			height: 600px;
+		}
+		.cambioN{
+			width: 100%;
+		}
+		.cambio{
+			width: 100%;
+		}
+		main .registro .busca{
+			width: 100%;
+		}
+		main .registro .busca input{
+			width: 100%;
+		}
+		main .panelP{
+			display: inline-flex;
+			width: 50%;
+			height: 100%;
+			border-radius: 80px;
+		}
+		main .panelP .barraA a{
+			width: 100%;
+			border-radius: 80px;
+		}
+		main .tapcontent{
+			width: 100%;
+
+		}
 	}
 /*Componentes para lo delp pdf
 

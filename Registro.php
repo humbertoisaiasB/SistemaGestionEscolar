@@ -1,11 +1,15 @@
 <?php session_start();
       session_unset();
-      session_destroy();?>
+      session_destroy();
+
+      $mensaje = "";
+?>
 <!DOCTYPE html>
 <html>
 <head>
 
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css">
       <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/Home.css">
@@ -34,7 +38,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" style="color:white !important;" href="index.php">Gestion</a>
+							<a class="navbar-brand" style="color:white !important;" href="index.php">Gestión</a>
 						</div>
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
@@ -55,8 +59,6 @@
 							<div class="alert alert-dismissable alert-info">
 										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 										<strong>Seleciona el tipo de usuario al que perteneces</strong> <br>
-										<strong>Alumno: </strong>Ingresa como un alumno<br>
-										<strong>Personal Administrativo: Ingrese como personal auxiliar del plantel</strong>
 							</div>
 						</div>
 					</div>
@@ -64,9 +66,12 @@
 						<div class="col-md-8">
 							<ul class="nav nav-pills">
 								<li onload="return validar();" class="active"><a href="#alumno" data-toggle="tab">Alumno</a></li>
+								
 								<li onload="return validar2();"><a href="#maestro" onclick="return validar2();" data-toggle="tab">Maestro</a></li>
-								<li onload="return validar3();"><a href="#PersonalA" data-toggle="tab" onclick="return validar3();">Personal Administrativo</a></li><!--Aqui nos falta el atributo de validar-->
-								<li ><a href="#director" data-toggle="tab">Director</a></li>
+								<!--
+								<li onload="return validar3();"><a href="#PersonalA" data-toggle="tab" onclick="return validar3();">Personal Administrativo</a></li>
+								-->
+								<li><a href="#director" data-toggle="tab">Director</a></li>
 							</ul>
 						</div>
 					</div>
@@ -74,7 +79,7 @@
 							<div class="tab-pane fade in active" id="alumno" >
 								<div class="row">
 									<div class="col-md-2" align="center"></div>
-									  <div class="col-md-8 col-12 col-lg-8"><br>
+									  <div class="col-md-8"><br>
 										<div class="registro1" align="center">
 											<div class="panel-body" align="center">
 												<div class="titulo" align="center">
@@ -83,18 +88,18 @@
 													</h3>
 												</div>
 												<!-- Aqui tenemos que empresa desaparecera y ahora sera alumnos-->
-												<form  action="php/AddEmpresa.php" method="POST">
-													<div id="div_NomCandidato">
-														<label>Nombre:</label><input id="txt_NomCandidato" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomCandidato',this.value);NomValid(this);"  type="text" class="form-control" name="txt_Nom"><span id="span_NomCandidato" ></span>
+												<form  action="php/AddAlumno.php" method="POST">
+													<div id="div_NomAlumno">
+														<label>Nombre:</label><input id="txt_NomAlumno" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAlumno',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAlumno"><span id="span_NomAlumno" ></span>
 													</div>
 													<div id="div_Ap">
-														<label>Apellido paterno:</label><input id="txt_Ap" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'Ap',this.value);NomValid(this);" type="text" class="form-control"  name="txt_Ap"><span id="span_Ap" ></span>
+														<label>Apellido paterno:</label><input id="txt_Ap" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,25}$/,'Ap',this.value);NomValid(this);" type="text" class="form-control"  name="txt_Ap"><span id="span_Ap" ></span>
 													</div>
 													<div id="div_Am">
-														<label>Apellido materno:</label><input id="txt_Am" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'Am',this.value);NomValid(this);" type="text" class="form-control" name="txt_Am"><span id="span_Am" ></span>
+														<label>Apellido materno:</label><input id="txt_Am" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,25}$/,'Am',this.value);NomValid(this);" type="text" class="form-control" name="txt_Am"><span id="span_Am" ></span>
 													</div>
-													<div id="div_CorreoCandidato">
-														<label>Correo:</label><input id="txt_CorreoCan" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoCandidato',this.value);" type="email" class="form-control" name="txt_Correo" required><span id="span_CorreoCandidato" ></span>
+													<div id="div_Correo">
+														<label>Correo:</label><input id="txt_Correo" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'Correo',this.value); return validar()" type="email" class="form-control" name="txt_Correo" required><span id="span_Correo" ></span>
 													</div>
 													<div id="div_Zona" class="row">
 														<div class="col-2">
@@ -105,19 +110,21 @@
 																</button>
 																<ul class="dropdown-menu">
 																    <?php
-																		for($i=1; $i<=54; $i++){
+																		for($i=1; $i<=56; $i++){
 																			echo '<li value="'.$i.'"><a onclick="return zonaR('.$i.');">'.$i.'</a></li>';
 																		}
 																		?>
 																</ul>
 															</div>
+															<div id="clave" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
+		<label style="margin: 5px;" id="clavecitaC"></label><span style="margin:10px;font-size: 15px;" id="prueba13" name="prueba13" class="label label-info"></span> 
 														</div>
 													</div>
+												</div>
 													<div id="zonaY"></div>
-														<div style="display:block;margin-top:20px;">
+													<div style="display:block;margin-top:20px;">
 															<div id="div_Telcasa" style="display: inline-block;">
-																<labe
-																l style="margin-right:5px;">Teléfono casa: </label><input input id="txt_Telcasa" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{6,8}$/,'Telcasa',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_Telcasa"><span id="span_Telcasa" ></span>
+																<label style="margin-right:5px;">Teléfono casa: </label><input input id="txt_Telcasa" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{8,10}$/,'Telcasa',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_Telcasa"><span id="span_Telcasa" ></span>
 															</div>
 															<div id="div_Telcelular" style="display:inline-block;">
 																<label>Teléfono celular:</label><input id="txt_Telcelular" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'Telcelular',this.value);" style="min-width:230px;" type="text" class="form-control" name="txt_Telcelular"><span id="span_Telcelular" ></span>
@@ -125,29 +132,31 @@
 														</div>
 
 													    <div id="div_Curp">
-															<label>Curp del Alumno:</label><input id="txt_Curp" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'Curp',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_Curp"><span id="span_Curp" ></span>
+															<label>CURP del Alumno:</label><input id="txt_Curp" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9A-Z]{2}/,'Curp',this.value); return validaCurpE(this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_Curp"><span id="span_Curp" ></span>
+														</div>
+														<div id="div_CurpRepetida" class="row"> 
 														</div>
 														<div id="div_CPCan">
-																	<label>Código Postal:</label><input id="txt_CPCan" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCan',this.value); return codigoCan();"  type="text" class="form-control" name="txt_CP" required><span id="span_CPCan" ></span>
+																	<label>Código Postal:</label><input id="txt_CPCan" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCan',this.value); return codigoCan();"  type="text" class="form-control" name="txt_CPCan" required><span id="span_CPCan" ></span>
 														</div>
 														<div id="codigoC"></div>
 														<div id="div_CalleCan">
-																<label>Calle:</label><input id="txt_CalleCan" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/[0-9a-zA-Z]{5,}/,'CalleCan',this.value);NomValid(this);"  type="text" class="form-control" name="txt_Calle" required><span id="span_CalleCan"></span>
+																<label>Calle:</label><input id="txt_CalleCan" onkeypress="return validarXD(alphanumeric1,this.value.length,30);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleCan',this.value);"  type="text" class="form-control" name="txt_CalleCan" required><span id="span_CalleCan"></span>
 														</div>
 															<!-- Aqui se sale de lo normal de usuario aqui es modificar para cada uno de los actores. -->
 
 														<div style="display:block;margin:10px;">
-															<div id="div_Grado"style="display: inline-block;margin: 20px;">
-																<label for="GradoA">Grado:</label>
-																<select class="form-control" name="GradoA">
+															<div id="div_S_Grado"style="display: inline-block;margin: 20px;">
+																<label for="S_Grado">Grado:</label>
+																<select class="form-control" name="S_Grado">
 																	<option>1</option>
 																	<option>2</option>
 																	<option>3</option>
 																</select>
 															</div>
-															<div id="div_Grupo"style="display: inline-block;margin: 20px;">
-																<label for="Grupo">Grupo:</label>
-																<select class="form-control" name="Sl_SexoMaestro">
+															<div id="div_S_Grupo"style="display: inline-block;margin: 20px;">
+																<label for="S_Grupo">Grupo:</label>
+																<select class="form-control" name="S_Grupo">
 																	<option>A</option>
 																	<option>B</option>
 																	<option>C</option>
@@ -167,10 +176,10 @@
 																<label>Apellido materno:</label><input id="txt_amPapa" onkeypress="return validarXD(alphaxd,this.value.length,11);"  onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'amPapa',this.value);NomValid(this);" type="text" class="form-control" name="txt_amPapa"><span id="span_AmPapa" ></span>
 															</div>
 															<div id="div_curpPapa">
-																<label>Curp del papá</label><input id="txt_curpPapa" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'curpPapa',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_curpPapa"><span id="span_curpPapa" ></span>
+																<label>CURP del papá</label><input id="txt_curpPapa" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'curpPapa',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_curpPapa"><span id="span_curpPapa" ></span>
 															</div>
 															<div id="div_telPapa" style="display: inline-block;">
-																<label style="margin-right:5px;">Teléfono celular depapá: </label><input input id="txt_telPapa" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{6,10}$/,'telPapa',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_telPapa"><span id="span_telPapa" ></span>
+																<label style="margin-right:5px;">Teléfono celular del papá: </label><input input id="txt_telPapa" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{6,10}$/,'telPapa',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_telPapa"><span id="span_telPapa" ></span>
 															</div>
 															<div id="div_nomMama">
 																<label>Nombre de la mamá:</label><input id="txt_nomMama" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'nomMama',this.value);NomValid(this);"  type="text" class="form-control" name="txt_nomMama"><span id="span_nomPapa" ></span>
@@ -182,10 +191,10 @@
 																<label>Apellido materno de la mamá:</label><input id="txt_amMama" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'amMama',this.value);NomValid(this);" type="text" class="form-control" name="txt_amMama"><span id="span_amMama" ></span>
 															</div>
 															<div id="div_curpMama">
-																<label>Curp de la mamá</label><input id="txt_curpMama" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'curpMama',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_curpMama"><span id="span_curpMama" ></span>
+																<label>CURP de la mamá</label><input id="txt_curpMama" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'curpMama',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_curpMama"><span id="span_curpMama" ></span>
 															</div>
 															<div id="div_telMama" style="display: inline-block;">
-																<label style="margin-right:5px;">Teléfono celular del mamá: </label><input input id="txt_telMama" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{6,10}$/,'telMama',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_telMama"><span id="span_telMama" ></span>
+																<label style="margin-right:5px;">Teléfono celular de la mamá: </label><input input id="txt_telMama" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{6,10}$/,'telMama',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_telMama"><span id="span_telMama" ></span>
 															</div>
 																<div id="div_Psw">
 																	<label>Contraseña:</label><input id="txt_Psw" type="password" class="form-control" name="txt_Psw" required><span id="span_Psw" ></span>
@@ -297,7 +306,7 @@
 														Registro Personal Administrativo
 													</h3>
 												</div>
-												<form  action="php/AddEmpleador.php" method="POST">
+												<form  action="php/AddAdmi.php" method="POST">
 													<!-- Aqui em pieza de maestro-->
 													<div id="div_NomAdmi">
 														<label>Nombre:</label><input id="txt_NomAdmi" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAdmi',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAdmi"><span id="span_NomAdmi"></span>
@@ -309,11 +318,9 @@
 														<label>Apellido materno:</label><input id="txt_AmAdmi" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'AmAdmi',this.value);NomValid(this);" type="text" class="form-control" name="txt_AmAdmi"><span id="span_AmAdmi" ></span>
 													</div>
 													<div id="div_CorreoAdmi">
-														<label>Correo:</label><input id="txt_CorreoAdmin" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoAdmin',this.value);" type="email" class="form-control" name="txt_CorreoAdmin" required><span id="span_Admin" ></span>
+														<label>Correo:</label><input id="txt_CorreoAdmin" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoAdmin',this.value);" type="email" class="form-control" name="txt_CorreoAdmin" required><span id="span_CorreoAdmin" ></span>
 													</div>
-													<div id="div_ClaveEscolarAdmi">
-														<label>Clave de la escuela de residencia:</label><input id="txt_ClaveEscolarAdmi" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]*$/,'ClaveEscolarAdmi',this.value);" type="texto" class="form-control" name="txt_ClaveEscolarAdmi" required><span id="span_ClaveEscolarAdmi" ></span>
-													</div>
+											
 														<div style="display:block;margin-top:20px;">
 															<div id="div_TelcasaAdmi" style="display: inline-block;">
 																<label style="margin-right:5px;">Teléfono casa: </label><input input id="txt_TelcasaAdmi" onkeypress="return validarXD(numeric,this.value.length,8);" onkeyup="validacion4all(/^[0-9]{6,8}$/,'TelcasaAdmi',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_TelcasaAdmi"><span id="span_TelcasaAdmi" ></span>
@@ -322,7 +329,24 @@
 																<label>Teléfono celular:</label><input input id="txt_TelcelularAdmi" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'TelcelularAdmi',this.value);" style="min-width:230px;" type="text" class="form-control" name="txt_TelcelularAdmi"><span id="span_TelcelularAdmi" ></span>
 															</div>
 														</div>
-
+														<div id="div_ZonaAdmin" class="row">
+														<div class="col-2">
+															<div class="btn-group btn-lg" role="group">
+																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																      Zona escolar
+																<span class="caret"></span>
+																</button>
+																<ul class="dropdown-menu">
+																    <?php
+																		for($i=1; $i<=54; $i++){
+																			echo '<li value="'.$i.'"><a onclick="return zonaRM('.$i.');">'.$i.'</a></li>';
+																		}
+																		?>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div id="zonaYA"></div>
 													    <div id="div_CurpAdmi">
 															<label>Curp del personal Administrativo:</label><input id="txt_CurpAdmi" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'CurpAdmi',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_CurpAdmi"><span id="span_CurpAdmi" ></span>
 														</div>
@@ -334,19 +358,21 @@
 																<label>Calle:</label><input id="txt_CalleCanAdmin" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/[0-9a-zA-Z]{5,}/,'CalleCanAdmin',this.value);NomValid(this);"  type="text" class="form-control" name="txt_Calle" required><span id="span_CalleCanAdmin"></span>
 															</div>
 															<!-- Extras para el usuario maestro -->
-															<div id="div_FuncionAdmin">
-																<label>Ingrese su funcion:</label><input type="text" name="txt_Funcion" id="txt_Funcion" class="form-control"><span id="span_Funcion"></span>
-															</div>
+															<label for="funcionAdmi">Funcion :</label>
+															<select class="form-control" name="funcionAdmi">
+																<option>Intendencia.</option>
+																<option>Administrativo.</option>
+															</select>
 															<label for="departamento">Departamento:</label>
 															<select class="form-control" name="departamento">
 																<option>Intendencia.</option>
 																<option>Administrativo.</option>
 															</select>
-															<div id="div_PswCanAdmin">
-																<label>Contraseña:</label><input id="txt_PswCan" type="password" class="form-control" name="txt_Psw" required><span id="span_PswCan" ></span>
+															<div id="div_PswCanAdmi">
+																<label>Contraseña:</label><input id="txt_PswCanAdmi" type="password" class="form-control" name="txt_PswCanAdmi" required><span id="span_PswCanAdmi" ></span>
 															</div>
-															<div id="div_Psw2CanAdmin">
-																<label>Repite Contraseña:</label><input id="txt_Psw2Can" onkeyup="checkPwCan(this.value);" type="password" class="form-control" name="txt_Psw2" required><br><span id="span_Psw2Can" ></span>
+															<div id="div_Psw2CanAdmi">
+																<label>Repite Contraseña:</label><input id="txt_Psw2CanAdmi" onkeyup="checkPwCan(this.value);" type="password" class="form-control" name="txt_Psw2CanAdmi" required><br><span id="span_Psw2CanAdmin" ></span>
 															</div>
 
                                 <div id="btnPersonal">
@@ -368,7 +394,7 @@
 														Registro Director
 													</h3>
 												</div>
-												<form  action="php/AddCandidato.php" method="POST">
+												<form  action="php/AddDirector.php" method="POST">
 													<div id="div_NomDirector">
 														<label>Nombre:</label><input id="txt_NomDirector" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomDirector',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomDirector"><span id="span_NomDirector" ></span>
 													</div>
@@ -381,6 +407,27 @@
 													<div id="div_CorreoDirector">
 														<label>Correo:</label><input id="txt_CorreoDirector" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoDirector',this.value);" type="email" class="form-control" name="txt_CorreoDirector" required><span id="span_CorreoDirector" ></span>
 													</div>
+													<div id="div_ZonaD" class="row">
+														<div class="col-2">
+															<div class="btn-group btn-lg" role="group">
+																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																      Zona escolar
+																<span class="caret"></span>
+																</button>
+																<ul class="dropdown-menu">
+																    <?php
+																		for($i=1; $i<=56; $i++){
+																			echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'"."Director"."'".');">'.$i.'</a></li>';
+																		}
+																		?>
+																</ul>
+															</div>
+															<div id="claveD" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
+		<label style="margin: 5px;" id="clavecitaCD"></label><span style="margin:10px;font-size: 15px;" id="prueba13D" name="prueba13D" class="label label-info"></span> 
+														</div>
+													</div>
+												</div>
+													<div id="zonaYD"></div>
 														<div style="display:block;margin-top:20px;">
 															<div id="div_TelcasaDirector" style="display: inline-block;">
 																<label style="margin-right:5px;">Teléfono casa: </label><input input id="txt_Telcasa" onkeypress="return validarXD(numeric,this.value.length,8);" onkeyup="validacion4all(/^[0-9]{6,8}$/,'Telcasa',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_Telcasa"><span id="span_Telcasa" ></span>
@@ -390,59 +437,21 @@
 															</div>
 														</div>
 
-													<div id="div_Curp">
-															<label>Curp:</label><input id="txt_Curp" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'Curp',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_Curp"><span id="span_Curp" ></span>
+													<div id="div_CurpDirector">
+															<label>Curp:</label><input id="txt_CurpDirector" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'CurpDirector',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_CurpDirector"><span id="span_CurpDirector" ></span>
 														</div>
-														<label for="Sl_Sexo">Sexo:</label>
-															<select class="form-control" name="Sl_Sexo">
-																<option>Masculino</option>
-																<option>Femenino</option>
-															</select>
-															<label for="Sl_Estudio">Nivel de estudio:</label>
-																<select class="form-control" name="Sl_Estudio">
-																	<option>Secundaria</option>
-																	<option>Bachillerato</option>
-																	<option>Licenciatura</option>
-																	<option>Postgrado</option>
-																</select>
-																<p style="margin-top:20px;"> <label> Fecha de nacimiento:</label><br>
-																	<label style="" for="Sl_Dia">Dia:</label>
-																	<select style="width:130px; display:inline-block;" class="form-control" name="Sl_Dia">
-																			<?php
-																			for ($i = 1; $i <= 31; $i++) {
-																				echo "<option value=".$i.">$i</option>";
-																			}
-																			 ?>
-																		</select>
-																		<label style="margin-left:5%;" for="Sl_Mes">Mes:</label>
-																		<select style="width:130px; display:inline-block;" class="form-control" name="Sl_Mes">
-																			<?php
-																				for ($i = 1; $i <= 12; $i++) {
-																					echo "<option value=".$i.">$i</option>";
-																				}
-																			 ?>
-																			</select>
-																		<label style="margin-left:5%;" for="Sl_Anio">Año:</label>
-																		<select style="width:130px; display:inline-block;" class="form-control" name="Sl_Anio">
-																			<?php
-																			for ($i = 1940; $i <= 2018; $i++) {
-																				echo "<option value=".$i.">$i</option>";
-																			}
-																			 ?>
-																		</select>
-																</p>
-																<div id="div_CPCan">
-																	<label>Código Postal:</label><input id="txt_CPCan" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCan',this.value); return codigoCan();"  type="text" class="form-control" name="txt_CP" required><span id="span_CPCan" ></span>
+																<div id="div_CPCanDirector">
+																	<label>Código Postal:</label><input id="txt_CPCanDirector" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCanDirector',this.value); return codigoCan();"  type="text" class="form-control" name="txt_CPCanDirector" required><span id="span_CPCanDirector" ></span>
 																</div>
-															<div id="codigoC"></div>
-															<div id="div_CalleCan">
-																<label>Calle:</label><input id="txt_CalleCan" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/[0-9a-zA-Z]{5,}/,'CalleCan',this.value);NomValid(this);"  type="text" class="form-control" name="txt_Calle" required><span id="span_CalleCan"></span>
+															<div id="codigoCDirector"></div>
+															<div id="div_CalleCanDirector">
+																<label>Calle:</label><input id="txt_CalleCanDirector" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/[0-9a-zA-Z]{5,}/,'CalleCanDirector',this.value);NomValid(this);"  type="text" class="form-control" name="txt_CalleCanDirector" required><span id="span_CalleCanDirector"></span>
 															</div>
-																<div id="div_PswCan">
-																	<label>Contraseña:</label><input id="txt_PswCan" type="password" class="form-control" name="txt_Psw" required><span id="span_PswCan" ></span>
+																<div id="div_PswCanDirector">
+																	<label>Contraseña:</label><input id="txt_PswCanDirector" type="password" class="form-control" name="txt_PswCanDirector" required><span id="span_PswCanDirector" ></span>
 																</div>
-																<div id="div_Psw2Can">
-																	<label>Repite Contraseña:</label><input id="txt_Psw2Can" onkeyup="checkPwCan(this.value);" type="password" class="form-control" name="txt_Psw2" required><br><span id="span_Psw2Can" ></span>
+																<div id="div_Psw2CanDirector">
+																	<label>Repite Contraseña:</label><input id="txt_Psw2CanDirector" onkeyup="checkPwCan(this.value);" type="password" class="form-control" name="txt_Psw2CanDirector" required><br><span id="span_Psw2CanDirector" ></span>
 																</div>
                                 <div id="btn_director">
                                 </div>
@@ -495,6 +504,5 @@
 				<i class="fa fa-twitter f2c-hover-opacity"></i>
 			<p>Powered by <strong>Dym Corp</p></strong>
 	</footer>
-
 </body>
 </html>

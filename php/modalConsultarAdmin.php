@@ -62,14 +62,17 @@ include 'Conexion.php';
                         { 
                           if($archivo==$nombreDocu[$cont].".pdf"){
                             $queso1 = $queso1.
-                            '<div class="col-sm-12 thumbnail">
-                                      <img src="../assets/images/curp.png">
-                                      <div class="caption">
-                                        <h3 align="center">'.$nombreBoton[$cont].'</h3>
-                                        <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$row1['curpAlumno'].'/'.$nombreDocu[$cont].'.pdf'."'".')">Ver '.$nombreBoton[$cont].'</button>
-                                      </div>
-                                    </div>
-                                  </div>';
+                            '<div class="media cambio">
+                              <div class="media-left">
+                                <a href="#">
+                                  <img class="media-object" src="../assets/images/curp.png" height="60px" width="60px">
+                                </a>
+                              </div>
+                              <div align="center" class="media-body">
+                                <h4 align="center" class="media-heading">'.$nombreBoton[$cont].'</h4>
+                                <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$row1['curpAlumno'].'/'.$nombreDocu[$cont].'.pdf'."'".')">Ver '.$nombreBoton[$cont].'</button>
+                              </div>
+                            </div>';
                             $cont=$cont+1;
                           }
                         }

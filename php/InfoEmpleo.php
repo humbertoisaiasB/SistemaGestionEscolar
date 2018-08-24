@@ -8,7 +8,7 @@
 	$sql=mysqli_query($con,"SELECT u.Nom, u.Ap, u.Am, u.id_Usuario,u.Tipo, u.Documento FROM usuarios as u WHERE u.id_Usuario=".$_POST['id_Usuario']);
 	$row=mysqli_fetch_array($sql);
   $variable = "'".$_POST['nombreN']."'";
-  $variable1 = "'"."uno"."'";
+  $variable1 = "";
 	if($_POST['caso']=='si'){
     $_SESSION['nombreD'] = $_POST['nombreN'];
 		echo '<div class="modal-dialog modal-md">
@@ -25,7 +25,7 @@
               </div>
               <div class="modal-footer" align="center">
               	<button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
-                <button align="center" type="button" onclick="return subirF('.$variable.','."'".''."subeA".''."'".','."'".''.$_POST['curp'].''."'".'); subirT('.$variable.','."'".''.$row['Tipo'].''."'".','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert1" class="btn btn-success">Actualizacion de archivo</button>
+                <button align="center" type="button" onclick="return subirF('."'".''.$nombresArchivos1[$_POST['es']].''."'".','."'".''."subeA".''."'".','."'".''.$_POST['curp'].''."'".'); subirT('.$variable.','."'".''.$row['Tipo'].''."'".','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert1" class="btn btn-success">Actualizacion de archivo</button>
               </div>
             </div>
           </div>';

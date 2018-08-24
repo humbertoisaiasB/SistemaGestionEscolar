@@ -1,6 +1,7 @@
 <?php
-  //$cont = 11;
+ $cont = 1;
   /*
+
   if(preg_match('/[0-9a-zA-Z]{3,}/',$_POST['txt_Nom']) ){
     $cont=$cont-1;
   }

@@ -1,6 +1,7 @@
 var alpha = /[A-Za-z]/;
 var numeric = /[0-9]/;
 var alphanumeric = /[A-Za-z0-9]/;
+var alphanumeric1 = /[A-Za-z\s#0-9]/;
 var helo = /[^\ ]/;
 var alphaxd = /[A-Za-z\s.]/;
 
@@ -93,7 +94,7 @@ function validateCurp(len) {
     return alpha.test(keyChar) ? keyChar : false;
   }else if(len>15&&len<=17){
     var keyChar = String.fromCharCode(event.which || event.keyCode);
-    return numeric.test(keyChar) ? keyChar : false;
+    return alphanumeric.test(keyChar) ? keyChar : false;
   }else if(len>17){
     return false;
   }
@@ -164,7 +165,7 @@ function codigoCan(){
         return false;
 }
 //funcion para el registrob del maestro 
-function ConsMaestro(){
+function codigoMaestro(){
        var cons=document.getElementById('txt_CPCanMaestro').value;
         var datos='input='+cons;
         $.ajax({
@@ -232,16 +233,17 @@ function MostrarModalUpdate(param){
 }
 
 function validar(){
+    var Correo=document.getElementById('txt_Correo').value;
     /*var Nom=document.getElementById('txt_Nom').value;
     var Tel=document.getElementById('txt_Tel').value;
     //var RFC=document.getElementById('txt_RFC').value;
     var CP=document.getElementById('txt_CP').value;
     var Calle=document.getElementById('txt_Calle').value;
-    var Correo=document.getElementById('txt_Correo').value;
+    
     var Pass=document.getElementById('txt_Psw').value;
     var Pass2=document.getElementById('txt_Psw2').value;
     */
-    var datos='';
+    var datos='txt_Correo='+Correo;
 /*
     'txt_Nom
     ='+Nom+'&txt_Tel='+Tel+'&txt_CP='+CP+'&txt_Calle='+Calle+'&txt_Correo='+Correo+'&txt_Psw='+Pass+'&txt_Psw2='+Pass2;
@@ -509,8 +511,8 @@ function limpiar(){
 }
 //aqui le voy a mover yo jajaja ala verga todo
 //donde cad= ala cadena enviada y ty= al tipo del mismo puede ser (consultar admin o empleos) cont=contenedor 
-function CEmpleosAdmin(cad,ty,tyC,fil,cont){    
-    $.post("../php/consultarUsuario.php", { busqueda: cad, tipoC: tyC, filtro: fil, tipo: ty }, function(data){
+function CEmpleosAdmin(clave,cad,ty,tyC,fil,cont){    
+    $.post("../php/consultarUsuario.php", { claveE:clave, busqueda: cad, tipoC: tyC, filtro: fil, tipo: ty }, function(data){
     $(cont).html(data);
     });         
 }
@@ -537,5 +539,36 @@ function zonaR(num){
 function zonaRM(num){
   $.post("php/zonas.php", { numeroZ: num}, function(data){
     $('#zonaYM').html(data);
+  });
+}
+function zonaRD(num,tipo){
+  $.post("php/zonas.php", { numeroZ: num, tipoU: tipo}, function(data){
+    $('#zonaYD').html(data);
+  });
+}
+function validaCurpE(cadena){
+  $.post("php/validaCurpR.php",{curpC: cadena}, function(data){
+    $('#div_CurpRepetida').html(data);
+  });
+}
+function ShowSelected(loca,clave,destino1,destino2){
+/* Para obtener el valor,loca es localidad nombre evaluado y clave es, donde esta la clavesita y destino1 y destino2 son para el nombre de la escuela */
+var cod = document.getElementById(loca).value;
+/* Para obtener el texto */
+var combo = document.getElementById(loca);
+var selected = combo.options[combo.selectedIndex].text;
+document.getElementById(clave).innerHTML = "Clave: ";
+/*alert(selected);*/
+var cadena = cod;
+var res = cadena.split("-");
+    document.getElementById(destino1).innerHTML = res[0];
+    document.getElementById(destino2).innerHTML = res[1];
+    //
+
+}
+//Obtener por grado alumnos y grupo
+function alumnosV(cad,tipo, tipo1,grado, grupo, clave,){
+  $.post("../php/ConsultaFiltros.php",{busqueda:cad,tipoU: tipo, tipoC: tipo1, GradoU:grado, GrupoU:grupo, claveEscuela1:clave}, function(data){
+    $('#ConsA2').html(data);
   });
 }

@@ -1,4 +1,8 @@
 <?php
+	$cont = 1;
+  if(preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',$_POST['txt_Correo']) ){
+    $cont=$cont-1;
+  }
 /*
 	$cont=7;
 	if(preg_match('/[0-9a-zA-Z]{3,}/',$_POST['txt_Nom']) ){
@@ -24,7 +28,7 @@
 		$cont=$cont-1;
 	}
 	*/
-	$cont=0;
+	//$cont=0;
 
 	if($cont==0){
 		echo '<p align="center"><input type="submit" class="btn btn-success" value="Registrarme" name="btn_Empresa"></p>';

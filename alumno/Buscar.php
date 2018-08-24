@@ -31,7 +31,7 @@
 ?>
 <body class="site" onload="return BuscarDocumentos(<?php echo $variable;?>,<?php echo $curp ?>);">
 	<main class="content">
-     <div class="container-fluid well">
+     <div class="container">
         <div class="row">
             <div class="col-sm-12 registro">
                 <div class="input-group">

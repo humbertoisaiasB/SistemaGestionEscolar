@@ -1,4 +1,6 @@
-<?php session_start(); 
+<?php 
+  include "Conexion.php"
+  session_start(); 
   if(empty($_SESSION['User']) && empty($_SESSION['id'])){ header("Location: ../index.php");}
   $ruta='../assets/Profiles/';
       $archivo=$ruta.$_SESSION['id'].'.png';
@@ -29,7 +31,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" style="color:white !important;"  href="Main.php">Gestion</a>
+        <a class="navbar-brand" style="color:white !important;"  href="Main.php">Gestión</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right" >
