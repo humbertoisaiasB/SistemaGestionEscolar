@@ -164,6 +164,11 @@ function codigoCan(){
         });
         return false;
 }
+function codigoU(cad,cad1,tipo){
+  $.post("php/PostalCan.php",{codigo:cad1,tipoU:tipo}, function(data){
+    $(cad).html(data);
+  });
+}
 //funcion para el registrob del maestro 
 function codigoMaestro(){
        var cons=document.getElementById('txt_CPCanMaestro').value;
@@ -301,10 +306,10 @@ function validar3(){
 /*'txt_Nom='+Nom+'&txt_Ap='+Ap+'&txt_Am='+Am+'&txt_Correo='+Correo+'&txt_Teltrabajo='+TelTrabajo+'&txt_TelCelular='+TelCelular+'&txt_CP='+Cp+'&txt_Departamento='+Departamento+'&txt_Calle='+Calle+'&txt_Pw='+Pw+'&txt_Pw2='+Pw2;
     */$.ajax({
       type:'post',
-      url:'php/ValidarPersonalA.php',
+      url:'php/ValidaDirector.php',
       data:datos,
       success:function(resp){
-        $("#btnPersonal").html(resp);
+        $("#btn_director").html(resp);
       }
     });
     return false;
@@ -541,14 +546,14 @@ function zonaRM(num){
     $('#zonaYM').html(data);
   });
 }
-function zonaRD(num,tipo){
+function zonaRD(num,tipo,lugar){
   $.post("php/zonas.php", { numeroZ: num, tipoU: tipo}, function(data){
-    $('#zonaYD').html(data);
+    $(lugar).html(data);
   });
 }
-function validaCurpE(cadena){
-  $.post("php/validaCurpR.php",{curpC: cadena}, function(data){
-    $('#div_CurpRepetida').html(data);
+function validaCurpE(cadena,tipo,destino){
+  $.post("php/validaCurpR.php",{curpC: cadena,tipoU:tipo}, function(data){
+    $(destino).html(data);
   });
 }
 function ShowSelected(loca,clave,destino1,destino2){
@@ -567,7 +572,7 @@ var res = cadena.split("-");
 
 }
 //Obtener por grado alumnos y grupo
-function alumnosV(cad,tipo, tipo1,grado, grupo, clave,){
+function alumnosV(cad,tipo, tipo1,grado, grupo, clave){
   $.post("../php/ConsultaFiltros.php",{busqueda:cad,tipoU: tipo, tipoC: tipo1, GradoU:grado, GrupoU:grupo, claveEscuela1:clave}, function(data){
     $('#ConsA2').html(data);
   });

@@ -71,7 +71,7 @@
 								<!--
 								<li onload="return validar3();"><a href="#PersonalA" data-toggle="tab" onclick="return validar3();">Personal Administrativo</a></li>
 								-->
-								<li><a href="#director" data-toggle="tab">Director</a></li>
+								<li onload="return validar3();"><a href="#director" onclick="return validar3();" data-toggle="tab">Director</a></li>
 							</ul>
 						</div>
 					</div>
@@ -111,13 +111,13 @@
 																<ul class="dropdown-menu">
 																    <?php
 																		for($i=1; $i<=56; $i++){
-																			echo '<li value="'.$i.'"><a onclick="return zonaR('.$i.');">'.$i.'</a></li>';
+																			echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'".''."Alumno"."'".','."'"."#zonaY"."'".');">'.$i.'</a></li>';
 																		}
 																		?>
 																</ul>
 															</div>
-															<div id="clave" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
-		<label style="margin: 5px;" id="clavecitaC"></label><span style="margin:10px;font-size: 15px;" id="prueba13" name="prueba13" class="label label-info"></span> 
+															<div id="claveA" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
+		<label style="margin: 5px;" id="clavecitaCA"></label><span style="margin:10px;font-size: 15px;" id="prueba13A" name="prueba13A" class="label label-info"></span> 
 														</div>
 													</div>
 												</div>
@@ -132,12 +132,12 @@
 														</div>
 
 													    <div id="div_Curp">
-															<label>CURP del Alumno:</label><input id="txt_Curp" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9A-Z]{2}/,'Curp',this.value); return validaCurpE(this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_Curp"><span id="span_Curp" ></span>
+															<label>CURP del Alumno:</label><input id="txt_Curp" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9A-Z]{2}/,'Curp',this.value); return validaCurpE(this.value,'Alumno','#div_CurpRepetida');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_Curp"><span id="span_Curp" ></span>
 														</div>
 														<div id="div_CurpRepetida" class="row"> 
 														</div>
 														<div id="div_CPCan">
-																	<label>Código Postal:</label><input id="txt_CPCan" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCan',this.value); return codigoCan();"  type="text" class="form-control" name="txt_CPCan" required><span id="span_CPCan" ></span>
+																	<label>Código Postal:</label><input id="txt_CPCan" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCan',this.value); return codigoU('#codigoC',this.value,'Alumno');"  type="text" class="form-control" name="txt_CPCan" required><span id="span_CPCan" ></span>
 														</div>
 														<div id="codigoC"></div>
 														<div id="div_CalleCan">
@@ -244,11 +244,14 @@
 																<ul class="dropdown-menu">
 																    <?php
 																		for($i=1; $i<=54; $i++){
-																			echo '<li value="'.$i.'"><a onclick="return zonaRM('.$i.');">'.$i.'</a></li>';
+																			echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'".''."Maestro".''."'".','."'"."#zonaYM"."'".');">'.$i.'</a></li>';
 																		}
 																		?>
 																</ul>
 															</div>
+															<div id="claveM" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
+		<label style="margin: 5px;" id="clavecitaCM"></label><span style="margin:10px;font-size: 15px;" id="prueba13M" name="prueba13M" class="label label-info"></span> 
+														</div>
 														</div>
 													</div>
 													<div id="zonaYM"></div>
@@ -261,10 +264,11 @@
 															</div>
 														</div>
 														<div id="div_CurpMaestro">
-															<label>Curp del Maestro:</label><input id="txt_CurpMaestro" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'CurpMaestro',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_CurpMaestro"><span id="span_CurpMaestro" ></span>
+															<label>Curp del Maestro:</label><input id="txt_CurpMaestro" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'CurpMaestro',this.value); return validaCurpE(this.value,'Director','#div_CurpRepetidaM');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_CurpMaestro"><span id="span_CurpMaestro" ></span>
 														</div>
+														<div id="div_CurpRepetidaM"></div>
 															<div id="div_CPCanMaestro">
-																	<label>Código Postal:</label><input id="txt_CPCanMaestro" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCanMaestro',this.value); return codigoCanM();"  type="text" class="form-control" name="txt_CPCanMaestro" required><span id="span_CPCanMaestro" ></span>
+																	<label>Código Postal:</label><input id="txt_CPCanMaestro" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCanMaestro',this.value); return codigoU('#codigoCMaestro',this.value,'Maestro');"  type="text" class="form-control" name="txt_CPCanMaestro" required><span id="span_CPCanMaestro" ></span>
 															</div>
 															<div id="codigoCMaestro"></div>
 															<div id="div_CalleCanMaestro">
@@ -401,8 +405,8 @@
 													<div id="div_ApDirector">
 														<label>Apellido paterno:</label><input id="txt_ApDirector" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'ApDirector',this.value);NomValid(this);" type="text" class="form-control"  name="txt_ApDirector"><span id="span_ApDirector" ></span>
 													</div>
-													<div id="div_Am">
-														<label>Apellido materno:</label><input id="txt_Am" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'Am',this.value);NomValid(this);" type="text" class="form-control" name="txt_Am"><span id="span_Am" ></span>
+													<div id="div_AmDirector">
+														<label>Apellido materno:</label><input id="txt_AmDirector" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'AmDirector',this.value);NomValid(this);" type="text" class="form-control" name="txt_AmDirector"><span id="span_AmDirector" ></span>
 													</div>
 													<div id="div_CorreoDirector">
 														<label>Correo:</label><input id="txt_CorreoDirector" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoDirector',this.value);" type="email" class="form-control" name="txt_CorreoDirector" required><span id="span_CorreoDirector" ></span>
@@ -417,7 +421,7 @@
 																<ul class="dropdown-menu">
 																    <?php
 																		for($i=1; $i<=56; $i++){
-																			echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'"."Director"."'".');">'.$i.'</a></li>';
+																			echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'".''."Director".''."'".','."'"."#zonaYD"."'".');">'.$i.'</a></li>';
 																		}
 																		?>
 																</ul>
@@ -430,18 +434,18 @@
 													<div id="zonaYD"></div>
 														<div style="display:block;margin-top:20px;">
 															<div id="div_TelcasaDirector" style="display: inline-block;">
-																<label style="margin-right:5px;">Teléfono casa: </label><input input id="txt_Telcasa" onkeypress="return validarXD(numeric,this.value.length,8);" onkeyup="validacion4all(/^[0-9]{6,8}$/,'Telcasa',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_Telcasa"><span id="span_Telcasa" ></span>
+																<label style="margin-right:5px;">Teléfono casa: </label><input id="txt_TelcasaDirector" onkeypress="return validarXD(numeric,this.value.length,8);" onkeyup="validacion4all(/^[0-9]{8,10}$/,'TelcasaDirector',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_TelcasaDirector"><span id="span_TelcasaDirector" ></span>
 															</div>
-															<div id="div_Telcelular" style="display:inline-block;">
-																<label>Teléfono celular:</label><input input id="txt_Telcelular" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'Telcelular',this.value);" style="min-width:230px;" type="text" class="form-control" name="txt_Telcelular"><span id="span_Telcelular" ></span>
+															<div id="div_TelcelularDirector" style="display:inline-block;">
+																<label>Teléfono celular:</label><input id="txt_TelcelularDirector" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'TelcelularDirector',this.value);" style="min-width:230px;" type="text" class="form-control" name="txt_TelcelularDirector"><span id="span_TelcelularDirector" ></span>
 															</div>
 														</div>
-
 													<div id="div_CurpDirector">
-															<label>Curp:</label><input id="txt_CurpDirector" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9]{2}/,'CurpDirector',this.value);" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_CurpDirector"><span id="span_CurpDirector" ></span>
+															<label>Curp:</label><input id="txt_CurpDirector" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[0-9A-Z]{2}/,'CurpDirector',this.value);  return validaCurpE(this.value,'Director','#div_CurpRepetidaD');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_CurpDirector"><span id="span_CurpDirector" ></span>
 														</div>
+														<div id="div_CurpRepetidaD" class="row"></div>
 																<div id="div_CPCanDirector">
-																	<label>Código Postal:</label><input id="txt_CPCanDirector" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCanDirector',this.value); return codigoCan();"  type="text" class="form-control" name="txt_CPCanDirector" required><span id="span_CPCanDirector" ></span>
+																	<label>Código Postal:</label><input id="txt_CPCanDirector" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCanDirector',this.value); return codigoU('#codigoCDirector',this.value,'Director');" type="text" class="form-control" name="txt_CPCanDirector" required><span id="span_CPCanDirector" ></span>
 																</div>
 															<div id="codigoCDirector"></div>
 															<div id="div_CalleCanDirector">

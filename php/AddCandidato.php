@@ -2,8 +2,8 @@
 include ("Conexion.php");
 session_start();
 if (isset($_POST['btn_Candidato'])){
-  if(!mysqli_query($con,"insert into usuarios (Nom, Ap, Am, Casa, Celular, Correo, Contrasena, Codigo_Postal,Pais, Estado, Ciudad, Colonia,Calle, Tipo)
-  VALUES ('".strtoupper($_POST['txt_NomMaestro'])."','".strtoupper($_POST['txt_ApMaestro'])."','".strtoupper($_POST['txt_AmMaestro'])."','$_POST[txt_TelcasaMaestro]','$_POST[txt_TelcelularMaestro]','$_POST[txt_CorreoMaestro]','$_POST[txt_PswCanMaestro]','$_POST[txt_CPCanMaestro]','Mexico', 'Jalisco', '' , '','','Maestro')")){
+  if(!mysqli_query($con,"insert into usuarios (Nom, Ap, Am, Casa, Celular, Correo, Contrasena, Codigo_Postal,Pais, Estado, Ciudad, Colonia,Calle, Tipo,sexo,documento,claveEscuela)
+  VALUES ('".strtoupper($_POST['txt_NomMaestro'])."','".strtoupper($_POST['txt_ApMaestro'])."','".strtoupper($_POST['txt_AmMaestro'])."','$_POST[txt_TelcasaMaestro]','$_POST[txt_TelcelularMaestro]','$_POST[txt_CorreoMaestro]','$_POST[txt_PswCanMaestro]','$_POST[txt_CPCanMaestro]','$_POST[Sl_PaisMaestro]', '$_POST[Sl_EstadoMaestro]', '$_POST[Sl_CiudadMaestro]','$_POST[Sl_ColoniaMaestro]','','Maestro','M',0,'$_POST[prueba13D]')")){
     echo '<script type="text/javascript">
        alert ("Ha Ocurrido un error0 '.$_POST['txt_NomMaestro'].'");
     window.location.assign("../Registro.php");

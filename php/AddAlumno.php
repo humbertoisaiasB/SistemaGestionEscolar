@@ -3,7 +3,7 @@
 	include ("Conexion.php");
 	if (isset($_POST['btn_Empresa'])){
 		if(!mysqli_query($con,'insert into usuarios (Nom, Ap, Am, Celular, Casa, Correo, Contrasena, Codigo_Postal,Pais, Estado, Ciudad, Colonia, Calle, Tipo, sexo,documento,claveEscuela)
-		VALUES ("'.strtoupper($_POST['txt_NomAlumno']).'","'.strtoupper($_POST['txt_Ap']).'","'.strtoupper($_POST['txt_Am']).'","'.$_POST['txt_Telcelular'].'","'.$_POST['txt_Telcasa'].'","'.$_POST['txt_Correo'].'","'.$_POST['txt_Psw'].'",'.$_POST['txt_CPCan'].',"'.$_POST['Sl_Pais'].'","'.$_POST['Sl_Estado'].'", "'.$_POST['Sl_Ciudad'].'","'.$_POST['Sl_Colonia'].'","'.$_POST['txt_CalleCan'].'","'."Alumno".'","'."M".'",0,'."'".''.$_POST['prueba13'].''."'".')')){
+		VALUES ("'.strtoupper($_POST['txt_NomAlumno']).'","'.strtoupper($_POST['txt_Ap']).'","'.strtoupper($_POST['txt_Am']).'","'.$_POST['txt_Telcelular'].'","'.$_POST['txt_Telcasa'].'","'.$_POST['txt_Correo'].'","'.$_POST['txt_Psw'].'",'.$_POST['txt_CPCan'].',"'.$_POST['Sl_PaisAlumno'].'","'.$_POST['Sl_EstadoAlumno'].'", "'.$_POST['Sl_CiudadAlumno'].'","'.$_POST['Sl_ColoniaAlumno'].'","'.$_POST['txt_CalleCan'].'","'."Alumno".'","'."M".'",0,'."'".''.$_POST['prueba13'].''."'".')')){
 			printf("Error: %s\n", mysqli_error($con));
 		}
 		//Aqui hago una consulta para vefificar el grado y el grupo. select turno, grado, grupo, id_escuela FROM grupos WHERE id_escuela=1  

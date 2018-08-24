@@ -14,13 +14,23 @@
 		$DivLoca = "div_LocalidadA";
 		$DivNombreE = "nombreEscuelaA";
 		$idLocalidad = "localidadA";
-		$idNombreE = "destinoA"; 
+		$idLocalidadA = "'"."localidadA"."'";
+		$idNombreE = "destinoA";
+		$Clave = "'"."clavecitaCA"."'";
+		$Destino1A = "'"."prueba12A"."'";
+		$Destino1B = "prueba12A";
+		$Destino2A = "'"."prueba13A"."'";
 	}elseif($_POST['tipoU'] == "Maestro") {
 		$DivZona = "div_ZonaM";
 		$DivLoca = "div_LocalidadM";
 		$DivNombreE = "nombreEscuelaM";
 		$idLocalidad = "localidadM";
+		$idLocalidadA = "'"."localidadM"."'";
 		$idNombreE = "destinoM";
+		$Clave = "'"."clavecitaCM"."'";
+		$Destino1A = "'"."prueba12M"."'";
+		$Destino1B = "prueba12M";
+		$Destino2A = "'"."prueba13M"."'";
 		
 	}elseif($_POST['tipoU'] == "Director"){
 		$DivZona = "div_ZonaD";

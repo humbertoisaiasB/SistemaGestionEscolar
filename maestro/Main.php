@@ -94,16 +94,6 @@
                           <a  href="#alumnos" data-toggle="tab">General</a>
                       </ul>
                   </li>
-
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-cogs"></i>
-                          <span>Gestionar Grupos.</span>
-                      </a>
-                      <ul class="sub">
-                          <a href="#grupos" data-toggle="tab">General</a>
-                      </ul>
-                  </li>
               </ul>
               <!-- sidebar menu end-->
           </div>

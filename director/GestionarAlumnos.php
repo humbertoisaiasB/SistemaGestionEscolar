@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-sm-7">
             <ul class="nav nav-tabs">
-              <li role="presentation" class="active" onclick="return CEmpleosAdmin(<?php echo $variable;?>,'','Consultar','Administrador','Alumno','#ConsA2');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
+              <li role="presentation" class="active" onclick="return alumnosV('','Alumno','Consulta',1,'todos',<?php echo $variable;?>);"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
               <li role="presentation" onclick="return CEmpleosAdmin(<?php echo $variable;?>,'','Eliminar','Administrador','Alumno','#ConsA');"><a href="#Eliminar" data-toggle="tab"><img src="../assets/images/Eliminar.png"  height="30px" width="30px" > Eliminar</a></li>
             </ul>
           </div>
@@ -100,6 +100,7 @@
                           
                         </div>
                 </div>
+              </div>
                 <div class="tab-pane fade" id="Eliminar">
                       <div class="col-sm-12 busca well">
                         <h1>Eliminar Alumno</h1>

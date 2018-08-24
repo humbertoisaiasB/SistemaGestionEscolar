@@ -107,10 +107,10 @@
 <main class="content">
   <section id="main-content">
     <section class="wrapper">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-md-12">
-            <div class="queso embed-responsive embed-responsive-16by9">
+          <div class="queso col-md-12">
+            <div class=" embed-responsive embed-responsive-16by9">
               <iframe class="embed-responsive-item" src="Buscar.php"></iframe>
             </div>
           </div>

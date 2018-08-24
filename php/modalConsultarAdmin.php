@@ -20,7 +20,7 @@ include 'Conexion.php';
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal"  >&times;</button>
-              <h4 class="modal-title">Subir archivo de: </h4> 
+              <h4 align="center" class="modal-title">Ver archivos de: <?php echo "<p>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";?></h4> 
             </div>
             <div class="modal-body" align="center">
               <?php
@@ -54,7 +54,7 @@ include 'Conexion.php';
                     $sql = mysqli_query($con,"select curpAlumno,id_Usuario from alumnos where id_Usuario='$_POST[info]'");
                     $row1 = mysqli_fetch_array($sql);
                     $nombreDocu = array("".$row1['curpAlumno']."_BG","".$row1['curpAlumno']."_CP","".$row1['curpAlumno']."_CU","".$row1['curpAlumno']."_IM","".$row1['curpAlumno']."_IP","".$row1['curpAlumno']."_CD","".$row1['curpAlumno']."_CM","".$row1['curpAlumno']."_AN");
-                    $nombreBoton = array("Boleta de calificaciones de 6 grado.","Certificado de primaria.","CURP del alumno.","Ife de la madre.","Ife del padre.","Comprobante de domicilio.","Certificado Medico.","Acta de nacimiento.");
+                    $nombreBoton = array("Boleta de calificaciones de 6 grado.","Certificado de primaria.","CURP del alumno.","INE de la madre(Frontal).","INE de la madre(Atras).","INE del padre(Frontal).","INE del padre(Atras).","Comprobante de domicilio.","Certificado Medico.","Acta de nacimiento.");
                     $directorio = opendir("../php/documentos/".$row['Tipo']."/".$row1['curpAlumno']."/"); //ruta actual
                     while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro sucesivamente
                     {
@@ -74,13 +74,30 @@ include 'Conexion.php';
                               </div>
                             </div>';
                             $cont=$cont+1;
-                          }
+                          }                        
                         }
+                    }
+                    $totalA=8;
+                    $totalA=$totalA-$cont;
+                    for($i=0; $i<=$totalA; $i++){
+                      $queso1 = $queso1.
+                            '<div class="media cambioN">
+                              <div class="media-left">
+                                <a href="#">
+                                  <img class="media-object" src="../assets/images/curp.png" height="60px" width="60px">
+                                </a>
+                              </div>
+                              <div align="center" class="media-body">
+                                <h4 align="center" class="media-heading">No disponible: '.$nombreBoton[$cont].'</h4>
+                              </div>
+                            </div>';
+                            $cont++;
                     }
                     $queso2 = '<div class="row">
                               '.$queso1.'
                              </div>';
-                    echo '<h3 align="center">Archivos disponibles para su visualizacion: '.$cont.'</h3>';
+                    $totalA = 8 - $totalA;
+                    echo '<h3 align="center">Archivos disponibles para su visualizacion: '.$totalA.'</h3>';
                     echo $queso2;
                   }  
                 ?>
