@@ -2,7 +2,7 @@
 	include ("Conexion.php");
 	if (isset($_POST['btn_Director'])){
 		if(!mysqli_query($con,'insert into usuarios (Nom, Ap, Am, Celular, Casa, Correo, Contrasena, Codigo_Postal,Pais, Estado, Ciudad, Colonia, Calle, Tipo, sexo,documento,claveEscuela)
-		VALUES ("'.strtoupper($_POST['txt_NomDirector']).'","'.strtoupper($_POST['txt_ApDirector']).'","'.strtoupper($_POST['txt_AmDirector']).'","'.$_POST['txt_TelcelularDirector'].'","'.$_POST['txt_TelcasaDirector'].'","'.$_POST['txt_CorreoDirector'].'","'.$_POST['txt_PswCanDirector'].'",'.$_POST['txt_CPCanDirector'].',"'.$_POST['Sl_PaisDirector'].'","'.$_POST['Sl_EstadoDirector'].'","'.$_POST['Sl_CiudadDirector'].'","'.$_POST['Sl_ColoniaDirector'].'","'.$_POST['txt_CalleCanDirector'].'","'."Director".'","'."M".'",0,"'."'".''.$_POST['prueba13D'].''."'".')')){
+		VALUES ("'.strtoupper($_POST['txt_NomDirector']).'","'.strtoupper($_POST['txt_ApDirector']).'","'.strtoupper($_POST['txt_AmDirector']).'","'.$_POST['txt_TelcelularDirector'].'","'.$_POST['txt_TelcasaDirector'].'","'.$_POST['txt_CorreoDirector'].'","'.$_POST['txt_PswCanDirector'].'",'.$_POST['txt_CPCanDirector'].',"'.$_POST['Sl_PaisDirector'].'","'.$_POST['Sl_EstadoDirector'].'","'.$_POST['Sl_CiudadDirector'].'","'.$_POST['Sl_ColoniaDirector'].'","'.$_POST['txt_CalleCanDirector'].'","'."Director".'","'."M".'",0,'."'".''.$_POST['prueba13ED'].''."'".')')){
 			printf("Error: %s\n", mysqli_error($con));
 		}
 		//Aqui hago una consulta para vefificar el grado y el grupo. select turno, grado, grupo, id_escuela FROM grupos WHERE id_escuela=1  
@@ -34,6 +34,10 @@
 					</script>';
 			    }
 		}
-
+		echo '<script type="text/javascript">
+			     alert ("Registrado Correctamente");
+				window.location.assign("../index.php");
+				</script>';
+				exit;
 	}
 ?>

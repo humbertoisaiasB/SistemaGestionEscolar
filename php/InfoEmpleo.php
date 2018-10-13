@@ -1,14 +1,16 @@
 <?php 
 	include 'Conexion.php';
   session_start();
-  $nombresArchivos1 = array("Boleta de calificaciones de 6 grado.","Certificado de primaria.","CURP del alumno.","INE de la Mamá(Frente).","INE de la Mamá(Detrás)","INE del Papá(Frente).","INE del Papá(Detrás)","Comprobante de Domicilio.","Certificado Medico.","Acta de Nacimiento.");
-  $Descripcion = array("La boleta corresponde a tu ultimas calificaciones entregadas a tus padres cuando tu estabas en la escula primaria","Esto corresponde al certificado de primaria que se te entrego al comcluir tu escuela primaria","La clave unica de poblacion que se te fue asignada al nacer","Ife de tu madre en caso de no tener omitir...");
   //Aqui esta para el alumno.
-  $NombreDo = $nombresArchivos1[$_POST['es']];
+  $nombresArchivos1 = array("Reporte de evalucion del grado anterior.","Certificado de primaria.","CURP del alumno.","INE de la mamá(Frontal).","INE de la mamá(Detrás)","INE del papá(Frontal).","INE del papá(Detrás)","Comprobante de domicilio.","Certificado médico.","Acta de nacimiento.");
+  $nombreArchivos = array("Formato único de personal.","Comprobante de ingresos.","Comprobante de domicilio.","CURP","INE(Frontal)","INE(Detrás)","Certificado estudios licenciatura","Certificado de estudios maestria","Cédula profesional de licenciatura(Frontal)","Cédula profesional de licenciatura(Detrás)","Cédula profesional de maestria(Frontal)","Cédula profesional de maestria(Detras)","Oficio de basificación.","Acta de nacimiento","Título licenciatura","Título maestria","Alta al SAT(RFC)","Cartilla militar(SMN)","No antecedentes penales.","No sanción administrativa");
+  $Descripcion = array("La boleta corresponde a tu ultimas calificaciones entregadas a tus padres cuando tu estabas en la escula primaria","Esto corresponde al certificado de primaria que se te entrego al comcluir tu escuela primaria","La clave unica de poblacion que se te fue asignada al nacer","Ife de tu madre en caso de no tener omitir...");
 	$sql=mysqli_query($con,"SELECT u.Nom, u.Ap, u.Am, u.id_Usuario,u.Tipo, u.Documento FROM usuarios as u WHERE u.id_Usuario=".$_POST['id_Usuario']);
 	$row=mysqli_fetch_array($sql);
   $variable = "'".$_POST['nombreN']."'";
   $variable1 = "";
+  $NombreDo = ($row['Tipo']=="Alumno") ? $nombresArchivos1[$_POST['es']] : $nombreArchivos[$_POST['es']];
+  $Descripcionf = ($row['Tipo']=="Alumno") ? $Descripcion[$_POST['es']] : "";
 	if($_POST['caso']=='si'){
     $_SESSION['nombreD'] = $_POST['nombreN'];
 		echo '<div class="modal-dialog modal-md">
@@ -20,12 +22,12 @@
               </div>
               <div class="modal-body" align="center">
                   <h3><b>'.$NombreDo.'</b></h3>
-                  <p>'.$Descripcion[$_POST['es']].'</p>
+                  <p>'.$Descripcionf.'</p>
                   <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
               </div>
               <div class="modal-footer" align="center">
-              	<button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
-                <button align="center" type="button" onclick="return subirF('."'".''.$nombresArchivos1[$_POST['es']].''."'".','."'".''."subeA".''."'".','."'".''.$_POST['curp'].''."'".'); subirT('.$variable.','."'".''.$row['Tipo'].''."'".','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert1" class="btn btn-success">Actualizacion de archivo</button>
+              	<button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/'.strtolower($row['Tipo']).'/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
+                <button align="center" type="button" onclick="return subirF('."'".''.$NombreDo.''."'".','."'".''."subeA".''."'".','."'".''.$_POST['curp'].''."'".'); subirT('.$variable.','."'".''.$row['Tipo'].''."'".','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert1" class="btn btn-success">Actualizacion de archivo</button>
               </div>
             </div>
           </div>';
@@ -41,7 +43,7 @@
               </div>
               <div class="modal-body" align="center">
                   <h3><b>'.$NombreDo.'</b></h3>
-                  <p>'.$Descripcion[$_POST['es']].'</p>
+                  <p>'.$Descripcionf.'</p>
                   <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
               </div>
               <div class="modal-footer" align="center">
@@ -51,7 +53,8 @@
               </div>
             </div>
           </div>';
-
 	}  
+  //Aqui esta para el maestro
 
+  //Aqui director
 ?>

@@ -29,7 +29,7 @@
   $DocumentosR = $val['Documento'];
   $DocumentosR = 4-$DocumentosR;
 ?>
-<body class="site" onload="return BuscarDocumentos(<?php echo $variable;?>,<?php echo $curp ?>);">
+<body class="site" onload="return BuscarDocumentos(<?php echo $variable;?>,<?php echo $curp ?>,'Alumno');">
 	<main class="content">
      <div class="container">
         <div class="row">
@@ -51,8 +51,8 @@
   <div id="Alert"></div>
   
   <script type="text/javascript">
-    function BuscarDocumentos(cad,cad1){    
-      $.post("../php/FindEmpleo.php", { busqueda: cad, curp: cad1 }, function(data){
+    function BuscarDocumentos(cad,cad1,cad2){    
+      $.post("../php/FindEmpleo.php", { busqueda: cad, curp: cad1, tipo:cad2}, function(data){
       $('#CResp').html(data);
       });         
     }

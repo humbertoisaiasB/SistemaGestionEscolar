@@ -13,6 +13,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.css">
       <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/Home.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,26 +30,25 @@
 <?php
   $variable = "'".$val['claveEscuela']."'";
 ?>
-<body class="site" onload="return CEmpleosAdmin(<?php echo $variable;?>,'','Consultar','Administrador','Alumno','#ConsA2'); return CEmpleosAdmin(<?php echo $variable;?>,'','Eliminar','Administrador','Alumno','#ConsA');">
+<body class="site" onload="return alumnosV('','Alumno','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA2');">
   <main class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-7">
             <ul class="nav nav-tabs">
-              <li role="presentation" class="active" onclick="return alumnosV('','Alumno','Consulta',1,'todos',<?php echo $variable;?>);"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
-              <li role="presentation" onclick="return CEmpleosAdmin(<?php echo $variable;?>,'','Eliminar','Administrador','Alumno','#ConsA');"><a href="#Eliminar" data-toggle="tab"><img src="../assets/images/Eliminar.png"  height="30px" width="30px" > Eliminar</a></li>
+              <li role="presentation" class="active" onclick="return alumnosV('','Alumno','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA2');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
             </ul>
           </div>
         </div>
         <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-12">
               <div class="tab-content"> 
                 <br>
                 <div class="tab-pane fade in active" id="Consultar">
                       <div class="col-sm-12 busca well">
                         <h1>Consultar Alumno</h1>
                           <div class="input-group">
-                            <input type="text" id="myInputA2" class="form-control"  placeholder="Buscar por el nombre">
+                            <input type="text" id="myInputA2" onkeyup="return alumnosV(this.value,'Alumno','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA2');" class="form-control"  placeholder="Buscar por el nombre">
                             <div class="input-group-btn">
                               <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-primary dropdown-toggle"
@@ -56,12 +56,14 @@
                                         Alumnos de  1°<span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'todos',<?php echo $variable;?>);">Todos.</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'A',<?php echo $variable;?>);">A</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'B',<?php echo $variable;?>);">B</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'C',<?php echo $variable;?>);">C</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'D',<?php echo $variable;?>);">D</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'todos',<?php echo $variable;?>,'#ConsA2');">Todos.</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'A',<?php echo $variable;?>,'#ConsA2');">A</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'B',<?php echo $variable;?>,'#ConsA2');">B</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'C',<?php echo $variable;?>,'#ConsA2');">C</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'D',<?php echo $variable;?>,'#ConsA2');">D</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'E',<?php echo $variable;?>,'#ConsA2');">E</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'F',<?php echo $variable;?>,'#ConsA2');">F</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',1,'G',<?php echo $variable;?>,'#ConsA2');">G</a></li>
                                 </ul>
                               </div>
                               <div class="btn-group">
@@ -71,12 +73,14 @@
                                 </button>
                                
                                 <ul class="dropdown-menu" role="menu">
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'todos',<?php echo $variable;?>);">Todos</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'A',<?php echo $variable;?>);">A</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'B',<?php echo $variable;?>);">B</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'C',<?php echo $variable;?>);">C</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'D',<?php echo $variable;?>);">D</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'todos',<?php echo $variable;?>,'#ConsA2');">Todos</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'A',<?php echo $variable;?>,'#ConsA2');">A</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'B',<?php echo $variable;?>,'#ConsA2');">B</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'C',<?php echo $variable;?>,'#ConsA2');">C</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'D',<?php echo $variable;?>,'#ConsA2');">D</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'E',<?php echo $variable;?>,'#ConsA2');">E</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'F',<?php echo $variable;?>,'#ConsA2');">F</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',2,'G',<?php echo $variable;?>,'#ConsA2');">G</a></li>
                                 </ul>
                               </div>
                               <div class="btn-group">
@@ -86,12 +90,14 @@
                                 </button>
                                
                                 <ul class="dropdown-menu" role="menu">
-                                  <a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'',<?php echo $variable;?>);">Todos.</a>
-                                  <li class="divider"></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'A',<?php echo $variable;?>);">A</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'B',<?php echo $variable;?>);">B</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'C',<?php echo $variable;?>);">C</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'D',<?php echo $variable;?>);">D</a></li>
+                                  <a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'todos',<?php echo $variable;?>,'#ConsA2');">Todos.</a>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'A',<?php echo $variable,'#ConsA2';?>);">A</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'B',<?php echo $variable,'#ConsA2';?>);">B</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'C',<?php echo $variable,'#ConsA2';?>);">C</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'D',<?php echo $variable,'#ConsA2';?>);">D</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'E',<?php echo $variable,'#ConsA2';?>);">E</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'F',<?php echo $variable,'#ConsA2';?>);">F</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'G',<?php echo $variable,'#ConsA2';?>);">G</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -99,7 +105,8 @@
                         <div id="ConsA2">
                           
                         </div>
-                </div>
+                       
+                      </div>
               </div>
                 <div class="tab-pane fade" id="Eliminar">
                       <div class="col-sm-12 busca well">
@@ -108,21 +115,52 @@
                               <input type="text" id="myInputA" class="form-control" onkeyup="return CEmpleosAdmin(<?php echo $variable;?>,this.value,'Eliminar','Administrador','Alumno','#ConsA');" placeholder="Buscar por el nombre">
                               <div class="input-group-btn">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ariahaspopup="true" ariaexpanded="false">Filtros<span class="caret"></span></button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                  <li>
-                                    <a href="#">Solo usuarios de tipo "Empresa"</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Solo usuarios de tipo "Empleador"</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Solo usuarios de tipo "Candidato"</a>
-                                  </li>
-                                </ul>
                               </div>
                               <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                             </div>
                       </div><br><br>
+                      <div id="ConsA"></div>
+                </div>
+                <div class="tab-pane fade" id="Agregar">
+                      <div class="row">
+                  <div class="col-md-2" align="center"></div>
+                    <div class="col-md-11"><br>
+                    <div class="registro1" align="center">
+                      <div class="panel-body" align="center">
+                        <div class="titulo" align="center">
+                          <h3>
+                            Registro Alumno
+                          </h3>
+                        </div>
+                        <!-- Aqui tenemos que empresa desaparecera y ahora sera alumnos-->
+                        <form  action="php/AddAlumno.php" method="POST">
+                          <div id="div_NomAlumno">
+                            <label>Nombre:</label><input id="txt_NomAlumno" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAlumno',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAlumno"><span id="span_NomAlumno" ></span>
+                          </div>
+                          <div id="div_Ap">
+                            <label>Apellido paterno:</label><input id="txt_Ap" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,25}$/,'Ap',this.value);NomValid(this);" type="text" class="form-control"  name="txt_Ap"><span id="span_Ap" ></span>
+                          </div>
+                          <div id="div_Am">
+                            <label>Apellido materno:</label><input id="txt_Am" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,25}$/,'Am',this.value);NomValid(this);" type="text" class="form-control" name="txt_Am"><span id="span_Am" ></span>
+                          </div>
+                          <div id="div_Curp">
+                              <label>CURP del Alumno:</label><input id="txt_Curp" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[A-Z0-9]{2}/,'Curp',this.value); return validaCurpE(this.value,'Alumno','#div_CurpRepetida');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_Curp"><span id="span_Curp" ></span>
+                          </div>
+                          <div id="div_CurpRepetida" class="row"> 
+                          </div>
+                              <div id="div_Psw">
+                                <label>Contraseña:</label><input id="txt_Psw" type="password" class="form-control" name="txt_Psw" required><span id="span_Psw" ></span>
+                              </div>
+                              <div id="div_Psw2">
+                                <label>Repite Contraseña:</label><input id="txt_Psw2" onkeyup="checkPwCan(this.value);" type="password" class="form-control" name="txt_Psw2" required><br><span id="span_Psw2" ></span>
+                              </div>
+                              <div id="btn"></div>
+                        </form>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+              </div>
                       <div id="ConsA"></div>
                 </div>
               </div> 

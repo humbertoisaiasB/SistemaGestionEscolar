@@ -137,35 +137,13 @@ function codigoEmp(urle,ids,divs){
         return false;
 }
 //Funcion para el codigo postal registro candidato 
-function codigoCan(){
-       var Code=document.getElementById('txt_CPCan').value;
-        var datos='txt_CPCan='+Code;
-        $.ajax({
-          type:'post',
-          url:'php/PostalCan.php',
-          data:datos,
-          success:function(resp){
-            $("#codigoC").html(resp);
-          }
-        });
-        return false;
-}
-//Registro 
-function codigoCan(){
-       var Code=document.getElementById('txt_CPCan').value;
-        var datos='txt_CPCan='+Code;
-        $.ajax({
-          type:'post',
-          url:'php/PostalCan.php',
-          data:datos,
-          success:function(resp){
-            $("#codigoC").html(resp);
-          }
-        });
-        return false;
-}
 function codigoU(cad,cad1,tipo){
   $.post("php/PostalCan.php",{codigo:cad1,tipoU:tipo}, function(data){
+    $(cad).html(data);
+  });
+}
+function codigoUS(cad,cad1,tipo){
+  $.post("../php/PostalCan.php",{codigo:cad1,tipoU:tipo}, function(data){
     $(cad).html(data);
   });
 }
@@ -314,15 +292,55 @@ function validar3(){
     });
     return false;
 }
-
-function deleteEmpleador(num){
-        var datos='info='+num;
-        $.ajax({
-          type:'post',
-          url:'../php/DeleteEmpleador.php',
-          data:datos,
-        });
-        ConsEmpleador();
+function validar4(){
+  /*var Nom = document.getElementById('txt_NomEmpleador').value;
+  var Ap = document.getElementById('txt_Ap').value;
+  var Am = document.getElementById('txt_Am').value;
+  var TelTrabajo = document.getElementById('txt_Teltrabajo').value;
+  var TelCelular = document.getElementById('txt_Telcelular').value;
+  var Correo = document.getElementById('txt_Correo').value;
+  var Departamento = document.getElementById('txt_Departamento').value;
+  var Cp = document.getElementById('txt_CP').value;
+  var Calle = document.getElementById('txt_Calle').value;
+  var Pw = document.getElementById('txt_Psw').value;
+  var Pw2 = document.getElementById('txt_Psw2').value;
+  */
+  var datos = ''; 
+/*'txt_Nom='+Nom+'&txt_Ap='+Ap+'&txt_Am='+Am+'&txt_Correo='+Correo+'&txt_Teltrabajo='+TelTrabajo+'&txt_TelCelular='+TelCelular+'&txt_CP='+Cp+'&txt_Departamento='+Departamento+'&txt_Calle='+Calle+'&txt_Pw='+Pw+'&txt_Pw2='+Pw2;
+    */$.ajax({
+      type:'post',
+      url:'php/ValidarPersonalA.php',
+      data:datos,
+      success:function(resp){
+        $("#btn_personalA").html(resp);
+      }
+    });
+    return false;
+}
+function validar5(){
+  /*var Nom = document.getElementById('txt_NomEmpleador').value;
+  var Ap = document.getElementById('txt_Ap').value;
+  var Am = document.getElementById('txt_Am').value;
+  var TelTrabajo = document.getElementById('txt_Teltrabajo').value;
+  var TelCelular = document.getElementById('txt_Telcelular').value;
+  var Correo = document.getElementById('txt_Correo').value;
+  var Departamento = document.getElementById('txt_Departamento').value;
+  var Cp = document.getElementById('txt_CP').value;
+  var Calle = document.getElementById('txt_Calle').value;
+  var Pw = document.getElementById('txt_Psw').value;
+  var Pw2 = document.getElementById('txt_Psw2').value;
+  */
+  var datos = ''; 
+/*'txt_Nom='+Nom+'&txt_Ap='+Ap+'&txt_Am='+Am+'&txt_Correo='+Correo+'&txt_Teltrabajo='+TelTrabajo+'&txt_TelCelular='+TelCelular+'&txt_CP='+Cp+'&txt_Departamento='+Departamento+'&txt_Calle='+Calle+'&txt_Pw='+Pw+'&txt_Pw2='+Pw2;
+    */$.ajax({
+      type:'post',
+      url:'../php/ValidarSupervisor.php',
+      data:datos,
+      success:function(resp){
+        $("#btn_Supervisor").html(resp);
+      }
+    });
+    return false;
 }
 
 function mensaje(num){
@@ -357,12 +375,26 @@ function MostrarModalConsultarAdmin(param){
         });
         return false;
 }
+//Aqui esta la accion para abrir el modal.
+function MostrarModalConsultar(param){
+        var datos='info='+param;
+        $.ajax({
+          type:'post',
+          url:'../php/modalConsultar.php',
+          data:datos,
+          success:function(resp){
+            $('#Mod').html(resp);
+          }
+        });
+        return false;
+}
+
 //Aqui esta la accion para abrir el modal PARA LA LISTA DE EMPLEADOS.
 function MostrarConsultarAdminL(param){
         var datos='info='+param;
         $.ajax({
           type:'post',
-          url:'../php/modalConsultarAdminLE.php',
+          url:'../php/modalConsultarInfo.php',
           data:datos,
           success:function(resp){
             $('#Mod').html(resp);
@@ -410,7 +442,6 @@ function deleteAdmin(num){
           url:'../php/DeleteAdmin.php',
           data:datos,
         });
-        EliAdmin();
 }
 
 function mensajeAdmin(num){
@@ -423,7 +454,7 @@ function mensajeAdmin(num){
 })
 .then((willDelete) => {
   if (willDelete) {
-    swal("Chao Chao! Empleador Eliminado", {
+    swal("Usuario eliminado con exito", {
       icon: "success",
     });
     deleteAdmin(num);
@@ -495,22 +526,6 @@ function mensajeAdminE(num){
   }
 });
 }
-
-function CEmpleos(cad,ty,cont){    
-    $.post("../php/Empleos.php", { busqueda: cad, tipo: ty }, function(data){
-    $(cont).html(data);
-    });         
-}
-function EmpleosA(num,ty){
-    $.post("../php/EmpleosA.php", { empleo: num, tipo: ty }, function(data){
-    $('#EmpleoAlert').html(data);
-    });  
-}
-function DeleteEmpleo(num){
-    $.post("../php/DeleteEmpleo.php", { empleo: num }, function(){
-    return CEmpleos('','Eliminar','#RespE');
-    });  
-}
 function limpiar(){
   document.getElementById("EmpleoAlert").innerHTML="";
 }
@@ -526,17 +541,7 @@ function usuariosA(num,ty){
     $('#EmpleoAlert').html(data);
     });  
 }
-function EmpleosA1(num,ty){
-    $.post("../php/EmpleosA.php", { empleo: num, tipo: ty }, function(data){
-    $('#Mod').html(data);
-    });  
-}
-function DeleteEmpleo1(num){
-    $.post("../php/DeleteEmpleo.php", { empleo: num }, function(){
-    return CEmpleos('','Eliminar','#ConsE');
-    });  
-}
-function zonaR(num){
+function zonaN(num){
   $.post("php/zonas.php", { numeroZ: num}, function(data){
     $('#zonaY').html(data);
   });
@@ -551,12 +556,18 @@ function zonaRD(num,tipo,lugar){
     $(lugar).html(data);
   });
 }
+//Esta funcion servira para el cambio de clave de escuela en todos los usuarios
+function zonaCU(num,tipo,lugar){
+  $.post("../php/zonas.php", {numeroZ: num, tipoU: tipo}, function(data){
+    $(lugar).html(data);
+  });
+}
 function validaCurpE(cadena,tipo,destino){
   $.post("php/validaCurpR.php",{curpC: cadena,tipoU:tipo}, function(data){
     $(destino).html(data);
   });
 }
-function ShowSelected(loca,clave,destino1,destino2){
+function ShowSelected(loca,clave,destino1,destino2,destino3){
 /* Para obtener el valor,loca es localidad nombre evaluado y clave es, donde esta la clavesita y destino1 y destino2 son para el nombre de la escuela */
 var cod = document.getElementById(loca).value;
 /* Para obtener el texto */
@@ -566,14 +577,35 @@ document.getElementById(clave).innerHTML = "Clave: ";
 /*alert(selected);*/
 var cadena = cod;
 var res = cadena.split("-");
-    document.getElementById(destino1).innerHTML = res[0];
-    document.getElementById(destino2).innerHTML = res[1];
+var valor1 = res[0]; //Valor del primer atributo
+var valor2 = res[1]; //Valor segundo atributo
+    document.getElementById(destino1).innerHTML = valor1;
+    document.getElementById(destino2).innerHTML = valor2;
+    $("#"+destino3).val(''+valor2);
+
     //
 
 }
 //Obtener por grado alumnos y grupo
-function alumnosV(cad,tipo, tipo1,grado, grupo, clave){
+function alumnosV(cad,tipo, tipo1,grado, grupo, clave, cadD){
   $.post("../php/ConsultaFiltros.php",{busqueda:cad,tipoU: tipo, tipoC: tipo1, GradoU:grado, GrupoU:grupo, claveEscuela1:clave}, function(data){
-    $('#ConsA2').html(data);
+    $(cadD).html(data);
+  });
+}
+// Esta funcion obtiene las escuelas con los directores asignados para el mismo.
+function escuelas(cad1,cad2,cad3,cad4,cad5){
+  $.post("../php/Escuelas.php",{clave:cad1, zona:cad2, tipo:cad4, busqueda:cad5}, function(data){
+    $(cad3).html(data);
+  });
+}
+//Funcion utilizada para el envio de pdf
+function enviar(cad1,cad2){
+  $.post("../php/InfoSolicitud.php",{val1:cad1},function(data){
+    $(cad2).html(data);
+  });
+}
+function descargaA(cad1,cad2){
+  $.post("../php/descarga.php",{ruta:cad1},function(data){
+    $(cad2).html(data);
   });
 }

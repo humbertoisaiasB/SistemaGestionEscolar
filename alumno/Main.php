@@ -10,7 +10,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.css">
       <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/Home.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,7 +21,7 @@
     <link href="../assets/assets1/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="../assets/assets1/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../assets/assets1//js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/assets1/js/gritter/css/jquery.gritter.css" />
         
     <!-- Custom styles for this template -->
     <link href="../assets/assets1/css/style.css" rel="stylesheet">
@@ -52,11 +52,6 @@
             </div><!-- /.navbar-collapse -->
         </header>
       <!--header end-->
-      
-      <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
@@ -74,27 +69,28 @@
                        echo $_SESSION['User'];
                     ?>
                   </h5>
+                  <h6 style="color: white;" class="centered">
+                    <?php
+                       echo "Tipo de Usuario: Alumno";
+                    ?>
+                  </h6>
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-desktop"></i>
-                          <span>Sesion.</span>
+                          <span>Sesión.</span>
                       </a>
                       <ul class="sub">
-                          <li>
                             <a  href="Actualizarinformacion.php" ><i class="fa fa-sign-out"></i>Editar datos personales.</a>
-                          </li>
-                          <li>
                             <a  href="../index.php" ><i class="fa fa-sign-out"></i>Cerrar sesion.</a>
-                          </li>
                       </ul>
                   </li>
                   <li class="sub-menu">
                       <a class="active" href="javascript:;" >
                           <i class="fa fa-desktop"></i>
-                          <span>Gestionar Archivos.</span>
+                          <span>Gestionar Documentos Personales.</span>
                       </a>
                       <ul class="sub">
-                          <a  href="Main.php" data-toggle="tab">General</a>
+                            <a  href="Main.php" data-toggle="tab">General</a>
                       </ul>
                   </li>
               </ul>
@@ -105,12 +101,12 @@
 
 
 <main class="content">
-  <section id="main-content">
-    <section class="wrapper">
+    <section id="main-content">
+      <section class="wrapper">
       <div class="container-fluid">
         <div class="row">
-          <div class="queso col-md-12">
-            <div class=" embed-responsive embed-responsive-16by9">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="embed-responsive embed-responsive-16by9">
               <iframe class="embed-responsive-item" src="Buscar.php"></iframe>
             </div>
           </div>

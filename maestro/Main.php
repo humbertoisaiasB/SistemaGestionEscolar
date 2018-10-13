@@ -74,13 +74,19 @@
                        echo $_SESSION['User'];
                     ?>
                   </h5>
+                  <h6 style="color: white;" class="centered">
+                    <?php
+                       echo "Tipo de Usuario: Maestro";
+                    ?>
+                  </h6>
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-desktop"></i>
-                          <span>Sesion.</span>
+                          <span>Sesión.</span>
                       </a>
                       <ul class="sub">
                           <li>
+                            <a  href="Actualizarinformacion.php" ><i class="fa fa-sign-out"></i>Editar datos personales.</a>
                             <a  href="../index.php" ><i class="fa fa-sign-out"></i>Cerrar sesion.</a>
                           </li>
                       </ul>
@@ -91,7 +97,16 @@
                           <span>Gestionar Alumnos.</span>
                       </a>
                       <ul class="sub">
-                          <a  href="#alumnos" data-toggle="tab">General</a>
+                          <a target="_top" href="#alumnos" data-toggle="tab">General</a>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>Gestionar Documentos Personales.</span>
+                      </a>
+                      <ul class="sub">
+                            <a  href="#buscar" data-toggle="tab">Subir</a>
                       </ul>
                   </li>
               </ul>
@@ -113,15 +128,9 @@
                 </div>
               </div>
 
-              <div class="tab-pane fade" id="materias" >
+              <div class="tab-pane fade" id="buscar" >
                 <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="materias.php"></iframe>
-                </div>
-              </div>
-
-              <div class="tab-pane fade" id="grupos" >
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="grupos.php"></iframe>
+                  <iframe class="embed-responsive-item" src="Buscar.php"></iframe>
                 </div>
               </div>
           </div>

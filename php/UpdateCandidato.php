@@ -32,7 +32,7 @@ if (isset($_POST['btn_CandidatoPw'])){
   if(mysqli_query($con,"update usuarios SET Contrasena='$_POST[txt_Psw]' WHERE id_Usuario='$_SESSION[id]'")){
     echo '<script type="text/javascript">
          alert ("Actualizado Correctamente");
-      window.location.assign("../Candidato/Actualizarinformacion.php");
+      window.location.assign("../alumno/Actualizarinformacion.php");
       </script>';
       exit;
   }else{

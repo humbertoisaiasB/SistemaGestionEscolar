@@ -3,8 +3,6 @@
 include("../php/Conexion.php");
 session_start();
 $hoy = getdate(); //La gecha
-$asd = mysqli_query($con,"select * from usuarios u,empleador ed,empresa e where  e.id_Empresa=ed.id_Empresa and u.id_Usuario=ed.id_Usuario and u.id_Usuario=0");
-$row = mysqli_fetch_array($asd);
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,6 +17,7 @@ $row = mysqli_fetch_array($asd);
     <link rel="stylesheet" href="../assets/css/Mycss.css">
     <script type="text/javascript" src="../assets/bootstrap/js/jquery-3.1.1.js" ></script>
     <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/JS/MyJS.js"></script>
 
 </head>
 <body class="site" onload="return Solicitudes();">
@@ -74,6 +73,7 @@ $row = mysqli_fetch_array($asd);
                                         <tr>
                                           <th>Nombre asignado.</th>
                                           <th>fecha en que se realizo.</th>
+                                          <th>Descargar</th>
                                         </tr>
                                       </thead>
                                       <tbody>
@@ -88,15 +88,19 @@ $row = mysqli_fetch_array($asd);
                                                 if (!is_dir($archivo))//verificamos si es o no un directorio
                                                 { 
                                                     $fecha = substr($archivo, 4,10);
-                                                    echo  "<tr>
-                                                            <td>".$archivo."</td>
-                                                            <td>".$fecha."</td>
+                                                    echo  '<tr>
+                                                            <td>'.$archivo.'</td>
+                                                            <td>'.$fecha.'</td>
+                                                            <td><input onclick="return descargaA('."'".'../php/myphp-backup-files/'.$archivo.''."'".','."'".'#listo'."'".');" type="submit" class="btn btn-primary" name="botonArre" id="botonArre" value="Descargar"></td>
                                                             <td></td>
-                                                          </tr>";
+                                                          </tr>';
                                                 }
                                             }
                                         ?>
                                       </tbody>
+                                      <div id="listo">
+                                      
+                                      </div>
                                     </table>
                                 </div>
                             </div>

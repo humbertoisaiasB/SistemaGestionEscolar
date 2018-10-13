@@ -1,25 +1,58 @@
 <?php 
 	include 'Conexion.php';
-	$sql=mysqli_query($con,"SELECT * from usuarios WHERE id_Usuario=".$_POST['id_Usuario']);
-	$row=mysqli_fetch_array($sql);
-	echo '<div class="modal-dialog modal-sm">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"  >&times;</button>
-        <h4 class="modal-title">'.$row['Ap'].' </h4> 
-      </div>
-      <div class="modal-body" align=center>
-      		<h3><b>Estoy Interesado</b> </h3>
-          	<img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
+	session_start(); 
 
-      </div>
-      <div class="modal-footer">
-      	<button type="button" class="btn btn-info" >Ver PDF</button>
-        <button type="button" class="btn btn-success" data-toggle="modal"  >Agendar</button>
-        <button type="button" class="btn btn-danger" >Rechazar</button>
-      </div>
-    </div>
+//recipient
+$to = 'humbertobernardino4@gmail.com';
 
-  </div>';
+//sender
+$from = 'isa-bn@live.com';
+$fromName = 'Programacion.net';
+
+//email subject
+$subject = 'PHP Email with Attachment'; 
+
+//attachment file path
+$file = "../php/archivo.pdf";
+//email body content
+$htmlContent = '<h1>PHP Email with Attachment</h1>
+    <p>This email has sent from PHP script with attachment.</p>';
+
+//header for sender info
+$headers = "From: $fromName"." <".$from.">";
+
+//boundary 
+$semi_rand = md5(time()); 
+$mime_boundary = "==Multipart_Boundary_x{$semi_rand}x"; 
+
+//headers for attachment 
+$headers .= "nMIME-Version: 1.0n" . "Content-Type: multipart/mixed;n" . " boundary='{$mime_boundary}'"; 
+
+//multipart boundary 
+$message = "--{$mime_boundary}n" . "Content-Type: text/html; charset='UTF-8'n" .
+"Content-Transfer-Encoding: 7bitnn" . $htmlContent . "nn"; 
+
+//preparing attachment
+if(!empty($file) > 0){
+    if(is_file($file)){
+        $message .= "--{$mime_boundary}n";
+        $fp =    @fopen($file,"rb");
+        $data =  @fread($fp,filesize($file));
+
+        @fclose($fp);
+        $data = chunk_split(base64_encode($data));
+        $message .= "Content-Type: application/octet-stream; name=".basename($file)."n" . 
+        "Content-Description: ".basename($file)."n" .
+        "Content-Disposition: attachment;n" . " filename=".basename($file)."; size=".filesize($file).";n" . 
+        "Content-Transfer-Encoding: base64nn" . $data . "nn";
+    }
+}
+$message .= "--{$mime_boundary}--";
+$returnpath = "-f " . $from;
+
+//send email
+$mail = @mail($to, $subject, $message, $headers, $returnpath); 
+
+//email sending status
+echo $mail?"<h1>Mail sent.</h1>":"<h1>Mail sending failed.".$to." : ".$subject." : ".$mail." : </h1>";
 ?>

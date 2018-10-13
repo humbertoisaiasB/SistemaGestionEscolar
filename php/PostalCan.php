@@ -1,10 +1,12 @@
 <?php 
 	include ("Conexion.php");
+	$aux = "";
 	  if(isset($_POST['codigo']) && strlen($_POST['codigo'])==5 ) {
-	  		$tipoF = (isset($_POST['tipoU']) && $_POST['tipoU']=="Alumno" || $_POST['tipoU']=="Maestro" || $_POST['tipoU']=="Director") ?  $_POST['tipoU']:"No";
+	  		$tipoF = (isset($_POST['tipoU']) && $_POST['tipoU']=="Alumno" || $_POST['tipoU']=="Maestro" || $_POST['tipoU']=="Director" || $_POST['tipoU']=="PersonalA" || $_POST['tipoU']=="Supervisor") ?  $_POST['tipoU']:"No";
 	  		$result=mysqli_query($con,"Select estado, ciudad, asentamiento from sepomex where cp=$_POST[codigo]");
 	  		$row=mysqli_fetch_array($result);	
 	  		if(mysqli_num_rows($result)>0){
+	  			$aux = ($row['ciudad']=="") ? $row['asentamiento'] : $row['ciudad'] ;
 ?>
 	<label for="Sl_Pais<?php echo $tipoF;?>">País:</label>
 	<select class="form-control" name="Sl_Pais<?php echo $tipoF;?>" >
@@ -17,7 +19,7 @@
 										     
    <label for="Sl_Ciudad<?php echo $tipoF;?>">Ciudad:</label>
    <select class="form-control" name="Sl_Ciudad<?php echo $tipoF;?>" >
-   		<option><?php echo utf8_encode($row['ciudad']); ?></option>  
+   		<option><?php echo $aux; ?></option>  
    </select>
 			
 	<label for="Sl_Colonia<?php echo $tipoF;?>">Colonia/Fraccionamiento:</label>

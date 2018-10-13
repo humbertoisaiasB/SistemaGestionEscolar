@@ -76,15 +76,19 @@
                        echo $_SESSION['User'];
                     ?>
                   </h5>
+                  <h6 style="color: white;" class="centered">
+                    <?php
+                       echo "Tipo de Usuario: Director";
+                    ?>
+                  </h6>
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-desktop"></i>
                           <span>Sesion.</span>
                       </a>
                       <ul class="sub">
-                          <li>
-                            <a  href="../index.php" ><i class="fa fa-sign-out"></i>Cerrar sesion.</a>
-                          </li>
+                          <a  href="Actualizarinformacion.php" ><i class="fa fa-sign-out"></i>Editar datos personales.</a>
+                          <a  href="../index.php" ><i class="fa fa-sign-out"></i>Cerrar sesion.</a>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -108,11 +112,20 @@
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-book"></i>
-                          <span>Gestionar personal de la escuela.</span>
+                          <i class="fa fa-cogs"></i>
+                          <span>Gestionar Personal de apoyo.</span>
                       </a>
                       <ul class="sub">
-                          <li><a href="#perso" data-toggle="tab">General</a></li>
+                          <a href="#perso" data-toggle="tab">General</a>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-book"></i>
+                          <span>Gestionar Documentos Personales.</span>
+                      </a>
+                      <ul class="sub">
+                          <a href="#buscar" data-toggle="tab">Subir</a></li>
                       </ul>
                   </li>
               </ul>
@@ -142,13 +155,13 @@
 
               <div class="tab-pane fade" id="perso" >
                 <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="GestionarPerso.php"></iframe>
+                  <iframe class="embed-responsive-item" src="GestionarMaterias.php"></iframe>
                 </div>
               </div>
 
-              <div class="tab-pane fade" id="materias" >
+              <div class="tab-pane fade" id="buscar" >
                 <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="GestionarMaterias.php"></iframe>
+                  <iframe class="embed-responsive-item" src="Buscar.php"></iframe>
                 </div>
               </div>
           </div>

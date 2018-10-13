@@ -26,7 +26,7 @@
  */
 define("DB_USER", 'root');
 define("DB_PASSWORD", '');
-define("DB_NAME", 'f2c');
+define("DB_NAME", 'gestion');
 define("DB_HOST", 'localhost');
 define("BACKUP_DIR", 'myphp-backup-files'); // Comment this line to use same script's directory ('.')
 define("TABLES", '*'); // Full backup
@@ -88,7 +88,7 @@ class Backup_Database {
         $this->charset         = $charset;
         $this->conn            = $this->initializeDatabase();
         $this->backupDir       = BACKUP_DIR ? BACKUP_DIR : '.';
-        $this->backupFile      = 'f2c-'.date("Y-m-d-H-i-s").'.sql';
+        $this->backupFile      = 'gestion-'.date("Y-m-d-H-i-s").'.sql';
         $this->gzipBackupFile  = defined('GZIP_BACKUP_FILE') ? GZIP_BACKUP_FILE : true;
         $this->output          = '';
     }

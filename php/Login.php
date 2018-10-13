@@ -50,6 +50,12 @@
 				window.location.assign("director/Main.php"); 
 				</script>';
 				exit;
+				//Aqui para el Supervisor
+			}elseif ($row['Tipo']=="Supervisor") {
+				echo '<script type="text/javascript">
+				window.location.assign("supervisor/Main.php"); 
+				</script>';
+				exit;
 				//Aqui para el Administrador
 			}else if($row['Tipo']=="Administrador"){
 				echo '<script type="text/javascript">

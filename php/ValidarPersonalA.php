@@ -36,7 +36,7 @@
   if($cont==0){
     echo '<p align="center"><input type="submit" class="btn btn-success" value="Registrar" name="btn_personalA"></p>';
   }else{
-    echo '<p align="center"><button type="button" class="btn btn-danger" onmousemove="return validar3();">Check</button>';
+    echo '<p align="center"><button type="button" class="btn btn-danger" onmousemove="return validar4();">Check</button>';
   }
 
  ?>

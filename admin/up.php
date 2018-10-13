@@ -3,8 +3,6 @@
 include("../php/Conexion.php");
 session_start();
 $hoy = getdate(); //La gecha
-$asd = mysqli_query($con,"select * from usuarios u,empleador ed,empresa e where  e.id_Empresa=ed.id_Empresa and u.id_Usuario=ed.id_Usuario and u.id_Usuario=0");
-$row = mysqli_fetch_array($asd);
 ?>
 <!DOCTYPE html>
 <html>

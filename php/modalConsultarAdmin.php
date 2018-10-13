@@ -1,21 +1,30 @@
 <?php
 session_start();
 include 'Conexion.php';
-//if ('$_POST[es]'=="empleo") {
-  //$asd = mysqli_query($con,"select em.id_Empresa, u.Tipo, u.Nom, u.Ap, u.Am, em.Sexo, u.Pais, u.Estado, u.Ciudad, u.Colonia, u.Calle
-  //FROM empleador AS em 
-  //INNER JOIN usuarios AS u ON ( em.id_Usuario = u.id_Usuario ) 
-  //INNER JOIN empleo AS e ON ( em.id_Empleador= e.id_Empleador AND e.id_Empleador=em.id_Empleador) where em.id_Empleador=e.id_Empleador and u.id_Usuario='$_POST[info]'");
   $asd = mysqli_query($con,"select Nom,Ap,Am,id_Usuario,Tipo,Pais,Estado,Ciudad,Correo from usuarios where id_Usuario='$_POST[info]'");
   $row = mysqli_fetch_array($asd);
   $curp = "";
+  $aux = array("","","","","","","","","","");
   $directorio = "";
+  $totalA = 0;
   $cont = 0;
   $queso1 = "";
   $queso2= "";
-  //if ($row['Tipo'] == "Empresa") {
+  function nombreCadena($largo){
+    $chico = "";
+    $total = strlen($largo);
+    for($i=0; $i<=$total; $i=$i+1){
+      if($largo[$i]=="."){
+        $chico = substr($largo, 0, $i);
+        break;
+      }else{
+        $chico = "Queso";
+      }
+    }
+    return $chico;
+  }
 ?>
-  <div class="modal-dialog " onload="return BuscarDocumentos(<?php echo $_POST['info'];?>,<?php echo $curp ?>)">
+  <div class="modal-dialog ">
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
@@ -25,19 +34,19 @@ include 'Conexion.php';
             <div class="modal-body" align="center">
               <?php
                 if($row['Tipo']=="Alumno"){
-                echo "<p><b>El nombre del alumno es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
+                echo "<p><b>Nombre : </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
                 echo "<p><b>Pais: </b>".$row['Pais']."</p>";
                 echo "<p><b>Estado: </b>".$row['Estado']."</p>";
                 echo "<p><b>Ciudad:  </b>".$row['Ciudad']."</p>";
                 echo "<p><b>Correo: </b>".$row['Correo']."</p>";
                 }elseif($row['Tipo']=="Maestro") {
-                  echo "<p><b>El nombre del maestro es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
+                  echo "<p><b>Nombre : </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
                   echo "<p><b>Pais: </b>".$row['Pais']."</p>";
                   echo "<p><b>Estado: </b>".$row['Estado']."</p>";
                   echo "<p><b>Ciudad:  </b>".$row['Ciudad']."</p>";
                   echo "<p><b>Correo: </b>".$row['Correo']."</p>";
                 }elseif ($row['Tipo']=="PersonalA") {
-                  echo "<p><b>El nombre del personal de apoyo es: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
+                  echo "<p><b>Nombre : </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
                   echo "<p><b>Pais: </b>".$row['Pais']."</p>";
                   echo "<p><b>Estado: </b>".$row['Estado']."</p>";
                   echo "<p><b>Ciudad:  </b>".$row['Ciudad']."</p>";
@@ -53,53 +62,118 @@ include 'Conexion.php';
                   if($row['Tipo']=="Alumno"){
                     $sql = mysqli_query($con,"select curpAlumno,id_Usuario from alumnos where id_Usuario='$_POST[info]'");
                     $row1 = mysqli_fetch_array($sql);
-                    $nombreDocu = array("".$row1['curpAlumno']."_BG","".$row1['curpAlumno']."_CP","".$row1['curpAlumno']."_CU","".$row1['curpAlumno']."_IM","".$row1['curpAlumno']."_IP","".$row1['curpAlumno']."_CD","".$row1['curpAlumno']."_CM","".$row1['curpAlumno']."_AN");
-                    $nombreBoton = array("Boleta de calificaciones de 6 grado.","Certificado de primaria.","CURP del alumno.","INE de la madre(Frontal).","INE de la madre(Atras).","INE del padre(Frontal).","INE del padre(Atras).","Comprobante de domicilio.","Certificado Medico.","Acta de nacimiento.");
-                    $directorio = opendir("../php/documentos/".$row['Tipo']."/".$row1['curpAlumno']."/"); //ruta actual
-                    while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro sucesivamente
-                    {
-                      if (!is_dir($archivo))//verificamos si es o no un directorio
-                        { 
-                          if($archivo==$nombreDocu[$cont].".pdf"){
-                            $queso1 = $queso1.
-                            '<div class="media cambio">
+                    $nombreArchivoC = "";
+                    $compara = $row1['curpAlumno']."_";
+                    $nombreDocu = array("".$compara."BG","".$compara."CP","".$compara."CU","".$compara."IMF","".$compara."IMD","".$compara."IPF","".$compara."IPD","".$compara."CD","".$compara."CM","".$compara."AN");
+                    $nombreBoton = array("Reporte de evaluciacion del grado Anterior.","Certificado de primaria.","CURP del alumno.","INE de la madre(Frontal).","INE de la madre(Atras).","INE del padre(Frontal).","INE del padre(Atras).","Comprobante de domicilio.","Certificado Médico.","Acta de nacimiento.");
+                    $existente = array("","","","","","","","","","");
+                    $aux1 = "f";
+                    $aux2 = 0; 
+                    $documentos = 10;
+                    $directorio = opendir("../php/documentos/alumno/".$row1['curpAlumno']."/"); //ruta actual
+                    while($archivo = readdir($directorio)){
+                      if (!is_dir($archivo)) {
+                        $nombreArchivoC = nombreCadena($archivo);
+                        $aux[$cont] = $nombreArchivoC;
+                        $cont = $cont + 1;
+                      }
+                    }
+                    echo '<h3 align="center">Archivos disponibles para su visualizacion: '.$cont.'</h3>';
+                    for($i=0; $i<$documentos; $i++){ 
+              for($j=0; $j<$documentos; $j++){
+                if($nombreDocu[$i]==$aux[$j]){
+                  $aux1=$aux[$j];
+                  $caso = "si";
+                  echo '<div class="media cambio">
                               <div class="media-left">
                                 <a href="#">
                                   <img class="media-object" src="../assets/images/curp.png" height="60px" width="60px">
                                 </a>
                               </div>
                               <div align="center" class="media-body">
-                                <h4 align="center" class="media-heading">'.$nombreBoton[$cont].'</h4>
-                                <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$row1['curpAlumno'].'/'.$nombreDocu[$cont].'.pdf'."'".')">Ver '.$nombreBoton[$cont].'</button>
+                                <h4 align="center" class="media-heading">'.$nombreBoton[$i].'</h4>
+                                <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$row1['curpAlumno'].'/'.$nombreDocu[$i].'.pdf'."'".')">Ver '.$nombreBoton[$i].'</button>
                               </div>
                             </div>';
-                            $cont=$cont+1;
-                          }                        
-                        }
-                    }
-                    $totalA=8;
-                    $totalA=$totalA-$cont;
-                    for($i=0; $i<=$totalA; $i++){
-                      $queso1 = $queso1.
-                            '<div class="media cambioN">
+                }
+              }
+              if($nombreDocu[$i]!=$aux1){
+                $caso = "no";
+                              echo  '<div class="media cambioN">
                               <div class="media-left">
                                 <a href="#">
                                   <img class="media-object" src="../assets/images/curp.png" height="60px" width="60px">
                                 </a>
                               </div>
                               <div align="center" class="media-body">
-                                <h4 align="center" class="media-heading">No disponible: '.$nombreBoton[$cont].'</h4>
+                                <h4 align="center" class="media-heading">No disponible: '.$nombreBoton[$i].'</h4>
+                              </div>
+                         </div>';
+              }
+              }
+                    
+                  }
+                  //Maestro
+                  elseif($row['Tipo']=="Maestro"){
+                    $sql = mysqli_query($con,"select curpMaestro,id_Usuario from maestros where id_Usuario='$_POST[info]'");
+                    $row1 = mysqli_fetch_array($sql);
+                    $nombreArchivoC = "";
+                    $compara = $row1['curpMaestro']."_";
+                    $nombreDocu = array("".$compara."FUP","".$compara."CI","".$compara."CD","".$compara."CURP","".$compara."INEF","".$compara."INED","".$compara."CEL","".$compara."CEM","".$compara."CPLF","".$compara."CPLA","".$compara."CPMF","".$compara."CPMA","".$compara."OB","".$compara."AN","".$compara."TL","".$compara."TM","".$compara."SAT","".$compara."CL","".$compara."AP","".$compara."SA");
+                    $nombreArchivos = array("Formato único de personal.","Comprobante de ingresos.","Comprobante de domicilio.","CURP","INE(Frontal)","INE(Detras)","Certificado estudios licenciatura","Certificado de estudios maestria","Cédula profesional de licenciatura(Frontal)","Cédula profesional de licenciatura(Detras)","Cédula profesional de maestria(Frontal)","Cédula profesional de maestria(Detras)","Oficio de basificación.","Acta de nacimiento","Título Licenciatura","Título Maestria","Alta al SAT(RFC)","Cartilla Militar(SMN)","No Antecedentes Penales.","No Sanción Administrativa");
+                    $aux = array("no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no");
+                    $aux1 = "f";
+                    $aux2 = 0; 
+                    $documentos = 20;
+                    $directorio = opendir("../php/documentos/maestro/".$row1['curpMaestro']."/"); //ruta actual
+                    while($archivo = readdir($directorio)){
+                      if (!is_dir($archivo)) {
+                        $nombreArchivoC = nombreCadena($archivo);
+                        $aux[$cont] = $nombreArchivoC;
+                        $cont = $cont + 1;
+                      }
+                    }
+                    echo '<h3 align="center">Archivos disponibles para su visualizacion: '.$cont.'</h3>';
+                    for($i=0; $i<$documentos; $i++){ 
+              for($j=0; $j<$documentos; $j++){
+                if($nombreDocu[$i]==$aux[$j]){
+                  $aux1=$aux[$j];
+                  $caso = "si";
+                  echo '<div class="media cambio">
+                              <div class="media-left">
+                                <a href="#">
+                                  <img class="media-object" src="../assets/images/curp.png" height="60px" width="60px">
+                                </a>
+                              </div>
+                              <div align="center" class="media-body">
+                                <h4 align="center" class="media-heading">'.$nombreArchivos[$i].'</h4>
+                                <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/maestro/'.$row1['curpMaestro'].'/'.$nombreDocu[$i].'.pdf'."'".')">Ver '.$nombreArchivos[$i].'</button>
+                                <button align="center" type="button" onclick="return enviar('."'"."hola"."'".','."'"."#aqui"."'".')" class="btn btn-info" >Enviar '.$nombreArchivos[$i].'</button>
+                                <div id=aqui>
+
+                                </div>
                               </div>
                             </div>';
-                            $cont++;
-                    }
-                    $queso2 = '<div class="row">
-                              '.$queso1.'
-                             </div>';
-                    $totalA = 8 - $totalA;
-                    echo '<h3 align="center">Archivos disponibles para su visualizacion: '.$totalA.'</h3>';
-                    echo $queso2;
-                  }  
+                            //onclick="window.open('."'".'../php/documentos/maestro/'.$row1['curpMaestro'].'/'.$nombreDocu[$i].'.pdf'."'".')"
+                }             
+              }
+              if($nombreDocu[$i]!=$aux1){
+                $caso = "no";
+                              echo  '<div class="media cambioN">
+                              <div class="media-left">
+                                <a href="#">
+                                  <img class="media-object" src="../assets/images/curp.png" height="60px" width="60px">
+                                </a>
+                              </div>
+                              <div align="center" class="media-body">
+                                <h4 align="center" class="media-heading">No disponible: '.$nombreArchivos[$i].'</h4>
+                              </div>
+                         </div>';
+              }
+              }
+                    
+                  }
+                  //Director  
                 ?>
             </div>
           </div>

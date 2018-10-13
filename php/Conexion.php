@@ -10,16 +10,16 @@
 	//$DB = 'gestion_database';
 	$DB = 'gestion'; 
 	$con = mysqli_connect($SERVER, $USER, $PASS, $DB);
-   
+ 
 	if (!$con) {
 	    echo "Error: No se ha podido conectar a MySQL." . PHP_EOL;
 	    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
 	    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
 	    exit;
 	}
-	function datos($curp){
+	function datos($curp,$numero){
 		//año,mes,dia,sexo,nacionalidad
-		$datosE = array("","","","","");
+		$datosE = "";
 		$variable = strtoupper($curp);
 		$aux = 0;
 		$aux1 = 0;
@@ -59,4 +59,5 @@
 		}
 		return $datosE;
 	}
+	//
 ?>	
