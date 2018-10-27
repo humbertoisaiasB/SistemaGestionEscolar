@@ -105,7 +105,7 @@
       <section class="wrapper">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-12 col-sm-12">
+          <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="embed-responsive embed-responsive-16by9">
               <iframe class="embed-responsive-item" src="Buscar.php"></iframe>
             </div>

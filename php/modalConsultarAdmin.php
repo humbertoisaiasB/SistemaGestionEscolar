@@ -92,6 +92,7 @@ include 'Conexion.php';
                               </div>
                               <div align="center" class="media-body">
                                 <h4 align="center" class="media-heading">'.$nombreBoton[$i].'</h4>
+                                <button align="center" type="button" class="btn btn-danger" onclick="return enviar('."'".'../php/documentos/'.strtolower($row['Tipo']).'/'.$row1['curpAlumno'].'/'.$nombreDocu[$i].'.pdf'."'".','."'".'#Mod'."'".');" data-toggle="modal" href="#Mod" >Enviar PDF a</button>
                                 <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/alumno/'.$row1['curpAlumno'].'/'.$nombreDocu[$i].'.pdf'."'".')">Ver '.$nombreBoton[$i].'</button>
                               </div>
                             </div>';
@@ -147,9 +148,8 @@ include 'Conexion.php';
                               </div>
                               <div align="center" class="media-body">
                                 <h4 align="center" class="media-heading">'.$nombreArchivos[$i].'</h4>
+                                <button align="center" type="button" class="btn btn-danger" onclick="return enviar('."'".'../php/documentos/'.strtolower($row['Tipo']).'/'.$row1['curpMaestro'].'/'.$nombreDocu[$i].'.pdf'."'".','."'".'#Mod'."'".');" data-toggle="modal" href="#Mod1" >Enviar PDF a</button>
                                 <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/maestro/'.$row1['curpMaestro'].'/'.$nombreDocu[$i].'.pdf'."'".')">Ver '.$nombreArchivos[$i].'</button>
-                                <button align="center" type="button" onclick="return enviar('."'"."hola"."'".','."'"."#aqui"."'".')" class="btn btn-info" >Enviar '.$nombreArchivos[$i].'</button>
-                                <div id=aqui>
 
                                 </div>
                               </div>
@@ -177,79 +177,6 @@ include 'Conexion.php';
                 ?>
             </div>
           </div>
-        </div>;
+        </div>
+
 <?php  
-  //}
-
-//}
-
-            //echo '<p>'.$_POST['es'].'</p>'; 
-            /*echo '<div class="col-md-6" style="word-wrap:break-word; display: inline-table;">';
-            echo '<ul class="list-unstyled">';
-            if(mysqli_num_rows($asd)>1){
-
-               <div class="row">
-                      <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                          <img src="../assets/images/curp.png">
-                          <div class="caption">
-                            <h3></h3>
-                            <p>...</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-              while ($row = mysqli_fetch_array($asd)) {
-                //echo '<div class="col-md-4" style="word-wrap:break-word";>';
-                echo '<li>';
-                echo '<a data-toggle="modal" data-target="#Mod" class="thumbnail">';
-                echo '<img src="../assets/Profiles/user.png"  width="180px" height="100px"><p>'.$row['Nom'].'</p><p>Tipo : '.$row['cont'].'</p></a>';
-                echo '</li>';
-              } 
-              
-            }else if(mysqli_num_rows($asd)==1){
-              $row = mysqli_fetch_array($asd);
-              echo '<div class="col-md-4" style="word-wrap:break-word";>';
-              echo '<a  data-toggle="modal" data-target="#Mod" class="thumbnail">';
-              echo '<img src="../assets/Profiles/user.png"  width="180px" height="100px"><p>'.$row['Nom'].'</p><p>Tipo : '.$row['cont'].'</p></a>';
-              echo '</div>';
-            }*/
-
-             /* if ($row['Tipo'] == "Empresa") {
-                echo "<p><b>Nombre: </b>".$row['Nom']."</p>";
-                echo "<p><b>Pais: </b>".$row['Pais']."</p>";
-                echo "<p><b>Estado: </b>".$row['Estado']."</p>";
-                echo "<p><b>Ciudad: </b>".$row['Ciudad']."</p>";
-                //echo "<p><b>Colonia: </b>".$row['Colonia']."</p>";
-                echo "<p><b>Correo: </b>".$row['Correo']."</p>";
-                echo "<button onclick='mensajeAdmin(".$row['id_Usuario'].");' >¿Eliminar?</button>";
-              }
-              elseif ($row['Tipo'] == "Empleador") {
-                echo "<p><b>Nombre: </b>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";
-                echo "<p><b>Pais: </b>".$row['Pais']."</p>";
-                echo "<p><b>Estado: </b>".$row['Estado']."</p>";
-                echo "<p><b>Ciudad: </b>".$row['Ciudad']."</p>";
-                //echo "<p><b>Colonia: </b>".$row['Colonia']."</p>";
-                echo "<p><b>Correo: </b>".$row['Correo']."</p>";
-                echo "<button onclick='mensajeAdmin(".$row['id_Usuario'].");' >¿Eliminar?</button>";
-              }
-              elseif ($row['Tipo'] == "Candidato") {
-                echo "<p><b>Nombre: </b>".$row['Nom']."</p>";
-                echo "<button onclick='mensajeAdmin(".$row['id_Usuario'].");' >¿Eliminar?</button>";
-              }
-              //
-              //echo "<p><b>Tipo: </b>".$row['Tipo'].;
-              //echo "<p><b>Telefono del trabajo: </b>".$row['Trabajo']."</p>";
-              //echo "<p><b>Telefono celular: </b>".$row['Celular']."</p>";
-              //
-              //echo "<p><b>Estado: </b>".$row['Estado']."</p>";
-              //echo "<p><b>Ciudad: </b>".$row['Ciudad']."</p>";
-              //echo "<p><b>Colonia: </b>".$row['Colonia']."</p>";
-              //echo "<p><b>Calle: </b>".$row['Calle']."</p>";
-              //echo "<p><b>Sexo: </b>".$row['Sexo']."</p>";
-              //echo "<p><b>Departamento: </b>".$row['Departamento']."</p>";
-              */
-           ?>
-           

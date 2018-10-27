@@ -74,6 +74,11 @@
         $('#InfoAlert').html(data);
       });
     }
+    function enviar(cad1,cad2){
+      $.post("../php/index.php",{ruta:cad1,ruta1:cad2},function(data){
+        $('#InfoAlert').html(data);
+      });
+    }
     function limpiar(){
       document.getElementById("#InfoAlert").innerHTML="";
     }

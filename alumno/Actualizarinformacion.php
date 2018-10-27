@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../assets/css/Mycss.css">
     <script type="text/javascript" src="../assets/bootstrap/js/jquery-3.1.1.js" ></script>
     <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/JS/MyJS.js"></script>
     <link href="../assets/assets1/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="../assets/assets1/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -142,33 +143,34 @@
       <div class="tab-content">
 
         <div class="tab-pane fade in active" id="info">
-          <form action="../php/UpdateCandidato.php" method="POST" role="form">
+          <form action="../php/UpdateTotal.php" method="POST" role="form">
           <div class="col-md-8 col-md-offset-1 well">
             <h3 align="center">Informacion del alumno</h3>
-            <div id="div_NomCandidato">
-              <label>Nombre:</label><input id="txt_NomCandidato" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomCandidato',this.value);NomValid(this);"  type="text" class="form-control" name="txt_Nom" value="<?php echo $val['Nom']; ?>"><span id="span_NomCandidato" ></span>
+            <div id="div_NomAlumno">
+              <label>Nombre:</label><input id="txt_NomAlumno" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAlumno',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAlumno" value="<?php echo $val['Nom']; ?>"><span id="span_NomAlumno" ></span>
             </div>
-            <div id="div_Ap">
-              <label>Apellido paterno:</label><input id="txt_Ap" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'Ap',this.value);NomValid(this);" type="text" class="form-control"  name="txt_Ap" value="<?php echo $val['Ap']; ?>"><span id="span_Ap" ></span>
+            <div id="div_ApAlumno">
+              <label>Apellido paterno:</label><input id="txt_ApAlumno" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'ApAlumno',this.value);NomValid(this);" type="text" class="form-control"  name="txt_ApAlumno" value="<?php echo $val['Ap']; ?>"><span id="span_ApAlumno" ></span>
             </div>
-            <div id="div_Am">
-              <label>Apellido materno:</label><input id="txt_Am" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'Am',this.value);NomValid(this);" type="text" class="form-control" name="txt_Am" value="<?php echo $val['Am']; ?>"><span id="span_Am" ></span>
+            <div id="div_AmAlumno">
+              <label>Apellido materno:</label><input id="txt_AmAlumno" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'Am',this.value);NomValid(this);" type="text" class="form-control" name="txt_AmAlumno" value="<?php echo $val['Am']; ?>"><span id="span_AmAlumno" ></span>
             </div>
-            <div id="div_Telcasa" >
-              <label>Teléfono casa: </label><input input id="txt_Telcasa" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{8,10}$/,'Telcasa',this.value);" type="text" class="form-control" name="txt_Telcasa" value="<?php echo $val['Casa']; ?>"><span id="span_Telcasa" ></span>
+            <div id="div_TelcasaAlumno" >
+              <label>Teléfono casa: </label><input id="txt_TelcasaAlumno" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{8,10}$/,'TelcasaAlumno',this.value);" type="text" class="form-control" name="txt_TelcasaAlumno" value="<?php echo $val['Casa']; ?>"><span id="span_TelcasaAlumno" ></span>
             </div>
-            <div id="div_Telcelular">
-              <label>Teléfono celular:</label><input input id="txt_Telcelular"  onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'Telcelular',this.value);" type="text" class="form-control" name="txt_Telcelular" value="<?php echo $val['Celular']; ?>"><span id="span_Telcelular" ></span>
+            <div id="div_TelcelularAlumno">
+              <label>Teléfono celular:</label><input id="txt_TelcelularAlumno"  onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'TelcelularAlumno',this.value);" type="text" class="form-control" name="txt_TelcelularAlumno" value="<?php echo $val['Celular']; ?>"><span id="span_TelcelularAlumno" ></span>
             </div>
-            <div id="div_CorreoCandidato">
-              <label>Correo:</label><input id="txt_Correo" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoCandidato',this.value);" type="email" class="form-control" name="txt_Correo" value="<?php echo $val['Correo']; ?>" required><span id="span_CorreoCandidato" ></span>
+            <div id="div_CorreoAlumno">
+              <label>Correo:</label><input id="txt_CorreoAlumno" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoAlumno',this.value);" type="email" class="form-control" name="txt_CorreoAlumno" value="<?php echo $val['Correo']; ?>" required><span id="span_CorreoAlumno" ></span>
             </div>
             <div id="div_Curp">
                 <label>CURP del Alumno:</label><input id="txt_Curp" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[A-Z0-9]{2}/,'Curp',this.value); return validaCurpE(this.value,'Alumno','#div_CurpRepetida');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_Curp" value="<?php echo $val['curpAlumno']; ?>"><span id="span_Curp" ></span>
             </div>
             <div id="div_CurpRepetida" class="row"></div> 
             <br>
-            <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_CandidatoInfo"></p>
+            <p align="center"><input type="submit" onclick="return modifica('Alumno','info',<?php echo $val['id_Usuario'];?>,'#aqui');" class="btn btn-success" value="Actualizar" name="btn_AlumnoInfo"></p>
+            <div id="aqui"></div>
           </div>
           </form>
           <div class="col-md-2">
@@ -185,7 +187,6 @@
             </label>
                 <input type="submit" class="btn btn-danger btn-md" value="Guardar Imagen........">
             </form>
-
           </div>
         </div>
         <div class="tab-pane fade" id="direccion">
@@ -237,6 +238,7 @@
         <div class="tab-pane fade" id="Datos">
             <?php
               $clave = $val['claveEscuela'];
+              $num = 0;
             ?>
             <div align="center" class="panel panel-primary">
               <div class="panel-heading">Usted actualmente esta registrado en: <?php echo $val['nombreEscuela'] ?></div>
@@ -244,33 +246,20 @@
                   <label style="margin: 5px;">Clave de la escuela residente: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['clave'];?></span>
                   <label style="margin: 5px;">Escuela: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['nombreEscuela'];?></span>
                   <label style="margin: 5px;">Zona: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['ZonaEscolar'];?></span>
+              <div id="div_Zona1"style="display: inline-block;margin: 20px;">
+                <label for="zonas">Seleciona la zona:</label>
+                <select name="zonas" onchange="return ShowSelected2('zonas')">
+                  <?php  
 
-           
-            <div align="center" class="col-md-8 col-md-offset-1 well ">
-              <div id="div_Zona" class="row">
-                            <div class="col-2">
-                              <div class="btn-group btn-lg" role="group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Zona escolar
-                                <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <?php
-                                    for($i=1; $i<=56; $i++){
-                                      echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'".''."Alumno"."'".','."'"."#zonaYO"."'".');">'.$i.'</a></li>';
-                                    }
-                                    ?>
-                                </ul>
-                              </div>
-                              <div id="claveA" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
-    <label style="margin: 5px;" id="clavecitaCA"></label><span style="margin:10px;font-size: 15px;" id="prueba13A" name="prueba13A" class="label label-info"></span><input type="hidden" id="prueba13EA" name="prueba13EA" value="">
-                            </div>
-                          </div>
-                        </div>
-                          <div id="zonaYO"></div>
-              <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_CandidatoPw"></p>
-            </div>
-          
+                    for ($i=1; $i < 57; $i++) { 
+                      $num = $i;
+                      echo '<option value="'.$i.'"><a onclick="return zonaCU('.$i.','."'".''."alumno".''."'".','."'"."#zonaYO"."'".');">'.$i.'</a></li></option>';
+                    }
+                  ?>
+                </select>
+              </div>                       
+              <div id="zonaYO"></div>
+              <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_AlumnoDatos"></p>
                 </div>
             </div>
            

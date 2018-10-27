@@ -5,7 +5,7 @@
   //Consultar Usuarios
   if(isset($_POST['tipoC']) && $_POST['tipoC']=="Consulta" && $_POST['tipoU']=="Alumno"){
     if($_POST['GradoU']=="1"){
-      for($i=0; $i<=6; $i++){
+      for($i=0; $i<=7; $i++){
         if($Grupos[$i]==$_POST['GrupoU']){
           if($_POST['GrupoU']=="todos"){
             $sql = mysqli_query($con,"select u.id_Usuario, u.Nom, u.Ap, u.Am, u.Tipo, a.id_Alumno,a.curpAlumno,a.Grupo FROM usuarios AS u INNER JOIN alumnos AS a ON (a.id_Usuario=u.id_Usuario)WHERE u.Tipo='$_POST[tipoU]' and u.claveEscuela='$_POST[claveEscuela1]' and  a.Grado=$_POST[GradoU] and Nom like '$_POST[busqueda]%' limit 0,6");
@@ -32,7 +32,7 @@
         }
       }
     }elseif ($_POST['GradoU'] == "2") {
-      for($i=0; $i<=6; $i++){
+      for($i=0; $i<=7; $i++){
         if($Grupos[$i]==$_POST['GrupoU']){
           if($_POST['GrupoU']=="todos"){
             $sql = mysqli_query($con,"select u.id_Usuario, u.Nom, u.Ap, u.Am, u.Tipo, a.id_Alumno,a.curpAlumno,a.Grupo FROM usuarios AS u INNER JOIN alumnos AS a ON (a.id_Usuario=u.id_Usuario)WHERE u.Tipo='$_POST[tipoU]' and u.claveEscuela='$_POST[claveEscuela1]' and  a.Grado=$_POST[GradoU] and Nom like '$_POST[busqueda]%' limit 0,6");
@@ -59,7 +59,7 @@
         }
       }
     }elseif ($_POST['GradoU']=="3") {
-      for($i=0; $i<=6; $i++){
+      for($i=0; $i<=7; $i++){
         if($Grupos[$i]==$_POST['GrupoU']){
           if($_POST['GrupoU']=="todos"){
             $sql = mysqli_query($con,"select u.id_Usuario, u.Nom, u.Ap, u.Am, u.Tipo, a.id_Alumno,a.curpAlumno,a.Grupo FROM usuarios AS u INNER JOIN alumnos AS a ON (a.id_Usuario=u.id_Usuario)WHERE u.Tipo='$_POST[tipoU]' and u.claveEscuela='$_POST[claveEscuela1]' and  a.Grado=$_POST[GradoU] and Nom like '$_POST[busqueda]%' limit 0,6");

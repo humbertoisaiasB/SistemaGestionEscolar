@@ -141,7 +141,7 @@
 					                        <br>
 					                        <div id="Login" ></div>
 					                        <p class="">¿No tienes cuenta? <a href="Registro.php">Registrate</a></p>
-					                        <p class="">Se te olvidó la contraseña? <a href="">Recuperar</a></p>
+					                        <p class="">Se te olvidó la contraseña? <a href="recuperacion.php">Recuperar</a></p>
 					                    
 					                    </form>
 					       </div>

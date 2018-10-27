@@ -45,7 +45,7 @@
 		$Destino1A = "'"."prueba12D"."'";
 		$Destino1B = "prueba12D";
 		$Destino2A = "'"."prueba13D"."'";
-		$Destino3A = "prueba13ED";
+		$Destino3A = "'"."prueba13ED"."'";
 	}elseif($_POST['tipoU'] == "personal"){
 		$DivZona = "div_ZonaAdmi";
 		$DivLoca = "div_LocalidadAdmi";
@@ -57,7 +57,7 @@
 		$Destino1A = "'"."prueba12Admi"."'";
 		$Destino1B = "prueba12Admi";
 		$Destino2A = "'"."prueba13Admi"."'";
-		$Destino3A = "prueba13EAdmi";
+		$Destino3A = "'"."prueba13EAdmi"."'";
 	}elseif($_POST['tipoU'] == "Supervisor") {
 		$DivZona = "div_ZonaSupervisor";
 		$DivLoca = "div_LocalidadSupervisor";

@@ -16,7 +16,7 @@
     
       </script>';
       }
-      $carpeta = 'documentos/personalA/'.$curpA;
+      $carpeta = 'documentos/personal/'.$curpA;
       if (!file_exists($carpeta)) {
           if(mkdir($carpeta, 0777, true)){
             echo '<script type="text/javascript">

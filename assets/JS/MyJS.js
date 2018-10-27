@@ -586,6 +586,26 @@ var valor2 = res[1]; //Valor segundo atributo
     //
 
 }
+function ShowSelected2(numero){
+/* Para obtener el valor,loca es localidad nombre evaluado y clave es, donde esta la clavesita y destino1 y destino2 son para el nombre de la escuela */
+var cod = document.getElementById(numero).value;
+/* Para obtener el texto */
+var combo = document.getElementById(numero);
+var selected = combo.options[combo.selectedIndex].text;
+document.getElementById(clave).innerHTML = "Clave: ";
+/*alert(selected);*/
+zonaCU(cod,'Alumno','#zonaYO');
+//var cadena = cod;
+//var res = cadena.split("-");
+//var valor1 = res[0]; //Valor del primer atributo
+//var valor2 = res[1]; //Valor segundo atributo
+  //  document.getElementById(destino1).innerHTML = valor1;
+  //  document.getElementById(destino2).innerHTML = valor2;
+  //  $("#"+destino3).val(''+valor2);
+
+    //
+
+}
 //Obtener por grado alumnos y grupo
 function alumnosV(cad,tipo, tipo1,grado, grupo, clave, cadD){
   $.post("../php/ConsultaFiltros.php",{busqueda:cad,tipoU: tipo, tipoC: tipo1, GradoU:grado, GrupoU:grupo, claveEscuela1:clave}, function(data){
@@ -598,9 +618,10 @@ function escuelas(cad1,cad2,cad3,cad4,cad5){
     $(cad3).html(data);
   });
 }
-//Funcion utilizada para el envio de pdf
+//Funcion utilizada para el envio de pdf 
+//Ubicacion de archivo = cad1 y cad2 sirve para indicar el div con devolucion
 function enviar(cad1,cad2){
-  $.post("../php/InfoSolicitud.php",{val1:cad1},function(data){
+  $.post("../php/index.php",{ruta:cad1},function(data){
     $(cad2).html(data);
   });
 }
@@ -608,4 +629,28 @@ function descargaA(cad1,cad2){
   $.post("../php/descarga.php",{ruta:cad1},function(data){
     $(cad2).html(data);
   });
+}
+function modifica(cad1,cad2,cad3,cad4){
+  $.post("../php/UpdateTotal.php",{Tipo:cad1,TipoDCambio:cad2,id:cad3},function(data){
+    $(cad4).html(data);
+  });
+}
+function validaCorreo(cad1,destino){
+  $.post("php/ValidaCorreo.php",{correo:cad1},function(data){
+    $(destino).html(data);
+  });
+}
+function recuperaE(){
+  var correo=document.getElementById('correo').value;
+        var curp=document.getElementById('curp').value;
+        var datos='correo='+correo+'&curp='+curp;
+        $.ajax({
+          type:'post',
+          url:'php/recupera.php',
+          data:datos,
+          success:function(resp){
+            $("#Log").html(resp);
+          }
+        });
+        return false;
 }

@@ -11,6 +11,7 @@
   $variable1 = "";
   $NombreDo = ($row['Tipo']=="Alumno") ? $nombresArchivos1[$_POST['es']] : $nombreArchivos[$_POST['es']];
   $Descripcionf = ($row['Tipo']=="Alumno") ? $Descripcion[$_POST['es']] : "";
+  $tipoF = ($row['Tipo']=="PersonalA") ? "personal":$row['Tipo'];
 	if($_POST['caso']=='si'){
     $_SESSION['nombreD'] = $_POST['nombreN'];
 		echo '<div class="modal-dialog modal-md">
@@ -26,7 +27,8 @@
                   <img  src="../assets/images/Like.png" class="img-rounded" width=200px height=200px >
               </div>
               <div class="modal-footer" align="center">
-              	<button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/'.strtolower($row['Tipo']).'/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
+                <button align="center" type="button" class="btn btn-danger" onclick="return enviar('."'".'../php/documentos/'.strtolower($tipoF).'/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".','."'".'#modal'."'".');" data-toggle="modal" href="#InfoAlert1" >Enviar PDF a</button>
+              	<button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/'.strtolower($tipoF).'/'.$_POST['curp'].'/'.$_POST['nombreN'].'.pdf'."'".')">Ver PDF</button>
                 <button align="center" type="button" onclick="return subirF('."'".''.$NombreDo.''."'".','."'".''."subeA".''."'".','."'".''.$_POST['curp'].''."'".'); subirT('.$variable.','."'".''.$row['Tipo'].''."'".','."'".''.$_POST['curp'].''."'".');" data-toggle="modal" href="#InfoAlert1" class="btn btn-success">Actualizacion de archivo</button>
               </div>
             </div>

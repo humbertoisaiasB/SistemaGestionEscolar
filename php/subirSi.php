@@ -57,7 +57,7 @@
 		echo '<script type="text/javascript">
          alert ("Ya llegamos aqui we '.$nombreF.'");
       </script>';
-		move_uploaded_file($nombre_temporal,'documentos/personalA/'.$row['curpAdmi'].'/'.$nombreF); 
+		move_uploaded_file($nombre_temporal,'documentos/personal/'.$row['curpAdmi'].'/'.$nombreF); 
 		echo "es : ".$_POST['tipo'];
 	}
 	

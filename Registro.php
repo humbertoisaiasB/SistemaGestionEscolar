@@ -49,6 +49,7 @@
 					</div><!-- /.container-fluid -->
 		</nav>
 	</header>
+</body>
 	<main class="content">
 		<div class="container">
 					<div class="row">
@@ -95,8 +96,9 @@
 														<label>Apellido materno:</label><input id="txt_Am" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,25}$/,'Am',this.value);NomValid(this);" type="text" class="form-control" name="txt_Am"><span id="span_Am" ></span>
 													</div>
 													<div id="div_Correo">
-														<label>Correo:</label><input id="txt_Correo" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'Correo',this.value); return validar()" type="email" class="form-control" name="txt_Correo" required><span id="span_Correo" ></span>
+														<label>Correo:</label><input id="txt_Correo" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'Correo',this.value); return validar(); return validaCorreo(this.value,'#div_CorreoRepetida');" type="email" class="form-control" name="txt_Correo" required><span id="span_Correo" ></span>
 													</div>
+													<div id="div_CorreoRepetida" ></div> 
 													<div id="div_Zona" class="row">
 														<div class="col-2">
 															<div class="btn-group btn-lg" role="group">
@@ -395,7 +397,7 @@
 															</div>
 															<div id="codigoCAdmi"></div>
 															<div id="div_CalleCanAdmi">
-																<label>Calle:</label><input id="txt_CalleCanAdmi" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/[0-9a-zA-Z]{5,}/,'CalleCanAdmi',this.value);NomValid(this);"  type="text" class="form-control" name="txt_CalleCanAdmi"b required><span id="span_CalleCanAdmi"></span>
+																<label>Calle:</label><input id="txt_CalleCanAdmi" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleCanAdmi',this.value);NomValid(this);"  type="text" class="form-control" name="txt_CalleCanAdmi"b required><span id="span_CalleCanAdmi"></span>
 															</div>
 															<!-- Extras para el usuario maestro -->
 															<label for="funcionAdmi">Función :</label>
@@ -512,7 +514,6 @@
 							</div>
 						</div>
 					</div>
-
 <div id="Mod" class="modal fade" role="dialog">
   <div class="modal-dialog modal-md">
     <!-- Modal content-->

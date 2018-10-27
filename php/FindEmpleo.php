@@ -245,7 +245,7 @@
 		if (mysqli_num_rows($sql)>0){
 			while ($row=mysqli_fetch_array($sql)){
 				if($documentos!=$row['Documento']){
-					$directorio = opendir("documentos/personalA/$row[curpAdmi]"); //ruta actual
+					$directorio = opendir("documentos/personal/$row[curpAdmi]"); //ruta actual
 						while($archivo = readdir($directorio)){
 							if (!is_dir($archivo)) {
 								$nombreArchivoC = nombreCadena($archivo);

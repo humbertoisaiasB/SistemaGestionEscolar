@@ -84,10 +84,13 @@
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-desktop"></i>
-                          <span>Sesion.</span>
+                          <span>Sesión.</span>
                       </a>
                       <ul class="sub">
+                          <li>
+                            <a  href="Actualizarinformacion.php" ><i class="fa fa-sign-out"></i>Editar datos personales.</a>
                             <a  href="../index.php" ><i class="fa fa-sign-out"></i>Cerrar sesion.</a>
+                          </li>
                       </ul>
                   </li>
                   <li class="sub-menu">
