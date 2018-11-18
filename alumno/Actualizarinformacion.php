@@ -16,11 +16,14 @@
     <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.css">
       <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/Home.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="../assets/css/Mycss.css">
-    <script type="text/javascript" src="../assets/bootstrap/js/jquery-3.1.1.js" ></script>
-    <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../assets/JS/MyJS.js"></script>
+  <script type="text/javascript" src="../assets/bootstrap/js/jquery-3.1.1.js" ></script>
+  <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../assets/JS/EmpleadorVal.js"></script>
+  <script type="text/javascript" src="../assets/JS/EmpleadorUpdate.js"></script>
+  <script type="text/javascript" src="../assets/JS/MyJS.js"></script>
+  <script type="text/javascript" src="../assets/JS/sweetalert.js"></script>
     <link href="../assets/assets1/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="../assets/assets1/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -139,13 +142,13 @@
 <div class="row">
 <div class="col-md-12">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="tab-content">
 
         <div class="tab-pane fade in active" id="info">
           <form action="../php/UpdateTotal.php" method="POST" role="form">
-          <div class="col-md-8 col-md-offset-1 well">
-            <h3 align="center">Informacion del alumno</h3>
+          <div class="col-md-12 well">
+            <h3 align="center">Información del alumno</h3>
             <div id="div_NomAlumno">
               <label>Nombre:</label><input id="txt_NomAlumno" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAlumno',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAlumno" value="<?php echo $val['Nom']; ?>"><span id="span_NomAlumno" ></span>
             </div>
@@ -190,8 +193,8 @@
           </div>
         </div>
         <div class="tab-pane fade" id="direccion">
-        <form action="../php/UpdateCandidato.php" method="POST">
-          <div class="col-md-8 col-md-offset-1 well">
+        <form action="../php/UpdateTotal.php" method="POST">
+          <div class="col-md-12 well">
             <h3 align="center">Dirección</h3>
             <div id="div_CPCan">
               <label>Código Postal:</label><input id="txt_CP" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCan',this.value); return codigoEmp('../php/PostalEmp.php','txt_CP','#codigop');"  type="text" class="form-control" name="txt_CP" value="<?php echo $val['Codigo_Postal']; ?>"><span id="span_CPCan" ></span>
@@ -217,12 +220,12 @@
                 <label>Calle:</label><input id="txt_CalleCan" onkeyup="validacion4all(/[0-9a-zA-Z]{5,}/,'CalleCan',this.value);NomValid(this);NomValid(this);" type="text" class="form-control" name="txt_Calle" value="<?php echo $val['Calle']; ?>" required><span id="span_CalleCan" ></span>
               </div>
             <br>
-            <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_CandidatoDireccion"></p>
+            <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_AlumnoDireccion"></p>
           </div>
           </form>
         </div>
         <div class="tab-pane fade" id="password">
-           <form action="../php/UpdateCandidato.php" method="POST" role="form">
+           <form action="../php/UpdateTotal.php" method="POST" role="form">
             <div class="col-md-8 col-md-offset-1 well">
               <h3 align="center">Contraseña</h3>
               <div id="div_PswCan">
@@ -231,7 +234,7 @@
               <div id="div_Psw2Can">
                 <label>Repite Contraseña:</label><input id="txt_Psw2Can" onkeyup="checkPwCan(this.value);" onblur="checkPwCan(this.value);" type="password" class="form-control" name="txt_Psw2"><br><span id="span_Psw2Can" ></span>
               </div>
-              <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_CandidatoPw"></p>
+              <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_AlumnoPw"></p>
             </div>
             </form>
         </div>
@@ -246,20 +249,32 @@
                   <label style="margin: 5px;">Clave de la escuela residente: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['clave'];?></span>
                   <label style="margin: 5px;">Escuela: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['nombreEscuela'];?></span>
                   <label style="margin: 5px;">Zona: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['ZonaEscolar'];?></span>
-              <div id="div_Zona1"style="display: inline-block;margin: 20px;">
-                <label for="zonas">Seleciona la zona:</label>
-                <select name="zonas" onchange="return ShowSelected2('zonas')">
-                  <?php  
-
-                    for ($i=1; $i < 57; $i++) { 
-                      $num = $i;
-                      echo '<option value="'.$i.'"><a onclick="return zonaCU('.$i.','."'".''."alumno".''."'".','."'"."#zonaYO"."'".');">'.$i.'</a></li></option>';
-                    }
-                  ?>
-                </select>
-              </div>                       
-              <div id="zonaYO"></div>
-              <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_AlumnoDatos"></p>
+                  <br>
+                  <div style="display:block;margin:10px;">
+                    <div id="div_CambioZona"style="display: inline-block;margin: 20px;">
+                      <form action="../php/UpdateTotal.php" method="POST" role="form">
+                        <div class="col-md-8 col-md-offset-1 well">
+                          <h3 align="center">Seleciona si desea cambiar datos.</h3>
+                          <label for="cambioZona">Zona Escolar:</label>
+                        <select class="form-control" onchange="return selecion('queso','Alumno','#escuelas');" name="cambioZona" id="cambioZona">
+                          <option value="nada">Seleciona</option>
+                                  <?php  
+                                    for ($i=1; $i<=56; $i++) { 
+                                      echo '<option value="'.$i.'">'.$i.'</option>';
+                                    }
+                                  ?>
+                        </select>
+                    </div>
+                  </div>
+                  <div id="claveA" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
+    <label style="margin: 5px;" id="clavecitaCA"></label><span style="margin:10px;font-size: 15px;" id="prueba13A" name="prueba13A" class="label label-info"></span><input type="hidden" id="prueba13EA" name="prueba13EA" value="">
+                            </div>
+                  <div id="escuelas">
+              
+                  </div>
+                          <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_AlumnoDatos"></p>
+                        </div>
+                      </form>
                 </div>
             </div>
            

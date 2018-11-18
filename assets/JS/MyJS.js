@@ -654,3 +654,20 @@ function recuperaE(){
         });
         return false;
 }
+
+//Onchange 
+function selecion(cad1,cad2,cad3)
+{
+/* Para obtener el valor */
+var cod = document.getElementById("cambioZona").value;
+alert(cod);
+ 
+/* Para obtener el texto */
+var combo = document.getElementById("cambioZona");
+var selected = combo.options[combo.selectedIndex].value;
+alert(selected);
+
+  $.post("../php/zonas.php",{numeroZ:selected,tipoU:cad2},function(data){
+    $(cad3).html(data);
+  });
+}

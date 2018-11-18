@@ -26,8 +26,12 @@
                             
             }else{
                            
-               $mensaje= 'El mensaje no se pudo enviar';
-               $email->ErrorInfo;
+               $mensaje= 'Mensaje no enviado'.$_POST['ruta1'];
+                    echo '<script type="text/javascript">
+                alert ("Correo no enviado. error.");
+                window.location.assign("../maestro/buscar.php");
+                </script>';
+                exit;
             }
 			
 }
@@ -48,7 +52,7 @@
                     <table>
                         <tr>
                             <td>
-                                <label for="email">Email</label>
+                                <label for="email">Email <?php echo $_SERVER['PHP_SELF']; ?></label>
                                 <br>
                             </td>
                             <td>

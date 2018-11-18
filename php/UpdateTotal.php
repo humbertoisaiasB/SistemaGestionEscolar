@@ -4,20 +4,48 @@
   $query1 = mysqli_query($con,"select Tipo from usuarios u where u.id_Usuario=".$_SESSION['id']);
   $val = mysqli_fetch_array($query1);
   $aux = "";
+  $aux1 = array("no","no","no","no","no","no","no","no","no","no");
+  $aux2 = "";
+  $cont = 0;
   if($val['Tipo']=="Alumno"){
       if (isset($_POST['btn_AlumnoInfo'])){
         $query2 = mysqli_query($con,"select curpAlumno from alumnos where id_Usuario=".$_SESSION['id']);
         $val2 = mysqli_fetch_array($query2);
+        $documentos = 9;
+        $compara = $val2['curpAlumno']."_";
+        $nombreDocu = array("".$compara."BG","".$compara."CP","".$compara."CU","".$compara."IMF","".$compara."IMD","".$compara."IPF","".$compara."IPD","".$compara."CD","".$compara."CM","".$compara."AN");
         if(mysqli_query($con,"update usuarios SET Nom='$_POST[txt_NomAlumno]', Ap='$_POST[txt_ApAlumno]', Am='$_POST[txt_AmAlumno]', Correo='$_POST[txt_CorreoAlumno]', Celular=$_POST[txt_TelcelularAlumno], Casa='$_POST[txt_TelcasaAlumno]' WHERE id_Usuario=$_SESSION[id]")){
           if(mysqli_query($con,"update alumnos SET curpAlumno='$_POST[txt_Curp]' WHERE id_Usuario=$_SESSION[id]")){
             $aux = strtoupper($_POST['txt_Curp']);
-            rename ("/documentos/alumno/$val2[curpAlumno]", "$aux");
+            $compara1 = $aux."_";
+            $nombreDocu1 = array("".$compara."BG","".$compara."CP","".$compara."CU","".$compara."IMF","".$compara."IMD","".$compara."IPF","".$compara."IPD","".$compara."CD","".$compara."CM","".$compara."AN");
+            $directorio = opendir("documentos/alumno/$val2[curpAlumno]"); //ruta actual
+            while($archivo = readdir($directorio)){
+              if (!is_dir($archivo)) {
+                $nombreArchivoC = nombreCadena($archivo);
+                $aux1[$cont] = $archivo;
+                $cont = $cont + 1;
+              }
+            }
+            for($i=0; $i<=$documentos; $i++){ 
+              for($j=0; $j<=$documentos; $j++){
+                if($nombreDocu[$i]==$aux1[$j]){
+                  $aux2=$aux1[$j];
+                  rename ("documentos/alumno/$val2[curpAlumno]/$aux1[$j].pdf", "documentos/alumno/$val2[curpAlumno]/$nombreDocu1[$i].pdf");
+                }
+              }
+              if($nombreDocu[$i]!=$aux2){
+                echo "queso0";
+              }
+            }
+            rename ("documentos/alumno/$val2[curpAlumno]", "documentos/alumno/$aux");
             $_SESSION['User']=$_POST['txt_NomAlumno'];
             echo '<script type="text/javascript">
-              alert ("Actualizado Correctamente1");
+              alert ("Actualizado Correctamente1"'.$cont.' queso : '.$aux1[0].');
               window.location.assign("../alumno/Actualizarinformacion.php");
             </script>';
             exit;
+            //
           }else{
             printf("Error: %s\n", mysqli_error($con));
           }
@@ -36,6 +64,16 @@
         }
       }elseif (isset($_POST['btn_AlumnoPw'])){
         if(mysqli_query($con,"update usuarios SET Contrasena='$_POST[txt_PswAlumno]' WHERE id_Usuario='$_SESSION[id]'")){
+            echo '<script type="text/javascript">
+         alert ("Actualizado Correctamente");
+      window.location.assign("../alumno/Actualizarinformacion.php");
+      </script>';
+          exit;
+          }else{
+            printf("Error: %s\n", mysqli_error($con));
+          }
+        }elseif (isset($_POST['btn_AlumnoDatos'])){
+        if(mysqli_query($con,"update usuarios SET claveEscuela='$_POST[prueba13EA]' WHERE id_Usuario='$_SESSION[id]'")){
             echo '<script type="text/javascript">
          alert ("Actualizado Correctamente");
       window.location.assign("../alumno/Actualizarinformacion.php");
@@ -193,6 +231,21 @@
             printf("Error: %s\n", mysqli_error($con));
           }
         }
+  }
+
+
+  function nombreCadena($largo){
+    $chico = "";
+    $total = strlen($largo);
+    for($i=0; $i<=$total; $i=$i+1){
+      if($largo[$i]=="."){
+        $chico = substr($largo, 0, $i);
+        break;
+      }else{
+        $chico = "Queso";
+      }
+    }
+    return $chico;
   }
   
  ?>

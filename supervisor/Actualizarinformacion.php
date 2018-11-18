@@ -29,7 +29,7 @@
     <link href="../assets/assets1/css/style.css" rel="stylesheet">
     <link href="../assets/assets1/css/style-responsive.css" rel="stylesheet">
 
-    <title>Actualizar informacion del alumno</title>
+    <title>Actualizar informacion del usuario</title>
 
      <style media="screen">
      .vcenter {
@@ -144,7 +144,7 @@
         <div class="tab-pane fade in active" id="info">
           <form action="../php/UpdateTotal.php" method="POST" role="form">
           <div class="col-md-8 col-md-offset-1 well">
-            <h3 align="center">Informacion del alumno</h3>
+            <h3 align="center">Información del usuario</h3>
             <div id="div_NomSupervisor">
               <label>Nombre:</label><input id="txt_NomSupervisor" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomSupervisor',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomSupervisor" value="<?php echo $val['Nom']; ?>"><span id="span_NomSupervisor" ></span>
             </div>

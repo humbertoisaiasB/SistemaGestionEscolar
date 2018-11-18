@@ -64,8 +64,8 @@
                  </div>
                  <div class="tab-pane fade" id="Agregar">
                       <div class="row">
-                  <div class="col-md-2" align="center"></div>
-                    <div class="col-md-11"><br>
+                  <div class="col-md-12" align="center"></div>
+                    <div class="col-md-12"><br>
                     <div class="registro1" align="center">
                       <div class="panel-body" align="center">
                         <div class="titulo" align="center">
@@ -116,8 +116,8 @@
                                   <label>Código Postal:</label><input id="txt_CPCanSupervisor" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCanSupervisor',this.value); return codigoUS('#codigoCSupervisor',this.value,'Supervisor');"  type="text" class="form-control" name="txt_CPCanSupervisor" required><span id="span_CPCanSupervisor" ></span>
                             </div>
                             <div id="codigoCSupervisor"></div>
-                            <div id="div_CalleCanSupervisor">
-                                <label>Calle:</label><input id="txt_CalleCanSupervisor" onkeypress="return validarXD(alphanumeric1,this.value.length,30);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleCanSupervisor',this.value);"  type="text" class="form-control" name="txt_CalleCanSupervisor" required><span id="span_CalleCanSupervisor"></span>
+                            <div id="div_CalleSupervisor">
+                                <label>Calle:</label><input id="txt_CalleSupervisor" onkeypress="return validarXD(alphanumeric1,this.value.length,30);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleSupervisor',this.value);"  type="text" class="form-control" name="txt_CalleSupervisor" required><span id="span_CalleSupervisor"></span>
                             </div>
                             </div>
                                 <div id="div_PswSupervisor">
@@ -126,7 +126,7 @@
                                 <div id="div_Psw2Supervisor">
                                   <label>Repite Contraseña:</label><input id="txt_Psw2" onkeyup="checkPwCan(this.value);" type="password" class="form-control" name="txt_Psw2Supervisor" required><br><span id="span_Psw2Supervisor" ></span>
                                 </div>
-                                <div id="btn_Supervisor"></div>
+                                <input type="submit" name="btn_Supervisor" id="btn_Supervisor" class="btn btn-primary" >
                         </form>
                       </div>
                     </div>

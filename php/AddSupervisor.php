@@ -3,7 +3,7 @@
   session_start();
   if (isset($_POST['btn_Supervisor'])){
     if(!mysqli_query($con,"insert into usuarios (Nom, Ap, Am, Trabajo, Celular, Correo, Contrasena, Codigo_Postal,Pais, Estado, Ciudad, Colonia , Calle, Tipo,sexo,documento,claveEscuela)
-    VALUES ('$_POST[txt_NomAdmi]','$_POST[txt_ApAdmi]','$_POST[txt_AmAdmi]',$_POST[txt_TelcasaAdmi],$_POST[txt_TelcelularAdmi],'$_POST[txt_CorreoAdmi]','$_POST[txt_PswCanAdmi]',$_POST[txt_CPCanAdmi],'$_POST[Sl_PaisPersonalA]', '$_POST[Sl_EstadoPersonalA]', '$_POST[Sl_CiudadPersonalA]' ,'$_POST[Sl_ColoniaPersonalA]' ,'$_POST[txt_CalleCanAdmi]','PersonalA','M',0,'$_POST[prueba13EAdmi]')")){
+    VALUES ('$_POST[txt_NomSupervisor]','$_POST[txt_ApSupervisor]','$_POST[txt_AmSupervisor]',$_POST[txt_TelcasaSupervisor],$_POST[txt_TelcelularSupervisor],'$_POST[txt_CorreoSupervisor]','$_POST[txt_PswSupervisor]',$_POST[txt_CPCanSupervisor],'$_POST[Sl_PaisSupervisor]','$_POST[Sl_EstadoSupervisor]', '$_POST[Sl_CiudadPersonalA]','$_POST[Sl_ColoniaSupervisor]' ,'$_POST[txt_CalleSupervisor]','Supervisor','M',0,'$_POST[prueba13ESupervisor]')")){
       printf("Error: %s\n", mysqli_error($con));
       
   		}

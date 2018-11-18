@@ -18,11 +18,11 @@ class Email  extends PHPMailer{
       //configuracion general
      $this->IsSMTP(); // protocolo de transferencia de correo
      $this->Host = 'smtp.gmail.com';  // Servidor GMAIL
-     $this->Port = 465; //puerto
+     $this->Port = 587; //puerto
      $this->SMTPAuth = true; // Habilitar la autenticación SMTP
      $this->Username = $this->tu_email=$tu_email;
      $this->Password = $this->tu_password=$tu_password;
-     $this->SMTPSecure = 'ssl';  //habilita la encriptacion SSL
+     $this->SMTPSecure = 'tls';  //habilita la encriptacion SSL
      $this->$ruta = $this->ruta=$ruta;
      //$rutaD = $ruta;
      //remitente

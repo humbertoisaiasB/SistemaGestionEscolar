@@ -29,7 +29,7 @@
     <link href="../assets/assets1/css/style.css" rel="stylesheet">
     <link href="../assets/assets1/css/style-responsive.css" rel="stylesheet">
 
-    <title>Actualizar informacion del alumno</title>
+    <title>Actualizar información de usuario</title>
 
      <style media="screen">
      .vcenter {
@@ -144,7 +144,7 @@
         <div class="tab-pane fade in active" id="info">
           <form action="../php/UpdateTotal.php" method="POST" role="form">
           <div class="col-md-8 col-md-offset-1 well">
-            <h3 align="center">Informacion del director</h3>
+            <h3 align="center">Información del usuario</h3>
             <div id="div_NomDirector">
               <label>Nombre:</label><input id="txt_NomDirector" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomDirector',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomDirector" value="<?php echo $val['Nom']; ?>"><span id="span_NomDirector" ></span>
             </div>
@@ -244,33 +244,33 @@
                   <label style="margin: 5px;">Clave de la escuela residente: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['clave'];?></span>
                   <label style="margin: 5px;">Escuela: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['nombreEscuela'];?></span>
                   <label style="margin: 5px;">Zona: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['ZonaEscolar'];?></span>
-
-           
-            <div align="center" class="col-md-8 col-md-offset-1 well ">
-              <div id="div_Zona" class="row">
-                            <div class="col-2">
-                              <div class="btn-group btn-lg" role="group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Zona escolar
-                                <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <?php
-                                    for($i=1; $i<=56; $i++){
-                                      echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'".''."Alumno"."'".','."'"."#zonaYO"."'".');">'.$i.'</a></li>';
+                  <div style="display:block;margin:10px;">
+                    <div id="div_CambioZona"style="display: inline-block;margin: 20px;">
+                      <form action="../php/UpdateTotal.php" method="POST" role="form">
+                        <div class="col-md-8 col-md-offset-1 well">
+                          <h3 align="center">Seleciona si desea cambiar datos.</h3>
+                          <label for="cambioZona">Zona Escolar:</label>
+                        <select class="form-control" onchange="return selecion('queso','Director','#escuelas');" name="cambioZona" id="cambioZona">
+                          <option value="nada">Seleciona</option>
+                                  <?php  
+                                    for ($i=1; $i<=56; $i++) { 
+                                      echo '<option value="'.$i.'">'.$i.'</option>';
                                     }
-                                    ?>
-                                </ul>
-                              </div>
-                              <div id="claveA" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
-    <label style="margin: 5px;" id="clavecitaCA"></label><span style="margin:10px;font-size: 15px;" id="prueba13A" name="prueba13A" class="label label-info"></span><input type="hidden" id="prueba13EA" name="prueba13EA" value="">
+                                  ?>
+                        </select>
+                    </div>
+                  </div>
+                  <div id="claveD" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
+    <label style="margin: 5px;" id="clavecitaCD"></label><span style="margin:10px;font-size: 15px;" id="prueba13D" name="prueba13D" class="label label-info"></span><input type="hidden" id="prueba13ED" name="prueba13ED" value="">
                             </div>
-                          </div>
+                  <div id="escuelas">
+              
+                  </div>
+                          <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_AlumnoDatos"></p>
                         </div>
-                          <div id="zonaYO"></div>
-              <p align="center"><input type="submit" class="btn btn-success" value="Actualizar" name="btn_CandidatoPw"></p>
+                      </form>
+                </div>
             </div>
-          
                 </div>
             </div>
            

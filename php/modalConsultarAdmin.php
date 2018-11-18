@@ -151,7 +151,7 @@ include 'Conexion.php';
                                 <button align="center" type="button" class="btn btn-danger" onclick="return enviar('."'".'../php/documentos/'.strtolower($row['Tipo']).'/'.$row1['curpMaestro'].'/'.$nombreDocu[$i].'.pdf'."'".','."'".'#Mod'."'".');" data-toggle="modal" href="#Mod1" >Enviar PDF a</button>
                                 <button align="center" type="button" class="btn btn-info" onclick="window.open('."'".'../php/documentos/maestro/'.$row1['curpMaestro'].'/'.$nombreDocu[$i].'.pdf'."'".')">Ver '.$nombreArchivos[$i].'</button>
 
-                                </div>
+                                
                               </div>
                             </div>';
                             //onclick="window.open('."'".'../php/documentos/maestro/'.$row1['curpMaestro'].'/'.$nombreDocu[$i].'.pdf'."'".')"
