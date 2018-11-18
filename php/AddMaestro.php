@@ -15,7 +15,7 @@ if (isset($_POST['btn_Candidato'])){
   $Last_id=mysqli_insert_id($con);
   //$result=mysqli_query($con,"select id_Usuario from empresa where id_Usuario=".$_SESSION['id']);
   //$row = mysqli_fetch_array($result);
-  if(!mysqli_query($con,"INSERT INTO maestros (id_Usuario, id_director, rfc, claveEscuela, funcion, clavePresupuestal,curpMaestro,Grado,Grupo) VALUES ('$Last_id', '', '','$_POST[prueba13EM]','', '".$_POST['txt_ClavePresupuestal']."', '".strtoupper($_POST['txt_CurpMaestro'])."',$_POST[S_GradoM],'$_POST[S_GrupoM]')")){
+  if(!mysqli_query($con,"INSERT INTO maestros (id_Usuario, id_director, rfc, claveEscuela, funcion, clavePresupuestal,curpMaestro,Grado,Grupo) VALUES ('$Last_id', '', '','$_POST[prueba13EM]','', '".$_POST['txt_ClavePresupuestal']."', '".strtoupper($_POST['txt_CurpMaestro'])."','$_POST[S_GradoM]','$_POST[S_GrupoM]')")){
     echo '<script type="text/javascript">
        alert ("Ha Ocurrido un error");
     window.location.assign("../Registro.php");
