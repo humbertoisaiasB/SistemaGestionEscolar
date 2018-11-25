@@ -93,6 +93,15 @@
                             <a  href="Main.php" data-toggle="tab">General</a>
                       </ul>
                   </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>General un pdf.</span>
+                      </a>
+                      <ul class="sub">
+                            <a  href="Reporte.php" data-toggle="tab">Ir.</a>
+                      </ul>
+                  </li>
               </ul>
               <!-- sidebar menu end-->
           </div>

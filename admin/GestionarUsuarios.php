@@ -85,7 +85,7 @@
                             <label>Apellido materno:</label><input id="txt_AmSupervisor" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,25}$/,'Am',this.value);NomValid(this);" type="text" class="form-control" name="txt_Am"><span id="span_Am" ></span>
                           </div>
                           <div id="div_CorreoSupervisor">
-                            <label>Correo:</label><input id="txt_CorreoSupervisor" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoSupervisor',this.value); return validar5()" type="email" class="form-control" name="txt_CorreoSupervisor" required><span id="span_CorreoSupervisor" ></span>
+                            <label>Correo:</label><input id="txt_CorreoSupervisor" onkeypress="return validarXD(helo,this.value.length,50);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoSupervisor',this.value); return validar5()" type="email" class="form-control" name="txt_CorreoSupervisor" required><span id="span_CorreoSupervisor" ></span>
                           </div>
                           <div id="div_ZonaSupervisor" class="row">
                             <div class="col-2">

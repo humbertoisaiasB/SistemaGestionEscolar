@@ -397,7 +397,7 @@
 															</div>
 															<div id="codigoCAdmi"></div>
 															<div id="div_CalleCanAdmi">
-																<label>Calle:</label><input id="txt_CalleCanAdmi" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleCanAdmi',this.value);NomValid(this);"  type="text" class="form-control" name="txt_CalleCanAdmi"b required><span id="span_CalleCanAdmi"></span>
+																<label>Calle:</label><input id="txt_CalleCanAdmi" onkeypress="return validarXD(alphanumeric1,this.value.length,30);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleCanAdmi',this.value);"  type="text" class="form-control" name="txt_CalleCanAdmi"b required><span id="span_CalleCanAdmi"></span>
 															</div>
 															<!-- Extras para el usuario maestro -->
 															<label for="funcionAdmi">Función :</label>

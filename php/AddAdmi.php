@@ -1,6 +1,5 @@
 <?php
 	include ("Conexion.php");
-  session_start();
   if (isset($_POST['btn_personalA'])){
     if(!mysqli_query($con,"insert into usuarios (Nom, Ap, Am, Trabajo, Celular, Correo, Contrasena, Codigo_Postal,Pais, Estado, Ciudad, Colonia , Calle, Tipo,sexo,documento,claveEscuela)
     VALUES ('$_POST[txt_NomAdmi]','$_POST[txt_ApAdmi]','$_POST[txt_AmAdmi]',$_POST[txt_TelcasaAdmi],$_POST[txt_TelcelularAdmi],'$_POST[txt_CorreoAdmi]','$_POST[txt_PswCanAdmi]',$_POST[txt_CPCanAdmi],'$_POST[Sl_PaisPersonalA]', '$_POST[Sl_EstadoPersonalA]', '$_POST[Sl_CiudadPersonalA]' ,'$_POST[Sl_ColoniaPersonalA]' ,'$_POST[txt_CalleCanAdmi]','PersonalA','M',0,'$_POST[prueba13EAdmi]')")){
