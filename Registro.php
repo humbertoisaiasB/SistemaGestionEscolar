@@ -24,6 +24,22 @@
 			margin-top:8px;
 		}
 	</style>
+	<?php
+	$variableEscuela = "";
+	$variableEscuelasTotal = 0;
+	function devuelve($a){
+	    $aux = "";
+	    $cont = 0; 
+	    $totalC = strlen($a);
+	    for($i=0; $i<=$totalC; $i++){
+	    	$aux = $a[$i];
+	    	if($aux == ";"){
+	    		$cont++;
+	    	}
+	    }
+	    return $cont;
+	} 
+	 ?>
 </head>
 <body class="site" onload="return validar(); return validar2(); return validar3(); return validar4();" >
 	<header>
@@ -233,59 +249,38 @@
 													<div id="div_CorreoMaestro">
 														<label>Correo:</label><input id="txt_CorreoMaestro" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoMaestro',this.value);" type="email" class="form-control" name="txt_CorreoMaestro" required><span id="span_CorreoMaestro" ></span>
 													</div>
-													<div id="div_ZonaMaestro" class="row">
-														<div class="col-2">
-															<div class="btn-group btn-lg" role="group">
-																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-																      Zona escolar
-																<span class="caret"></span>
-																</button>
-																<ul class="dropdown-menu">
-																    <?php
-																		for($i=1; $i<=54; $i++){
-																			echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'".''."Maestro".''."'".','."'"."#zonaYM"."'".');">'.$i.'</a></li>';
-																		}
-																		?>
-																</ul>
-															</div>
-															<div id="claveM" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
-		<label style="margin: 5px;" id="clavecitaCM"></label><span style="margin:10px;font-size: 15px;" id="prueba13M" name="prueba13M" class="label label-info"></span><input type="hidden" id="prueba13EM" name="prueba13EM" value="">
-														</div>
-														</div>
-													</div>
-													<div id="zonaYM"></div>
+													
+														<div id="div_AgregaZonas1">
+															<div class="principal">
+		<div class="wrap">
+			<form class="formulario" action="">
+				<!-- Aqui empieza la modificacion -->
+				<input type="text" id="valor1"> 
+				<h4>Ingresa los grupos a tu cargo</h4>
+				<div class="input-group">
+															      <input type="text" class="form-control" placeholder="Search for...">
+															      <span class="input-group-btn">
+															        <button class="btn btn-default" type="button" onclick="return agregaCentros('Maestro','#centros');" data-toggle="modal" data-target="#centros">Agregar mas!</button>
+															      </span>
+															 </div><!-- /input-group -->
+														  <div id="centros" class="modal fade" role="dialog"></div>
+			</form>
+		</div>
+	</div>
+
+	<div class="tareas">
+		<div class="wrap">
+			<ul class="lista" id="lista">
+			</ul>
+		</div>
+	</div>
+		</div>						
 														<div style="display:block;margin-top:20px;">
 															<div id="div_TelcasaMaestro" style="display: inline-block;">
 																<label style="margin-right:5px;">Teléfono casa: </label><input input id="txt_TelcasaMaestro" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{8,10}$/,'TelcasaMaestro',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_TelcasaMaestro"><span id="span_TelcasaMaestro" ></span>
 															</div>
 															<div id="div_TelcelularMaestro" style="display:inline-block;">
 																<label>Teléfono celular:</label><input id="txt_TelcelularMaestro" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'TelcelularMaestro',this.value);" style="min-width:230px;" type="text" class="form-control" name="txt_TelcelularMaestro"><span id="span_TelcelularMaestro" ></span>
-															</div>
-														</div>
-														<div style="display:block;margin:10px;">
-															<div id="div_S_GradoM"style="display: inline-block;margin: 20px;">
-																<label for="S_GradoM">Grado:</label>
-																<select class="form-control" name="S_GradoM">
-																	<option>1</option>
-																	<option>2</option>
-																	<option>3</option>
-																	<option>1°,2°</option>
-																	<option>1°,3°</option>
-																	<option>2°,3°</option>
-																	<option>1°,2°,3°</option>
-																</select>
-															</div>
-															<div id="div_S_GrupoM"style="display: inline-block;margin: 20px;">
-																<label for="S_GrupoM">Grupo:</label>
-																<select class="form-control" name="S_GrupoM">
-																	<option>A</option>
-																	<option>B</option>
-																	<option>C</option>
-																	<option>D</option>
-																	<option>E</option>
-																	<option>F</option>
-																	<option>G</option>
-																</select>
 															</div>
 														</div>
 														<div id="div_S_Funcion"style="display: inline-block;margin: 20px;">

@@ -73,7 +73,7 @@
 		
 	}
 	if(isset($_POST['numeroZ'])){
-	  		$sql=mysqli_query($con,"Select clave,nombreEscuela,nombreLocalidad,Turno, ZonaEscolar from zona where ZonaEscolar=$_POST[numeroZ]");
+	  		$sql=mysqli_query($con,"Select clave,nombreEscuela,nombreLocalidad,Turno, ZonaEscolar from zona where ZonaEscolar=$_POST[numeroZ] and Modalidad='$_POST[modalidad]'");
 ?>	
 	<div style="display:inline-flex;
 				margin-top:20px;">
@@ -103,6 +103,42 @@
 		<label style="margin: 4px;">Nombre: <span id="<?php echo $Destino1B;?>"class="label label-info"></span></label>
 	</div>
 </div>
+<div class="principal">
+		<div class="wrap">
+			<form class="formulario" action="">
+				<!-- Aqui empieza la modificacion -->
+				<input type="hidden" id="valor1"  value="<?php echo $Destino1B;?>">
+				<input type="hidden" id="valor2"  value="<?php echo $Destino3A;?>">
+				<h4>Ingresa los grupos a tu cargo</h4>
+				<div style="display:block;margin:10px;">
+					<div id="div_S_GradoM" style="display: inline-block;margin: 20px; ">
+						<label for="S_GradoM">Grado:</label>
+						<select class="form-control" name="S_GradoM" id="S_GradoM">
+							<option value="1°">1°</option>
+							<option value="2°">2°</option>
+							<option value="3°">3°</option>
+						</select>
+					</div>
+					<div id="div_S_GrupoM" style="display: inline-block;margin: 20px;">
+						<label for="S_GrupoM">Grupo:</label>
+						<select class="form-control" name="S_GrupoM" id="S_GrupoM">
+							<option value="A">A</option>
+							<option value="B">B</option>
+							<option value="C">C</option>
+							<option value="D">D</option>
+							<option value="E">E</option>
+							<option value="F">F</option>
+							<option value="G">G</option>
+						</select>
+					</div>
+				</div>
+
+				<input type="button" class="btn btn-primary" id="btn-agregar" value="Agregar">
+			</form>
+		</div>
+	</div>
+	
+	<script src="assets/JS/main1.js"></script>
 	
 	
 

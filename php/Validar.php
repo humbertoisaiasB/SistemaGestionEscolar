@@ -1,5 +1,6 @@
 <?php
 	$cont = 1;
+	//Aqui esta la valicion para el apartado de correo 
   if(preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',$_POST['txt_Correo']) ){
     $cont=$cont-1;
   }

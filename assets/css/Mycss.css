@@ -367,6 +367,62 @@ main .tabcontent{
 			height: 100vh;
 		}
 	}
-/*Componentes para lo delp pdf
+/*Aqui lo de el menu */
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.wrap {
+	margin: auto;
+	width: 100%;
+}
+
+.principal {
+	color: #000;
+	width: 100%;
+}
+
+.principal .formulario {
+	color: #000;
+	text-align: center;
+}
+
+.principal .formulario input[type=text] {
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 100%;
+}
+
+.principal .formulario input[type=text].error {
+	border: 5px solid #fff;
+	color: black;
+}
 
 
+.principal .formulario .boton:hover {
+	border: 1px solid #fff;
+}
+
+/* - Tareas - */
+.tareas .lista {
+	list-style: none;
+}
+
+.tareas .lista li {
+	border-bottom: 1px solid #B6B6B6;
+}
+
+.tareas .lista li a {
+	color: #212121;
+	display: block;
+	padding: 20px 0;
+	text-decoration: none;
+}
+
+.tareas .lista li a:hover {
+	text-decoration: line-through;
+}

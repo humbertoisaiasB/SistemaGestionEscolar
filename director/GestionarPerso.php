@@ -44,7 +44,7 @@
                               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ariahaspopup="true" ariaexpanded="false">Filtros<span class="caret"></span></button>
                               <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                  <a href="#">Solo usuarios de tipo "Empresa"</a>
+                                  <a href="#">Solo usuarios de </a>
                                 </li>
                                 <li>
                                   <a href="#">Solo usuarios de tipo "Empleador"</a>

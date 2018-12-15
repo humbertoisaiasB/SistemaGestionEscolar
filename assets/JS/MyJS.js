@@ -551,8 +551,8 @@ function zonaRM(num){
     $('#zonaYM').html(data);
   });
 }
-function zonaRD(num,tipo,lugar){
-  $.post("php/zonas.php", { numeroZ: num, tipoU: tipo}, function(data){
+function zonaRD(num,tipo,lugar,mod){
+  $.post("php/zonas.php", { numeroZ: num, tipoU: tipo, modalidad:mod}, function(data){
     $(lugar).html(data);
   });
 }
@@ -669,5 +669,16 @@ alert(selected);
 
   $.post("../php/zonas.php",{numeroZ:selected,tipoU:cad2},function(data){
     $(cad3).html(data);
+  });
+}
+//funcion 
+function agregaCentros(cad1,cad2){
+  $.post("php/Centros.php",{tipo:cad1},function(data){
+    $(cad2).html(data);
+  });
+}
+function agregaZonas(cad1, cad2){
+  $.post("php/CentrosZona.php",{modalidad:cad1},function(data){
+    $(cad2).html(data);
   });
 }

@@ -57,7 +57,10 @@ if (isset($_POST['btn_Submitpdf'])){
   <body>
     <div id="section-left">
       <div class="section intro">
-        <div class="logo"></div>
+        <div class="logo">
+        <img src="../assets/images/logoE.png"> 
+        <img src="">
+        </div>
         <h3>'.$val["Nom"].' '.$val["Ap"].'</h3>
         <div class="content">
           <span class="dob">'.$val["Dia"].' '.$mes.' '.$val["Ano"].'</span>, '.$val["Edad"].' años <br>
