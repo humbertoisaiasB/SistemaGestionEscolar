@@ -159,7 +159,6 @@
               echo  '<div class="col-sm-4"><a class="thumbnail" onclick="return MostrarModalConsultarAdmin('.$row['id_Usuario'].');" data-toggle="modal" href="#Mod">
               <img src="../assets/images/estudiante.png" height="70px" width="70px">
                  <h5 align=center> '.$row['Nom'].' '.$row['Ap'].'</h5>
-                 <p align=center> '.$row['Grado'].'° '.$row['Grupo'].'</p>
                  </a> </div>
                 ';
               }

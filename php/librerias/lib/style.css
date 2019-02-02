@@ -1,5 +1,5 @@
 html {
-			 background-color: #444;
+			 background-color: #8A0808;
 			 padding: 0 1em;
 		 }
 		 body {
@@ -13,7 +13,8 @@ html {
 			 width: 35%;
 			 float: left;
 			 height: 100%;
-			 background-color: #fc7a70;
+			 background-color: #8A0808;
+			 display: inline-block;
 			 color: #fff;
 			 text-align: center;
 		 }
@@ -26,7 +27,7 @@ html {
 			 width: 150px;
 			 border-radius: 50%;
 			 margin: 0 auto;
-    	 background-size: 100% 100%;
+    	 	background-size: 100% 100%;
 		 }
 		 .intro hr {
 			 width: 4em;
@@ -63,7 +64,7 @@ html {
 			 margin-right: 15px;
 		 }
 		 .wrapper .title {
-			 color: #fc7a70;
+			 color: #000;
 			 font-size: 1.3em;
 			 font-variant: small-caps;
 			 letter-spacing: 0.1em;

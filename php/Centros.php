@@ -1,5 +1,5 @@
 <?php  
-include "Conexion.php";
+	include "Conexion.php";
 	echo "Queso";
 ?>
 <div class="modal-dialog modal-lg">
@@ -10,7 +10,7 @@ include "Conexion.php";
       <h4 class="modal-title" style="text-align:center;">Agrega la modalidad de tu centro de trabajo</h4>
     </div>
     <div class="modal-body">
-<div id="div_ZonaMaestro" class="row">
+<div id="div_Zona<?php echo $_POST['tipo'];?>" class="row">
 			<div class="col-2">
 				<label>Escoje la modalidad de tu centro de trabajo.</label>
 				<div class="btn-group btn-lg" role="group">
@@ -19,12 +19,25 @@ include "Conexion.php";
 					<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu">
-						<li><a onclick="return agregaZonas('Tecnicas','#zonasAgregadas');">Tecnicas</a></li>
-						<li><a onclick="return agregaZonas('General','#zonasAgregadas');">Generales</a></li>
-						<li><a onclick="return agregaZonas('Telesecundaria','#zonasAgregadas');">Telesecundarias</a></li>
+						<?php
+							if($_POST['tipo'] == "SubDirector"){
+								?>
+							<!--Aqui va el codigo para subdirector-->
+							<li><a onclick="return agregaZonas('Tecnicas','#zonasAgregadas<?php echo $_POST['tipo'];?>','<?php echo $_POST['tipo'];?>');">Tecnicas</a></li>
+							<li><a onclick="return agregaZonas('General','#zonasAgregadas<?php echo $_POST['tipo'];?>','<?php echo $_POST['tipo'];?>');">Generales</a></li>
+								<?php 
+
+							}else{
+								?>
+								<li><a onclick="return agregaZonas('Tecnicas','#zonasAgregadas<?php echo $_POST['tipo'];?>','<?php echo $_POST['tipo'];?>');">Tecnicas</a></li>
+								<li><a onclick="return agregaZonas('General','#zonasAgregadas<?php echo $_POST['tipo'];?>','<?php echo $_POST['tipo'];?>');">Generales</a></li>
+								<li><a onclick="return agregaZonas('Telesecundaria','#zonasAgregadas<?php echo $_POST['tipo'];?>','<?php echo $_POST['tipo'];?>');">Telesecundarias</a></li>
+								<?php  
+							}
+						?>
 					</ul>
 				</div>
-				<div id="zonasAgregadas">
+				<div id="zonasAgregadas<?php echo $_POST['tipo'];?>">
 					
 				</div>
 			</div>

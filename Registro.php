@@ -25,6 +25,7 @@
 		}
 	</style>
 	<?php
+	$cambio = "Alumno";
 	$variableEscuela = "";
 	$variableEscuelasTotal = 0;
 	function devuelve($a){
@@ -41,7 +42,7 @@
 	} 
 	 ?>
 </head>
-<body class="site" onload="return validar(); return validar2(); return validar3(); return validar4();" >
+<body class="site" onload="return validar(); return validar2(); return validar3(); return validar4(); return validar5(); return validad6();" >
 	<header>
 		<nav class="navbar navbar-default">
 					<div class="container-fluid">
@@ -65,7 +66,6 @@
 					</div><!-- /.container-fluid -->
 		</nav>
 	</header>
-</body>
 	<main class="content">
 		<div class="container">
 					<div class="row">
@@ -80,13 +80,15 @@
 					<div class="row">
 						<div class="col-md-11">
 							<ul class="nav nav-pills">
-								<li onload="return validar();" class="active"><a href="#alumno" data-toggle="tab">Alumno</a></li>
-								
-								<li onload="return validar2();"><a href="#maestro" onclick="return validar2();" data-toggle="tab">Maestro</a></li>
+								<li onload="return validar();" class="active"><a href="#alumno"  onclick="return validar();" data-toggle="tab">Alumno</a></li>
 								<li onload="return validar4();"><a href="#PersonalA" data-toggle="tab" onclick="return validar4();">Personal de apoyo</a></li>
+								<li onload="return validar2();"><a href="#maestro" onclick="return validar2();" data-toggle="tab">Maestro</a></li>
+								<li onload="return validar6();"><a href="#sub" onclick="return validar6();" data-toggle="tab">Subdirector</a></li>
 								<li onload="return validar3();"><a href="#director" onclick="return validar3();" data-toggle="tab">Director</a></li>
+								<li onload="return validar5();"><a href="#supervisor" onclick="return validar5();" data-toggle="tab">Supervisor</a></li>
+								<input type="hidden" id="tipo" value="Alumno">
+								
 							</ul>
-						</div>
 					</div>
 						<div class="tab-content">
 							<div class="tab-pane fade in active" id="alumno" >
@@ -115,26 +117,27 @@
 														<label>Correo:</label><input id="txt_Correo" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'Correo',this.value); return validar(); return validaCorreo(this.value,'#div_CorreoRepetida');" type="email" class="form-control" name="txt_Correo" required><span id="span_Correo" ></span>
 													</div>
 													<div id="div_CorreoRepetida" ></div> 
-													<div id="div_Zona" class="row">
-														<div class="col-2">
-															<div class="btn-group btn-lg" role="group">
-																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-																      Zona escolar
-																<span class="caret"></span>
-																</button>
-																<ul class="dropdown-menu">
-																    <?php
-																		for($i=1; $i<=56; $i++){
-																			echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'".''."Alumno"."'".','."'"."#zonaY"."'".');">'.$i.'</a></li>';
-																		}
-																		?>
-																</ul>
+													<div id="div_AgregaZonasAlumno">
+															<div class="principal">
+																<div class="wrap">
+																<!-- Aqui empieza la modificacion -->
+																	<h4>Ingresa tus datos!</h4>
+																	<div class="input-group">
+															      		<input type="text" class="form-control" placeholder="Search for...">
+															      		<span class="input-group-btn">
+															        		<button class="btn btn-default" type="button" onclick="return agregaCentros('Alumno','#centrosAlumno');" data-toggle="modal" data-target="#centrosAlumno">Agregar mas!</button>
+															      		</span>
+															 		</div><!-- /input-group -->
+														  			<div id="centrosAlumno" class="modal fade" role="dialog"></div>		
+																</div>
 															</div>
-															<div id="claveA" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
-		<label style="margin: 5px;" id="clavecitaCA"></label><span style="margin:10px;font-size: 15px;" id="prueba13A" name="prueba13A" class="label label-info"></span><input type="hidden" id="prueba13EA" name="prueba13EA" value="">
-														</div>
-													</div>
-												</div>
+															<div class="tareas">
+																<div class="wrap">
+																	<ul class="lista" id="listaAlumno">
+																	</ul>
+																</div>
+															</div>
+														</div>	
 													<div id="zonaY"></div>
 													<div style="display:block;margin-top:20px;">
 															<div id="div_Telcasa" style="display: inline-block;">
@@ -158,29 +161,6 @@
 																<label>Calle:</label><input id="txt_CalleCan" onkeypress="return validarXD(alphanumeric1,this.value.length,30);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleCan',this.value);"  type="text" class="form-control" name="txt_CalleCan" required><span id="span_CalleCan"></span>
 														</div>
 															<!-- Aqui se sale de lo normal de usuario aqui es modificar para cada uno de los actores. -->
-
-														<div style="display:block;margin:10px;">
-															<div id="div_S_Grado"style="display: inline-block;margin: 20px;">
-																<label for="S_Grado">Grado:</label>
-																<select class="form-control" name="S_Grado">
-																	<option>1</option>
-																	<option>2</option>
-																	<option>3</option>
-																</select>
-															</div>
-															<div id="div_S_Grupo"style="display: inline-block;margin: 20px;">
-																<label for="S_Grupo">Grupo:</label>
-																<select class="form-control" name="S_Grupo">
-																	<option>A</option>
-																	<option>B</option>
-																	<option>C</option>
-																	<option>D</option>
-																	<option>E</option>
-																	<option>F</option>
-																	<option>G</option>
-																</select>
-															</div>
-														</div>
 															<div id="div_nomPapa">
 																<label>Nombre del papá:</label><input id="txt_nomPapa" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomPapa',this.value);NomValid(this);"  type="text" class="form-control" name="txt_nomPapa"><span id="span_nomPapa" ></span>
 															</div>
@@ -249,32 +229,43 @@
 													<div id="div_CorreoMaestro">
 														<label>Correo:</label><input id="txt_CorreoMaestro" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoMaestro',this.value);" type="email" class="form-control" name="txt_CorreoMaestro" required><span id="span_CorreoMaestro" ></span>
 													</div>
-													
-														<div id="div_AgregaZonas1">
+														<div id="div_AgregaZonasMaestro">
 															<div class="principal">
-		<div class="wrap">
-			<form class="formulario" action="">
-				<!-- Aqui empieza la modificacion -->
-				<input type="text" id="valor1"> 
-				<h4>Ingresa los grupos a tu cargo</h4>
-				<div class="input-group">
-															      <input type="text" class="form-control" placeholder="Search for...">
-															      <span class="input-group-btn">
-															        <button class="btn btn-default" type="button" onclick="return agregaCentros('Maestro','#centros');" data-toggle="modal" data-target="#centros">Agregar mas!</button>
-															      </span>
-															 </div><!-- /input-group -->
-														  <div id="centros" class="modal fade" role="dialog"></div>
-			</form>
-		</div>
-	</div>
-
-	<div class="tareas">
-		<div class="wrap">
-			<ul class="lista" id="lista">
-			</ul>
-		</div>
-	</div>
-		</div>						
+																<div class="wrap">
+																<!-- Aqui empieza la modificacion -->
+																	<h4>Ingresa tus datos!</h4>
+																	<div class="input-group">
+															      		<input type="text" class="form-control" placeholder="Search for...">
+															      		<span class="input-group-btn">
+															        		<button class="btn btn-default" type="button" onclick="return agregaCentros('Maestro','#centrosMaestros');" data-toggle="modal" data-target="#centrosMaestros">Agregar mas!</button>
+															      		</span>
+															 		</div><!-- /input-group -->
+														  			<div id="centrosMaestros" class="modal fade" role="dialog"></div>		
+																</div>
+															</div>
+															<div class="tareas">
+																<div class="wrap">
+																	<ul class="lista" id="listaMaestro">
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<!-- Para las claves aqui codigo empieza 
+														<div id="div_AgregaClaves" >
+															<div class="principal">
+																<div class="wrap">
+																	<h4>Ingresa tus claves!</h4>
+																	<div class="input-group">
+															      		<input type="text" class="form-control" placeholder="Escribe tu clave..." id="claveMaestro">
+															      		<span class="input-group-btn">
+															        		<button class="btn btn-default" type="button" id="btn-agregarClaveMaestro" onclick="return masClaves();">Agregar mas!</button>
+															      		</span>
+															 		</div>
+														  			<div id="clavesMaestro" class="modal fade" role="dialog"></div>		
+																</div>
+															</div>
+														</div>				
+														Y aqui termina ese codigo  -->			
 														<div style="display:block;margin-top:20px;">
 															<div id="div_TelcasaMaestro" style="display: inline-block;">
 																<label style="margin-right:5px;">Teléfono casa: </label><input input id="txt_TelcasaMaestro" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{8,10}$/,'TelcasaMaestro',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_TelcasaMaestro"><span id="span_TelcasaMaestro" ></span>
@@ -307,8 +298,8 @@
 																<label>Calle:</label><input id="txt_CalleCanMaestro" onkeypress="return validarXD(alphanumeric1,this.value.length,30);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleCanMaestro',this.value);"  type="text" class="form-control" name="txt_CalleCanMaestro" required><span id="span_CalleCanMaestro"></span>
 															</div>
 															<!--Aqui comienza el registro con los de mas atribuytos de maestro -->
-																<div id="div_ClavePresupuestal">
-																	<label>Clave Presupuestal:</label><input type="text" name="txt_ClavePresupuestal" class="form-control" id="txt_ClavePresupuestal"><span id="span_ClavePresupuestal"></span>
+																<div id="div_ClavePresupuestalM">
+																	<label>Clave Presupuestal:</label><input type="text" name="txt_ClavePresupuestalM" class="form-control" id="txt_ClavePresupuestalM"><span id="span_ClavePresupuestalM"></span>
 																</div>
 
 																<div id="div_rfc">
@@ -353,7 +344,29 @@
 													<div id="div_CorreoAdmi">
 														<label>Correo:</label><input id="txt_CorreoAdmi" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoAdmi',this.value);" type="email" class="form-control" name="txt_CorreoAdmi" required><span id="span_CorreoAdmi" ></span>
 													</div>
-											
+											<div id="div_AgregaZonas1">
+															<div class="principal">
+																<div class="wrap">
+																<!-- Aqui empieza la modificacion -->
+																	<h4>Ingresa tus datos</h4>
+																	<div class="input-group">
+															      		<input type="text" class="form-control" placeholder="Search for...">
+
+															      		<span class="input-group-btn">
+															        		<button class="btn btn-default" type="button" onclick="return agregaCentros('PersonalA','#centrosPersonalA');" data-toggle="modal" data-target="#centrosPersonalA">Agregar mas!</button>
+															      		</span>
+															 		</div><!-- /input-group -->
+														  			<div id="centrosPersonalA" class="modal fade" role="dialog"></div>		
+																</div>
+															</div>
+															<div class="tareas">
+																<div class="wrap">
+																	<ul class="lista" id="listaPersonalA">
+																	</ul>
+																</div>
+															</div>
+														</div>	
+													<div id="zonaAdmin"></div>
 														<div style="display:block;margin-top:20px;">
 															<div id="div_TelcasaAdmi" style="display: inline-block;">
 																<label style="margin-right:5px;">Teléfono casa: </label><input input id="txt_TelcasaAdmi" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{8,10}$/,'TelcasaAdmi',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_TelcasaAdmi"><span id="span_TelcasaAdmi" ></span>
@@ -362,27 +375,6 @@
 																<label>Teléfono celular:</label><input input id="txt_TelcelularAdmi" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'TelcelularAdmi',this.value);" style="min-width:230px;" type="text" class="form-control" name="txt_TelcelularAdmi"><span id="span_TelcelularAdmi" ></span>
 															</div>
 														</div>
-														<div id="div_ZonaAdmin" class="row">
-														<div class="col-2">
-															<div class="btn-group btn-lg" role="group">
-																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-																      Zona escolar
-																<span class="caret"></span>
-																</button>
-																<ul class="dropdown-menu">
-																    <?php
-																		for($i=1; $i<=56; $i++){
-																			echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'".''."personal".''."'".','."'"."#zonaAdmin"."'".');">'.$i.'</a></li>';
-																		}
-																		?>
-																</ul>
-															</div>
-															<div id="claveAdmi" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
-		<label style="margin: 5px;" id="clavecitaCAdmi"></label><span style="margin:10px;font-size: 15px;" id="prueba13Admi" name="prueba13Admi" class="label label-info"></span><input type="hidden" id="prueba13EAdmi" name="prueba13EAdmi" value="">
-														</div>
-														</div>
-													</div>
-													<div id="zonaAdmin"></div>
 													    <div id="div_CurpAdmi">
 															<label>CURP:</label><input id="txt_CurpAdmi" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[A-Z0-9]{2}/,'CurpAdmi',this.value); return validaCurpE(this.value,'PersonalA','#div_CurpRepetidaAdmi');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_CurpAdmi"><span id="span_CurpAdmi" ></span>
 														</div>
@@ -439,27 +431,27 @@
 													<div id="div_CorreoDirector">
 														<label>Correo:</label><input id="txt_CorreoDirector" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoDirector',this.value);" type="email" class="form-control" name="txt_CorreoDirector" required><span id="span_CorreoDirector" ></span>
 													</div>
-													<div id="div_ZonaD" class="row">
-														<div class="col-2">
-															<div class="btn-group btn-lg" role="group">
-																<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-																      Zona escolar
-																<span class="caret"></span>
-																</button>
-																<ul class="dropdown-menu">
-																    <?php
-																		for($i=1; $i<=56; $i++){
-																			echo '<li value="'.$i.'"><a onclick="return zonaRD('.$i.','."'".''."Director".''."'".','."'"."#zonaYD"."'".');">'.$i.'</a></li>';
-																		}
-																		?>
-																</ul>
+													<div id="div_AgregaZonasDirector">
+															<div class="principal">
+																<div class="wrap">
+																<!-- Aqui empieza la modificacion -->
+																	<h4>Ingresa los grupos a tu cargo</h4>
+																	<div class="input-group">
+															      		<input type="text" class="form-control" placeholder="Search for...">
+															      		<span class="input-group-btn">
+															        		<button class="btn btn-default" type="button" onclick="return agregaCentros('Director','#centrosDirector');" data-toggle="modal" data-target="#centrosDirector">Agregar mas!</button>
+															      		</span>
+															 		</div><!-- /input-group -->
+														  			<div id="centrosDirector" class="modal fade" role="dialog"></div>		
+																</div>
 															</div>
-															<div id="claveD" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
-		<label style="margin: 5px;" id="clavecitaCD"></label><span style="margin:10px;font-size: 15px;" id="prueba13D" name="prueba13D" class="label label-info"></span><input type="hidden" id="prueba13ED" name="prueba13ED" value="">
-														</div>
-													</div>
-												</div>
-													<div id="zonaYD"></div>
+															<div class="tareas">
+																<div class="wrap">
+																	<ul class="lista" id="listaDirector">
+																	</ul>
+																</div>
+															</div>
+														</div>	
 															<div id="div_S_FuncionD"style="display: inline-block;margin: 20px;">
 																<label for="S_FuncionD">Función:</label>
 																<select class="form-control" name="S_FuncionD">
@@ -507,6 +499,175 @@
 										</div>
 								</div>
 							</div>
+							<div class="tab-pane fade" id="supervisor" >
+								<div class="row">
+									<div class="col-md-2"></div>
+										<div class="col-md-11"><br>
+										<div class="registro1" align="center">
+											<div class="panel-body">
+												<div class="titulo" align="center">
+													<h3>
+														Registro Supervisor
+													</h3>
+												</div>
+												<form  action="php/AddSupervisor.php" method="POST">
+													<div id="div_NomSupervisor">
+														<label>Nombre:</label><input id="txt_NomSupervisor" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomSupervisor',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomSupervisor"><span id="span_NomSupervisor" ></span>
+													</div>
+													<div id="div_ApSupervisor">
+														<label>Apellido paterno:</label><input id="txt_ApSupervisor" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'ApSupervisor',this.value);NomValid(this);" type="text" class="form-control"  name="txt_ApSupervisor"><span id="span_ApSupervisor" ></span>
+													</div>
+													<div id="div_AmSupervisor">
+														<label>Apellido materno:</label><input id="txt_AmSupervisor" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'AmSupervisor',this.value);NomValid(this);" type="text" class="form-control" name="txt_AmSupervisor"><span id="span_AmSupervisor" ></span>
+													</div>
+													<div id="div_CorreoSupervisor">
+														<label>Correo:</label><input id="txt_CorreoSupervisor" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoSupervisor',this.value);" type="email" class="form-control" name="txt_CorreoSupervisor" required><span id="span_CorreoSupervisor" ></span>
+													</div>
+													<div id="div_AgregaZonasSupervisor">
+															<div class="principal">
+																<div class="wrap">
+																<!-- Aqui empieza la modificacion -->
+																	<h4>Ingresa tus datos!</h4>
+																	<div class="input-group">
+															      		<input type="text" class="form-control" placeholder="Search for...">
+															      		<span class="input-group-btn">
+															        		<button class="btn btn-default" type="button" onclick="return agregaCentros('Supervisor','#centrosSupervisor');" data-toggle="modal" data-target="#centrosSupervisor">Agregar mas!</button>
+															      		</span>
+															 		</div><!-- /input-group -->
+														  			<div id="centrosSupervisor" class="modal fade" role="dialog"></div>		
+																</div>
+															</div>
+															<div class="tareas">
+																<div class="wrap">
+																	<ul class="lista" id="listaSupervisor">
+																	</ul>
+																</div>
+															</div>
+														</div>	
+													<div id="zonaSupervisor"></div>
+														<div style="display:block;margin-top:20px;">
+															<div id="div_TelcasaSupervisor" style="display: inline-block;">
+																<label style="margin-right:5px;">Teléfono casa: </label><input id="txt_TelcasaSupervisor" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{8,10}$/,'TelcasaSupervisor,this.value);" type="text" style="min-width:230px" class="form-control" name="txt_TelcasaSupervisor"><span id="span_TelcasaSupervisor" ></span>
+															</div>
+															<div id="div_TelcelularDirector" style="display:inline-block;">
+																<label>Teléfono celular:</label><input id="txt_TelcelularSupervisor" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'TelcelularSupervisor',this.value);" style="min-width:230px;" type="text" class="form-control" name="txt_TelcelularSupervisor"><span id="span_TelcelularSupervisor" ></span>
+															</div>
+														</div>
+													<div id="div_CurpSupervisor">
+															<label>CURP del Supervisor:</label><input id="txt_CurpSupervisor" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[A-Z0-9]{2}/,'CurpSupervisor',this.value);  return validaCurpE(this.value,'Supervisor','#div_CurpRepetidaSupervisor');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase;" type="text" class="form-control" name="txt_CurpSupervisor"><span id="span_CurpSupervisor" ></span>
+														</div>
+														<div id="div_CurpRepetidaSupervisor" class="row"></div>
+																<div id="div_CPCanSupervisor">
+																	<label>Código Postal:</label><input id="txt_CPCanSupervisor" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCanSupervisor',this.value); return codigoU('#codigoCSupervisor',this.value,'Supervisor');" type="text" class="form-control" name="txt_CPCanSupervisor" required><span id="span_CPCanSupervisor" ></span>
+																</div>
+															<div id="codigoCSupervisor"></div>
+															<div id="div_CalleSupervisor">
+																<label>Calle:</label><input id="txt_CalleCanSupervisor" onkeypress="return validarXD(alphanumeric1,this.value.length,30);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleCanSupervisor',this.value);"  type="text" class="form-control" name="txt_CalleCanSupervisor" required><span id="span_CalleCanSupervisor"></span>
+															</div>
+																<div id="div_PswCanSupervisor">
+																	<label>Contraseña:</label><input id="txt_PswCanSupervisor" type="password" class="form-control" name="txt_PswCanSupervisor" required><span id="span_PswCanSupervisor" ></span>
+																</div>
+																<div id="div_Psw2CanSupervisor">
+																	<label>Repite Contraseña:</label><input id="txt_Psw2CanSupervisor" onkeyup="checkPwCan(this.value);" type="password" class="form-control" name="txt_Psw2CanSupervisor" required><br><span id="span_Psw2CanSupervisor" ></span>
+																</div>
+                                <div id="btn_Supervisor">
+                                </div>
+    												</form>
+											</div>
+										</div>
+										</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="sub" >
+								<div class="row">
+									<div class="col-md-2"></div>
+										<div class="col-md-11"><br>
+										<div class="registro1" align="center">
+											<div class="panel-body">
+												<div class="titulo" align="center">
+													<h3>
+														Registro Subdirector 
+													</h3>
+												</div>
+												<div class="alert alert-danger" role="alert">
+      												<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 	 												<strong>¡Cuidado!</strong> Esta opcion de registro solo esta habilitada para las modalidades generales y tenicas.
+      			   								</div>
+												<form  action="php/AddSubDirector.php" method="POST">
+													<div id="div_NomSubDirector">
+														<label>Nombre:</label><input id="txt_NomSubDirector" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomSubDirector',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomSubDirector"><span id="span_NomSubDirector" ></span>
+													</div>
+													<div id="div_ApSubDirector">
+														<label>Apellido paterno:</label><input id="txt_ApSubDirector" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'ApSubDirector',this.value);NomValid(this);" type="text" class="form-control"  name="txt_ApSubDirector"><span id="span_ApSubDirector" ></span>
+													</div>
+													<div id="div_AmSubDirector">
+														<label>Apellido materno:</label><input id="txt_AmSubDirector" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'AmSubDirector',this.value);NomValid(this);" type="text" class="form-control" name="txt_AmSubDirector"><span id="span_AmSubDirector" ></span>
+													</div>
+													<div id="div_CorreoSubDirector">
+														<label>Correo:</label><input id="txt_CorreoSubDirector" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoSubDirector',this.value);" type="email" class="form-control" name="txt_CorreoSubDirector" required><span id="span_CorreoSubDirector" ></span>
+													</div>
+														<div id="div_AgregaZonasSubDirector">
+															<div class="principal">
+																<div class="wrap">
+																<!-- Aqui empieza la modificacion -->
+																	<h4>Ingresa tus datos!</h4>
+																	<div class="input-group">
+															      		<input type="text" class="form-control" placeholder="Search for...">
+															      		<span class="input-group-btn">
+															        		<button class="btn btn-default" type="button" onclick="return agregaCentros('SubDirector','#centrosSubDirector');" data-toggle="modal" data-target="#centrosSubDirector">Agregar mas!</button>
+															      		</span>
+															 		</div><!-- /input-group -->
+														  			<div id="centrosSubDirector" class="modal fade" role="dialog"></div>		
+																</div>
+															</div>
+															<div class="tareas">
+																<div class="wrap">
+																	<ul class="lista" id="listaSubDirector">
+																	</ul>
+																</div>
+															</div>
+														</div>						
+														<div style="display:block;margin-top:20px;">
+															<div id="div_TelcasaSubDirector" style="display: inline-block;">
+																<label style="margin-right:5px;">Teléfono casa: </label><input input id="txt_TelcasaSubDirector" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^[0-9]{8,10}$/,'TelcasaSubDirector',this.value);" type="text" style="min-width:230px" class="form-control" name="txt_TelcasaSubDirector"><span id="span_TelcasaSubDirector" ></span>
+															</div>
+															<div id="div_TelcelularSubDirector" style="display:inline-block;">
+																<label>Teléfono celular:</label><input id="txt_TelcelularSubDirector" onkeypress="return validarXD(numeric,this.value.length,10);" onkeyup="validacion4all(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,'TelcelularSubDirector',this.value);" style="min-width:230px;" type="text" class="form-control" name="txt_TelcelularSubDirector"><span id="span_TelcelularSubDirector" ></span>
+															</div>
+														</div>
+														<div id="div_CurpSubDirector">
+															<label>CURP:</label><input id="txt_CurpSubDirector" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[A-Z0-9]{2}/,'CurpSubDirector',this.value); return validaCurpE(this.value,'SubDirector','#div_CurpRepetidaSubDirector');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_CurpSubDirector"><span id="span_CurpSubDirector" ></span>
+														</div>
+														<div id="div_CurpRepetidaSubDirector"></div>
+															<div id="div_CPCanSubDirector">
+																	<label>Código Postal:</label><input id="txt_CPCanSubDirector" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCanSubDirector',this.value); return codigoU('#codigoCSubDirector',this.value,'Maestro');"  type="text" class="form-control" name="txt_CPCanSubDirector" required><span id="span_CPCanSubDirector" ></span>
+															</div>
+															<div id="codigoCSubDirector"></div>
+															<div id="div_CalleCanSubDirector">
+																<label>Calle:</label><input id="txt_CalleCanSubDirector" onkeypress="return validarXD(alphanumeric1,this.value.length,30);" onkeyup="validacion4all(/^([A-Za-z\s]+)\s([#])\s([0-9A-Za-z]{1,5})$/,'CalleCanSubDirector',this.value);"  type="text" class="form-control" name="txt_CalleCanSubDirector" required><span id="span_CalleCanSubDirector"></span>
+															</div>
+															<!--Aqui comienza el registro con los de mas atribuytos de maestro -->
+																<div id="div_ClavePresupuestal">
+																	<label>Clave Presupuestal:</label><input type="text" name="txt_ClavePresupuestal" class="form-control" id="txt_ClavePresupuestal"><span id="span_ClavePresupuestal"></span>
+																</div>
+
+																<div id="div_rfc">
+																	<label>RFC:</label><input id="txt_rfc" type="text" class="form-control" name="txt_rfc"><span id="span_rfc" ></span>
+																</div>
+																<div id="div_PswCanSubDirector">
+																	<label>Contraseña:</label><input id="txt_PswCanSubDirector" type="password" class="form-control" name="txt_PswCanSubDirector" required><span id="span_PswCanSubDirector" ></span>
+																</div>
+																<div id="div_Psw2CanSubDirector">
+																	<label>Repite Contraseña:</label><input id="txt_Psw2CanSubDirector" onkeyup="checkPwCan(this.value);" type="password" class="form-control" name="txt_Psw2CanSubDirector" required><br><span id="span_Psw2CanSubDirector" ></span>
+																</div>
+                                <div id="btn_SubDirector">
+                                </div>
+    												</form>
+											</div>
+										</div>
+										</div>
+								</div>
+							</div>
 						</div>
 					</div>
 <div id="Mod" class="modal fade" role="dialog">
@@ -544,10 +705,13 @@
 </div>
 	</main>
 	<footer>
+
 		<i class="fa fa-facebook-official f2c-hover-opacity"></i>
 				<i class="fa fa-instagram f2c-hover-opacity"></i>
 				<i class="fa fa-twitter f2c-hover-opacity"></i>
 			<p>Powered by <strong>Dym Corp</p></strong>
 	</footer>
+	
 </body>
+
 </html>

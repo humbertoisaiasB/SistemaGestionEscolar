@@ -90,41 +90,59 @@
                           <span>Gestionar Documentos Personales.</span>
                       </a>
                       <ul class="sub">
-                            <a  href="Main.php" data-toggle="tab">General</a>
+                            <a  href="#buscar" data-toggle="tab">General</a>
+                      </ul>
+                      <ul class="sub">
+                            <a  href="#Portafolio" data-toggle="tab">Portafolio</a>
                       </ul>
                   </li>
+                  <!---
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-desktop"></i>
                           <span>General un pdf.</span>
                       </a>
                       <ul class="sub">
-                            <a  href="Reporte.php" data-toggle="tab">Ir.</a>
+                            <a  href="#reporte" data-toggle="tab">Ir.</a>
                       </ul>
                   </li>
+                -->
               </ul>
               <!-- sidebar menu end-->
           </div>
       </aside>
   <!--queso-->
 
-
 <main class="content">
     <section id="main-content">
       <section class="wrapper">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="Buscar.php"></iframe>
-            </div>
+      <div class="row ">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="tab-content">
+              <div class="tab-pane fade in active" id="buscar" >
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="Buscar.php"></iframe>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="reporte" >
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="Reporte.php"></iframe>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="Portafolio" >
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="Portafolio.php"></iframe>
+                </div>
+              </div>
           </div>
         </div>
       </div>
+    </div>
     </section>
-  </section>
-</main>	
-
+    </section>
+  </main> 
 
 <div id="Notif" class="modal fade" role="dialog">
   <div class="modal-dialog modal-md">

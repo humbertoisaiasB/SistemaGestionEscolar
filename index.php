@@ -32,9 +32,7 @@
 					<h1><a href="index.php">Sistema Gestión Escolar</a></h1>
 					<nav id="mySidebar" class="col-sm-4">
 						<ul>
-							<li><a href="index.php">Inicio</a></li>
 							<li>
-								<a href="#" class="icon fa-angle-down">Layouts</a>
 								<ul>
 									<li><a href="generic.html">Generic</a></li>
 									<li><a href="contact.html">Contact</a></li>

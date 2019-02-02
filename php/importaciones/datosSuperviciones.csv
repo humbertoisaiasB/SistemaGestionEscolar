@@ -1,0 +1,123 @@
+1,14FIS0001M,INSPECCION 1,Discon,Guadalajara                             ,Guadalajara,1,General
+2,14FIS0002L,INSPECCION 11,Discon,Guadalajara                             ,Guadalajara,11,General
+3,14FIS0003K,INSPECCION 3,Discon,Zapopan                                 ,Zapopan,3,General
+4,14FIS0004J,INSPECCION 4,Discon,Tlaquepaque                             ,Tlaquepaque,4,General
+5,14FIS0005I,INSPECCION 5,Discon,La barca                                ,La Barca,5,General
+6,14FIS0006H,INSPECCION 6,Discon,Tala                                    ,Tala,6,General
+7,14FIS0007G,INSPECCION 7,Discon,Autlan de Navarro                       ,Autlan de Navarro,7,General
+8,14FIS0008F,INSPECCION 8,Discon,Zapotlan el Grande                      ,Ciudad Guzman,8,General
+9,14FIS0009E,INSPECCION 9,Discon,Zapopan                                 ,Zapopan,9,General
+10,14FIS0010U,INSPECCION 10,Discon,Zapotlanejo                             ,Zapotlanejo,10,General
+11,14FIS0011T,INSPECCION 13,Discon,Lagos de Moreno                         ,Lagos de Moreno,13,General
+12,14FIS0012S,INSPECCION 12,Discon,Guadalajara                             ,Guadalajara,12,General
+13,14FIS0013R,INSPECCION 2,Discon,Puerto Vallarta                         ,Puerto Vallarta,2,General
+14,14FIS0014Q,INSPECCION 14,Discon,Tlajomulco de Zuñiga                    ,El Capulin,14,General
+15,14FIS0015P,INSPECCION 15,Discon,Tepatitlan de Morelos                   ,Tepatitlan de Morelos,15,General
+16,14FIS0016O,INSPECCION 16,Discon,Tlajomulco de Zuñiga                    ,La Union del Cuatro (San José del V,16,General
+17,14FIS0017N,INSPECCION 17,Discon,El salto                                ,El Salto,17,General
+18,14FIS0018M,INSPECCION 18,Discon,Jocotepec                               ,Jocotepec,18,General
+19,14FIS0019L,INSPECCION 28 ESTATAL,Discon,Zapopan                                 ,Valle de los Molinos,28,General
+20,14FIS5001U,INSPECCION 1,Discon,Guadalajara                             ,Guadalajara,1,General
+21,14FIS5002T,INSPECCION 2,Discon,Zapopan                                 ,Zapopan,2,General
+22,14FIS5003S,INSPECCION 3,Discon,Zapopan                                 ,Zapopan,3,General
+23,14FIS5004R,INSPECCION 4,Discon,Guadalajara                             ,Guadalajara,4,General
+24,14FIS5005Q,INSPECCION 5,Discon,Zapopan                                 ,Zapopan,5,General
+25,14FIS5006P,INSPECCION 6,Discon,Zapopan                                 ,Zapopan,6,General
+26,14FIS5007O,INSPECCION 7,Discon,Zapopan                                 ,Zapopan,7,General
+27,14FIS5008N,INSPECCION 8,Discon,Tlajomulco de Zuñiga                    ,Santa Cruz del Valle,8,General
+28,14FIS5009M,INSPECCION 9,Discon,Guadalajara                             ,Guadalajara,9,General
+29,14FIS5010B,INSPECCION 10,Discon,Guadalajara                             ,Guadalajara,10,General
+30,14FIS5011A,INSPECCION 11,Discon,El grullo                               ,El Grullo,11,General
+31,14FIS5012Z,INSPECCION 12,Discon,Ocotlan                                 ,Ocotlan,12,General
+32,14FIS5013Z,INSPECCION 13,Discon,Guadalajara                             ,Guadalajara,13,General
+33,14FIS5014Y,INSPECCION 14,Discon,Zapotlan el Grande                      ,Ciudad Guzman,14,General
+34,14FIS5015X,INSPECCION 15,Discon,San Martin Hidalgo                      ,San Martin Hidalgo,15,General
+35,14FIS5016W,INSPECCION 16,Discon,Colotlan                                ,Colotlan,16,General
+36,14FIS5017V,INSPECCION 17,Discon,Magdalena                               ,Magdalena,17,General
+37,14FIS5018U,INSPECCION 18,Discon,Chapala                                 ,Chapala,18,General
+38,14FIS5019T,INSPECCION 19,Discon,Tepatitlan de Morelos                   ,Tepatitlan de Morelos,19,General
+39,14FIS5020I,INSPECCION 20,Discon,San Juan de los Lagos                   ,San Juan de los Lagos,20,General
+40,14FIS5021H,INSPECCION 21,Discon,Puerto Vallarta                         ,Puerto Vallarta,21,General
+41,14FIS5022G,INSPECCION 22,Discon,Tlaquepaque                             ,Santa Anita,22,General
+42,14FIS5023F,INSPECCION 23,Discon,Sayula                                  ,Sayula,23,General
+43,14FIS5024E,INSPECCION 24,Discon,Tlaquepaque                             ,San Martin de las Flores de Abajo (,24,General
+44,14FIS5025D,INSPECCION 25,Discon,Guadalajara                             ,Guadalajara,25,General
+45,14FIS5026C,INSPECCION 26,Discon,Arandas                                 ,Arandas,26,General
+46,14FIS5027B,INSPECCION 27,Discon,Tecolotlan                              ,Tecolotlan,27,General
+47,14FTV0001W,SUPERVISION TELESECUNDARIA 30,Discon,Colotlan                                ,Colotlan,30,Telesecundaria
+48,14FTV0002V,SUPERVISION TELESECUNDARIA 39,Discon,Tlajomulco de Zuñiga                    ,San Miguel Cuyutlan,39,Telesecundaria
+49,14FTV0003U,SUPERVISION TELESECUNDARIA 18,Discon,Tepatitlan de Morelos                   ,Tepatitlan de Morelos,18,Telesecundaria
+50,14FTV0004T,SUPERVISION TELESECUNDARIA 15,Discon,Poncitlan                               ,Poncitlan,15,Telesecundaria
+51,14FTV0005S,SUPERVISION TELESECUNDARIA 19,Discon,Zapopan                                 ,San Esteban (San Miguel Tateposco),19,Telesecundaria
+52,14FTV0006R,SUPERVISION TELESECUNDARIA 25,Discon,Casimiro Castillo                       ,Coyamel (El Coyame),25,Telesecundaria
+53,14FTV0007Q,SUPERVISION TELESECUNDARIA 4,Discon,Autlan de Navarro                       ,Ahuacapan,4,Telesecundaria
+54,14FTV0008P,SUPERVISION TELESECUNDARIA 7,Discon,Zapotlan el Grande                      ,Ciudad Guzman,7,Telesecundaria
+55,14FTV0009O,SUPERVISION TELESECUNDARIA 17,Discon,Cabo Corrientes                         ,El Tuito,17,Telesecundaria
+56,14FTV0010D,SUPERVISION TELESECUNDARIA 01,Discon,Ameca                                   ,Ameca,1,Telesecundaria
+57,14FTV0011C,SUPERVISION TELESECUNDARIA 6,Discon,Tecolotlan                              ,Tecolotlan,6,Telesecundaria
+58,14FTV0012B,SUPERVISION TELESECUNDARIA 3,Discon,Teuchitlan                              ,La Estanzuela,3,Telesecundaria
+59,14FTV0013A,SUPERVISION TELESECUNDARIAS 5,Discon,Cihuatlan                               ,Emiliano Zapata (El Ranchito),5,Telesecundaria
+60,14FTV0014Z,SUPERVISION TELESECUNDARIA 24,Discon,El grullo                               ,El Grullo,24,Telesecundaria
+61,14FTV0015Z,SUPERVISION TELESECUNDARIA 9,Discon,Mazamitla                               ,Mazamitla,9,Telesecundaria
+62,14FTV0016Y,SUPERVISION TELESECUNDARIA 11,Discon,Lagos de Moreno                         ,Lagos de Moreno,11,Telesecundaria
+63,14FTV0017X,SUPERVISION TELESECUNDARIA 12,Discon,San Juan de los Lagos                   ,San Juan de los Lagos,12,Telesecundaria
+64,14FTV0018W,SUPERVISION TELESECUNDARIA 34,Discon,Ocotlan                                 ,Ocotlan,34,Telesecundaria
+65,14FTV0019V,SUPERVISION TELESECUNDARIAS 28,Discon,Tamazula ,El Tulillo,28,Telesecundaria
+66,14FTV0020K,SUPERVISION TELESECUNDARIA 16,Discon,Atotonilco el Alto                      ,San Antonio de Fernandez,16,Telesecundaria
+67,14FTV0021J,SUPERVISION TELESECUNDARIA 10,Discon,Colotlan                                ,Colotlan,10,Telesecundaria
+68,14FTV0022I,SUPERVISION TELESECUNDARIA 2,Discon,Mascota                                 ,Mascota,2,Telesecundaria
+69,14FTV0023H,SUPERVISION TELESECUNDARIA 20,Discon,Zapotlanejo                             ,La Laja,20,Telesecundaria
+70,14FTV0024G,SUPERVISION TELESECUNDARIA 21,Discon,Cocula                                  ,Cocula,21,Telesecundaria
+71,14FTV0025F,SUPERVISION TELESECUNDARIA 22,Discon,Talpa de Allende                        ,Talpa de Allende,22,Telesecundaria
+72,14FTV0026E,SUPERVISION TELESECUNDARIA 23,Discon,Magdalena                               ,Magdalena,23,Telesecundaria
+73,14FTV0027D,SUPERVISION TELESECUNDARIA 26,Discon,Cuautitlan      ,Cuautitlan de Garcia Barragan,26,Telesecundaria
+74,14FTV0028C,SUPERVISION TELESECUNDARIA 27,Discon,Union de Tula                           ,Union de Tula,27,Telesecundaria
+75,14FTV0029B,SUPERVISION TELESECUNDARIA 29,Discon,San Gabriel                             ,San Gabriel,29,Telesecundaria
+76,14FTV0030R,SUPERVISION TELESECUNDARIA 31,Discon,Ojuelos         ,Ojuelos de Jalisco,31,Telesecundaria
+77,14FTV0031Q,SUPERVISION TELESECUNDARIA 32,Discon,U. de San Antonio                    ,San Jose del Caliche (El Caliche),32,Telesecundaria
+78,14FTV0032P,SUPERVISION TELESECUNDARIA 33,Discon,Degollado                               ,Degollado,33,Telesecundaria
+79,14FTV0033O,SUPERVISION TELESECUNDARIA 35,Discon,Tomatlan                                ,Tomatlan,35,Telesecundaria
+80,14FTV0034N,SUPERVISION TELESECUNDARIA 38,Discon,Ixtlahuacan del rio                     ,Ixtlahuacan del Rio,38,Telesecundaria
+81,14FTV0035M,SUPERVISION TELESECUNDARIA 40,Discon,Jocotepec                               ,Ixtlahuacan del Rio,40,Telesecundaria
+82,14FTV0036L,SUPERVISION TELESECUNDARIA 14,Discon,La barca                                ,La Barca,14,Telesecundaria
+83,14FTV0037K,SUPERVISION TELESECUNDARIA 36,Discon,Jalostotitlan                           ,Jalostotitlan,36,Telesecundaria
+84,14FTV0038J,SUPERVISION TELESECUNDARIA 37,Discon,Arandas                                 ,Arandas,37,Telesecundaria
+85,14FTV0039I,SUPERVISION TELESECUNDARIA 08,Discon,Zacoalco de Torres                      ,Zacoalco de Torres,8,Telesecundaria
+86,14FTV0040Y,SUPERVISION TELESECUNDARIA 13,Discon,Teocaltiche                             ,Teocaltiche,13,Telesecundaria
+87,14FTV0041X,SUPERVISION TELESECUNDARIA 41,Discon,Tapalpa                                 ,San Antonio (San Antonio de Padua),41,Telesecundaria
+88,14FTV0042W,SUPERVISION TELESECUNDARIA 42,Discon,Tecalitlan                              ,Tecalitlan,42,Telesecundaria
+89,14FTV0043V,SUPERVISION TELESECUNDARIA 43,Discon,Huejuquilla el alto                     ,Huejuquilla el Alto,43,Telesecundaria
+90,14FTV0044U,SUPERVISION TELESECUNDARIA 44,Discon,Lagos de Moreno                         ,La Merced (La Chona),44,Telesecundaria
+91,14FTV0045T,SUPERVISION TELESECUNDARIA 45,Discon,Atenguillo                              ,Atenguillo,45,Telesecundaria
+92,14FTV0046S,SUPERVISION TELESECUNDARIA 46,Discon,Encarnacion de Diaz                     ,Meson de los Sauces,46,Telesecundaria
+93,14FTV0047R,SUPERVISION TELESECUNDARIA 47,Discon,Yahualica ,Yahualica de Gonzalez Gallo,47,Telesecundaria
+94,14FTV0048Q,SUPERVISION TELESECUNDARIA 48,Discon,Puerto Vallarta                         ,El Colorado,48,Telesecundaria
+95,14FTV0049P,SUPERVISION TELESECUNDARIA 49,Discon,Amatitan                                ,Amatitan,49,Telesecundaria
+96,14FTV0050E,SUPERVISION TELESECUNDARIA 50,Discon,Cuquio                                  ,Teponahuasco,50,Telesecundaria
+97,14FTV0051D,SUPERVISION TELESECUNDARIA 51,Discon,La barca                                ,San Ramon,51,Telesecundaria
+98,14FTV0052C,SUPERVISION TELESECUNDARIA 52,Discon,Ayotlan                                 ,La Isla,52,Telesecundaria
+99,14FTV0053B,SUPERVISION TELESECUNDARIA 53,Discon,Sayula                                  ,El Reparo,53,Telesecundaria
+100,14FTV0054A,SUPERVISION TELESECUNDARIA 54,Discon,Tonala                                  ,Tonala,54,Telesecundaria
+101,14FTV0055Z,SUPERVISION TELESECUNDARIA 55,Discon,Arandas                                 ,El Nacimiento de Arriba,55,Telesecundaria
+102,14FTV0056Z,SUPERVISION DE TELESECUNDARIA 56,Discon,Ayutla                                  ,Ayutla,56,Telesecundaria
+103,14FZT0001S,INSPECCION ZONA 1,Discon,Colotlan                                ,Colotlan,1,Tecnicas
+104,14FZT0002R,INSPECCION ZONA 2,Discon,Lagos de Moreno                         ,Lagos de Moreno,2,Tecnicas
+105,14FZT0003Q,INSPECCION ZONA 3,Discon,Tepatitlan de Morelos                   ,Tepatitlan de Morelos,3,Tecnicas
+106,14FZT0004P,INSPECCION ZONA 4,Discon,Poncitlan                               ,Poncitlan,4,Tecnicas
+107,14FZT0005O,INSPECCION ZONA 5,Discon,Valle de Juarez                         ,Valle de Juarez,5,Tecnicas
+108,14FZT0006N,INSPECCION ZONA 6,Discon,Zapotlan el Grande                      ,Ciudad Guzman,6,Tecnicas
+109,14FZT0007M,INSPECCION ZONA 8,Discon,Tenamaxtlan                             ,Tenamaxtlan,8,Tecnicas
+110,14FZT0008L,INSPECCION ZONA 10,Discon,Puerto Vallarta                         ,Puerto Vallarta,10,Tecnicas
+111,14FZT0009K,INSPECCION ZONA 11,Discon,Tlajomulco de Zuñiga                    ,La Union del Cuatro (San Jose del V,11,Tecnicas
+112,14FZT0010Z,INSPECCION ZONA 14,Discon,Zapopan                                 ,Zapopan,14,Tecnicas
+113,14FZT0011Z,INSPECCION 20,Discon,Zapopan                                 ,Zapopan,20,Tecnicas
+114,14FZT0012Y,INSPECCION ZONA 7,Discon,Zacoalco de Torres                      ,Barranca de Santa Clara,7,Tecnicas
+115,14FZT0013X,INSPECCION ZONA 9,Discon,Cihuatlan                               ,San Patricio (Melaque),9,Tecnicas
+116,14FZT0014W,INSPECCION ZONA 12,Discon,Tomatlan                                ,Tomatlan,12,Tecnicas
+117,14FZT0015V,INSPECCION ZONA 13,Discon,Tala                                    ,Cuisillos,13,Tecnicas
+118,14FZT0016U,INSPECCION ZONA 15,Discon,Guadalajara                             ,Guadalajara,15,Tecnicas
+119,14FZT0017T,INSPECCION ZONA 16,Discon,Tlaquepaque                             ,Tlaquepaque,16,Tecnicas
+120,14FZT0018S,INSPECCION ZONA 17,Discon,Tonala                                  ,Tonala,17,Tecnicas
+121,14FZT0019R,INSPECCION ZONA 18,Discon,Guadalajara                             ,Guadalajara,18,Tecnicas
+122,14FZT0020G,INSPECCION ZONA 19,Discon,Zapopan                                 ,Zapopan,19,Tecnicas
+123,14FZT0021F,INSPECCION ZONA 21,Discon,Guadalajara                             ,Guadalajara,21,Tecnicas

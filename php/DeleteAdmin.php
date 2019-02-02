@@ -55,5 +55,17 @@
       $sql2=mysqli_query($con,"delete from usuarios where id_Usuario=".$_POST['info']);
     }
   }
+  //esta cosa se agregara en la busqueda de una mejor gestion
+  else{
+    if(mysqli_query($con,"update maestros SET todo='$_POST[todo]' WHERE id_Usuario='$_SESSION[id]'")){
+            echo '<script type="text/javascript">
+         alert ("Actualizado Correctamente");
+      window.location.assign("../maestro/Actualizarinformacion.php");
+      </script>';
+          exit;
+          }else{
+            printf("Error: %s\n", mysqli_error($con));
+          }
+  }
 
  ?>

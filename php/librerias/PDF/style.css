@@ -1,32 +1,37 @@
 html {
 			 background-color: #444;
 			 padding: 0 1em;
+			 text-align:  center;
 		 }
 		 body {
-			 background-color: #FFF;
+			 background-color: #fff;
 			 font-family: 'Lato', sans-serif;
-			 margin: 1em auto;
-			 max-width: 50em;
-			 height: 52.625em;
+			 border-top: 5px solid #3da5e2;
+			padding: 0 20px;
+			margin-bottom: 10px;
+			text-align: center;
+			 width: 75%;
+			 height: 100%;
 		 }
 		 #section-left {
-			 width: 35%;
-			 float: left;
-			 height: 100%;
-			 background-color: #fc7a70;
-			 color: #fff;
+			 width: 100%;
+			 height: 300px;
+			 background-color: #fff;
+			 color: #000;
 			 text-align: center;
 		 }
 		 #section-left .section {
 			 margin-top: 40%;
 			 padding: 1em;
+			 text-align: center;
 		 }
 		 #section-left .section .logo {
-			 height: 150px;
-			 width: 150px;
+			 height: 50px;
+			 width: 50px;
 			 border-radius: 50%;
 			 margin: 0 auto;
     	 background-size: 100% 100%;
+    	 text-align: center;
 		 }
 		 .intro hr {
 			 width: 4em;
@@ -34,6 +39,7 @@ html {
 			 height: 2px;
 			 border: 0px;
 			 border-top: 2px solid;
+			 text-align: center;
 		 }
 		 .dob {
 			 text-decoration: overline underline;
@@ -48,8 +54,14 @@ html {
 			 font-family: 'Open Sans', sans-serif;
 			 text-transform: uppercase;
 		 }
+		 table th {
+  text-align: center;
+}
+table tr {
+  text-align: right;
+}
 		 #section-right {
-			 width: 65%;
+			 width: 100%;
 			 float: right;
 			 /*height: 100%;*/
 		 }
@@ -63,12 +75,10 @@ html {
 			 margin-right: 15px;
 		 }
 		 .wrapper .title {
-			 color: #fc7a70;
-			 font-size: 1.3em;
-			 font-variant: small-caps;
-			 letter-spacing: 0.1em;
-			 font-weight: bold;
-			 border-bottom: 2px solid #f2f2f2;
+			 font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	min-width: 100%;
+			 text-align: center;
 		 }
 		 a:link {
 			 color: #fff;
@@ -89,9 +99,12 @@ html {
 		 h2 {
 			 text-transform: uppercase;
 			 font-size: 1em;
+			 text-align: center;
 		 }
 		 h3 {
 			 font-size: 0.8em;
 			 text-transform: uppercase;
 			 font-weight: normal;
+			 text-align: center;
 		 }
+/* AAGREGADO */

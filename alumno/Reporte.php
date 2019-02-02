@@ -25,63 +25,7 @@
 	<title>Informes</title>
 </head>
 <body class="site">
-	<header>
-    <nav class="navbar navbar-default" >
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" style="color:white !important;"  href="Main.php">Gestion Escolar</a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<?php
-				if(isset($_GET['Xd']) && $_GET['Xd']==1){
-						echo '  <ul class="nav navbar-nav navbar-right" >
-			          <li><a class="col" style="color:white !important;"  href="Main.php">Inicio</a></li>
-			          <li><a class="col" style="color:white !important;" data-toggle="modal" href="#Notif">Notificaciones</a></li>
-			          <li class="dropdown">
-			          <a href="#" class="col dropdown-toggle" style="color:white !important;"  data-toggle="dropdown">';
-								if(file_exists($archivo)){
-							 echo '<img src="'.$archivo.'"  height="30px" width="30px" class="special-img img-circle">';
-							}else{
-								echo '<img src="'.$ruta.'default.png"  height="30px" width="30px" class="special-img img-circle">';
-							} echo ' '.$_SESSION['User'];
-						echo '<b class="caret"></b></a>
-	          <ul class="dropdown-menu">
-	              <li><a   href="Actualizarinformacion.php"><i class="fa fa-cog"></i> Mi cuenta</a></li>';
-						echo '<li><a target="_blank" href="../assets/Pdf/'.$_SESSION['id'].'.pdf"><i class="glyphicon glyphicon-sunglasses"></i> Ver PDF</a></li>';
-						echo ' <li><a href="Reporte.php?Xd=1"><i class="glyphicon glyphicon-refresh"></i> Generar PDF</a></li>
-						<li class="divider"></li>
-						<li><a  href="../index.php"><i class="fa fa-sign-out"></i>Sign-out</a></li>
-				</ul>
-				</li>
-			</ul>';
-				}else{
-				} ?>
 
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  </header>
-
-	<style media="screen">
-	.jumbotron {
-	padding: 0.3em 0.6em;
-	h1 {
-			font-size: 2em;
-	}
-	p {
-			font-size: 0.9em;
-			.btn {
-					padding: 0.5em;
-			}
-	}
-}
-	</style>
 
 	<main class="content">
 
@@ -101,7 +45,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 col-xs-12">
-            <div class="col-md-8 col-sm-8 well">
+            <div class="col-md-8 col-sm-8 registro1 well">
               <h3 align="center">Formulario.</h3>
               <form class="form-horizontal" action="GenerarPDF.php" method="POST" target="tpdf" onsubmit="asd();">
                   <div class="form-group">
@@ -117,35 +61,12 @@
                   </div>
                 </form>
           </div>
-					<div class="col-md-3 col-sm-3 col-sm-offset-1 well">
-						<?php
-						if(file_exists($archivo)){
-							echo '<img class="img-rounded"  src="'.$archivo.'" height="256px" width="256px" >';
-						}else {
-							 echo '<img class="img-rounded" src="../assets/Profiles/default.png" height="256px" width="256px" >';
-						} ?>
-					 <form method="post" enctype="multipart/form-data" action="../php/Picture.php">
-						<h4>Subir/Cambiar foto...</h4>
-						<label class="btn btn-primary btn-file btn-md">
-							 Seleccionar imagen<input type="file" style="display: none;" name="btn_Pic" id="btn_Pic" accept="image/*" >
-						</label>
-								<input type="submit" class="btn btn-danger btn-md" value="Guardar Imagen........">
-						</form>
-						<iframe name="tpdf" style="display:none;"></iframe>
-					</div>
         </div>
       </div>
     </div>
 
   </main>
 
-
-  <footer>
-    <i class="fa fa-facebook-official f2c-hover-opacity"></i>
-      <i class="fa fa-instagram f2c-hover-opacity"></i>
-      <i class="fa fa-twitter f2c-hover-opacity"></i>
-    <p>Powered by <strong>Dym Corp</p></strong>
-  </footer>
 
 	<script type="text/javascript">
 	function asd(){

@@ -5,6 +5,8 @@
   header("Location: ../index.php");}
   $ruta='../assets/Profiles/';
       $archivo=$ruta.$_SESSION['id'].'.png';
+      $query1 = mysqli_query($con,"select u.id_Usuario, u.Nom, u.Ap, u.Am, u.claveEscuela, d.id_director,d.curpDirector,d.todo FROM usuarios AS u INNER JOIN director AS d ON (d.id_Usuario=u.id_Usuario)WHERE u.id_Usuario=".$_SESSION['id']." && u.id_Usuario=d.id_Usuario");
+      $val = mysqli_fetch_array($query1);
   ?>
 <!DOCTYPE html>
 <html>
@@ -29,8 +31,9 @@
     <link href="../assets/assets1/css/style-responsive.css" rel="stylesheet">
   <title>Director</title>
 </head>
-<body class="site">
+<body >
   <!--queso-->
+  <section id="container" class="">
    <header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -134,19 +137,18 @@
       </aside>
   <!--queso-->
 
-  <main class="content">
+  
     <section id="main-content">
       <section class="wrapper">
-      <div class="container-fluid">
+
       <div class="row ">
-        <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 main-chart">
           <div class="tab-content">
               <div class="tab-pane fade in active" id="alumnos" >
                 <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="GestionarAlumnos.php"></iframe>
+                  <iframe class="embed-responsive-item " src="GestionarAlumnos.php"></iframe>
                 </div>
               </div>
-
               <div class="tab-pane fade" id="maestros" >
                 <div class="embed-responsive embed-responsive-16by9">
                   <iframe class="embed-responsive-item" src="GestionarMaestros.php"></iframe>
@@ -167,17 +169,18 @@
           </div>
         </div>
       </div>
-    </div>
+
     </section>
     </section>
-  </main> 
+  
   <div id="Mod" class="modal fade" role="dialog"></div>
-  <footer>
+  <footer class="site-footer">
     <i class="fa fa-facebook-official f2c-hover-opacity"></i>
       <i class="fa fa-instagram f2c-hover-opacity"></i>
       <i class="fa fa-twitter f2c-hover-opacity"></i>
     <p>Powered by <strong>Dym Corp</p></strong>
   </footer>
+  </section>
 </body>
   <script src="../assets/assets1/js/jquery.js"></script>
     <script src="../assets/assets1/js/jjquery-1.8.3.min.js"></script>

@@ -5,7 +5,8 @@
   header("Location: ../index.php");}
   $ruta='../assets/Profiles/';
       $archivo=$ruta.$_SESSION['id'].'.png';
-      $query1 = mysqli_query($con,"select id_Usuario,claveEscuela FROM usuarios WHERE id_Usuario=".$_SESSION['id']."");
+
+      $query1 = mysqli_query($con,"SELECT u.id_Usuario, u.Nom, u.Ap, u.Am, u.claveEscuela, d.id_Director,d.curpDirector,d.todo,z.Modalidad FROM director AS d INNER JOIN usuarios AS u ON d.id_Usuario = u.id_Usuario INNER JOIN zona AS z ON u.claveEscuela = z.clave WHERE d.id_Usuario = u.id_Usuario and d.id_Usuario=".$_SESSION['id']."");
       $val = mysqli_fetch_array($query1);
 ?>
 <!DOCTYPE html>
@@ -28,7 +29,11 @@
 
 </head>
 <?php
+  $nada = "F";
   $variable = "'".$val['claveEscuela']."'";
+  $Grado = 1;
+  $Grupo = "'".$nada."'";
+  $contenedora = "'".$val['todo']."'";
 ?>
 <body class="site" onload="return alumnosV('','Alumno','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA2');">
   <main class="content">
@@ -36,7 +41,18 @@
         <div class="row">
           <div class="col-sm-7">
             <ul class="nav nav-tabs">
-              <li role="presentation" class="active" onclick="return alumnosV('','Alumno','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA2');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
+              <li role="presentation" class="active" onclick="return alumnosV('','Alumno','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA2');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consulta general</a></li>
+              <?php  
+              //Aqui empieza una condicion el corchete empieza aqui y termina mas abajo.
+                if($val['Modalidad'] == "Telesecundaria"){
+
+              ?>
+              <li role="presentation" onclick="return alumnosVA('','Alumno','Consulta',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA3',<?php echo $contenedora;?>,'2');"> <a href="#Consultar1" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consulta del grupo</a></li>
+              <?php  
+                }else{
+                  echo "";
+                }
+              ?>
             </ul>
           </div>
         </div>
@@ -45,8 +61,8 @@
               <div class="tab-content"> 
                 <br>
                 <div class="tab-pane fade in active" id="Consultar">
-                      <div class="col-sm-12 busca well">
-                        <h1>Consultar Alumno</h1>
+                      <div class="col-sm-12 registro1 well">
+                        <h1>Consultar General</h1>
                           <div class="input-group">
                             <input type="text" id="myInputA2" onkeyup="return alumnosV(this.value,'Alumno','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA2');" class="form-control"  placeholder="Buscar por el nombre">
                             <div class="input-group-btn">
@@ -91,13 +107,13 @@
                                
                                 <ul class="dropdown-menu" role="menu">
                                   <a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'todos',<?php echo $variable;?>,'#ConsA2');">Todos.</a>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'A',<?php echo $variable,'#ConsA2';?>);">A</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'B',<?php echo $variable,'#ConsA2';?>);">B</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'C',<?php echo $variable,'#ConsA2';?>);">C</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'D',<?php echo $variable,'#ConsA2';?>);">D</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'E',<?php echo $variable,'#ConsA2';?>);">E</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'F',<?php echo $variable,'#ConsA2';?>);">F</a></li>
-                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'G',<?php echo $variable,'#ConsA2';?>);">G</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'A',<?php echo $variable;?>,'#ConsA2');">A</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'B',<?php echo $variable;?>,'#ConsA2');">B</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'C',<?php echo $variable;?>,'#ConsA2');">C</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'D',<?php echo $variable;?>,'#ConsA2');">D</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'E',<?php echo $variable;?>,'#ConsA2');">E</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'F',<?php echo $variable;?>,'#ConsA2');">F</a></li>
+                                  <li><a href="#" onclick="return alumnosV('','Alumno','Consulta',3,'G',<?php echo $variable;?>,'#ConsA2');">G</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -108,18 +124,18 @@
                        
                       </div>
               </div>
-                <div class="tab-pane fade" id="Eliminar">
-                      <div class="col-sm-12 busca well">
-                        <h1>Eliminar Alumno</h1>
-                            <div class="input-group">
-                              <input type="text" id="myInputA" class="form-control" onkeyup="return CEmpleosAdmin(<?php echo $variable;?>,this.value,'Eliminar','Administrador','Alumno','#ConsA');" placeholder="Buscar por el nombre">
-                              <div class="input-group-btn">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ariahaspopup="true" ariaexpanded="false">Filtros<span class="caret"></span></button>
-                              </div>
-                              <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <div class="tab-pane fade" id="Consultar1">
+                      <div class="col-sm-12 registro1 well">
+                        <h1>Consulta del grupo</h1>
+                          <div class="input-group">
+                            <input type="text" id="myInputA2" onkeyup="return alumnosVA('','Alumno','Consulta',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA3',<?php echo $contenedora;?>,'2');" class="form-control" aria-describedby="sizing-addon2" placeholder="Buscar por el nombre">
+                            <div class="input-group-btn">
                             </div>
-                      </div><br><br>
-                      <div id="ConsA"></div>
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                        </div><br><br>
+                        <div id="ConsA3">
+                        </div> 
+                      </div>
                 </div>
                 <div class="tab-pane fade" id="Agregar">
                       <div class="row">

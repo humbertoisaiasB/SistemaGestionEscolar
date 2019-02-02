@@ -36,22 +36,14 @@
               <div class="tab-content"> 
                  <br>
                  <div class="tab-pane fade in active" id="Consultar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Consultar personal</h1>
                           <div class="input-group">
                             <input type="text" id="myInputA2" class="form-control" onkeyup="return CEmpleosAdmin(this.value,'Consultar','Administrador','PersonalA','#ConsA2');" placeholder="Buscar por el nombre">
                             <div class="input-group-btn">
                               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ariahaspopup="true" ariaexpanded="false">Filtros<span class="caret"></span></button>
                               <ul class="dropdown-menu dropdown-menu-right">
-                                <li>
-                                  <a href="#">Solo usuarios de </a>
-                                </li>
-                                <li>
-                                  <a href="#">Solo usuarios de tipo "Empleador"</a>
-                                </li>
-                                <li>
-                                  <a href="#">Solo usuarios de tipo "Candidato"</a>
-                                </li>
+                              
                               </ul>
                             </div>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -60,22 +52,14 @@
                         <div id="ConsA2"></div>
                  </div>
                 <div class="tab-pane fade" id="Eliminar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Eliminar personal</h1>
                             <div class="input-group">
                               <input type="text" id="myInputA" class="form-control" onkeyup="return CEmpleosAdmin(this.value,'Eliminar','Administrador','PersonalA','#ConsA');" placeholder="Buscar por el nombre">
                               <div class="input-group-btn">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ariahaspopup="true" ariaexpanded="false">Filtros<span class="caret"></span></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                  <li>
-                                    <a href="#">Solo usuarios de tipo "Empresa"</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Solo usuarios de tipo "Empleador"</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Solo usuarios de tipo "Candidato"</a>
-                                  </li>
+                                  
                                 </ul>
                               </div>
                               <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>

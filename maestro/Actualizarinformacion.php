@@ -1,7 +1,13 @@
 <?php include '../php/Conexion.php';
       session_start();
+      $datosR = array(
+        array("", "", "", ""),
+        array("", "", "", ""),
+        array("", "", "", ""),
+        array("", "", "", "")
+      );
       if(empty($_SESSION['User']) && empty($_SESSION['id'])){ header("Location: ../index.php");}
-      $query1 = mysqli_query($con,"select * from usuarios u inner join maestros m on(u.id_Usuario=m.id_Usuario) inner join zona z on(u.claveEscuela=z.clave) where m.id_Usuario=u.id_Usuario and u.id_Usuario=".$_SESSION['id']);
+      $query1 = mysqli_query($con,"select * from usuarios u inner join maestros m on(u.id_Usuario=m.id_Usuario) where m.id_Usuario=u.id_Usuario and u.id_Usuario=".$_SESSION['id']);
       $val = mysqli_fetch_array($query1);
       $ruta='../assets/Profiles/';
       $archivo=$ruta.$_SESSION['id'].'.png';
@@ -27,6 +33,7 @@
         
     <!-- Custom styles for this template -->
     <link href="../assets/assets1/css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="../assets/JS/sweetalert.js"></script>
     <link href="../assets/assets1/css/style-responsive.css" rel="stylesheet">
     <title>Actualizar información del usuario</title>
 
@@ -142,7 +149,7 @@
 
         <div class="tab-pane fade in active" id="info">
           <form action="../php/UpdateTotal.php" method="POST" role="form">
-          <div class="col-md-8 col-md-offset-1 well">
+          <div class="col-md-8 col-md-offset-1 registro1 well">
             <h3 align="center">Información del usuario</h3>
             <div id="div_NomMaestro">
               <label>Nombre:</label><input id="txt_NomMaestro" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomMaestro',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomMaestro" value="<?php echo $val['Nom']; ?>"><span id="span_NomMaestro" ></span>
@@ -189,7 +196,7 @@
         </div>
         <div class="tab-pane fade" id="direccion">
         <form action="../php/UpdateTotal.php" method="POST">
-          <div class="col-md-8 col-md-offset-1 well">
+          <div class="col-md-8 col-md-offset-1 registro1 well">
             <h3 align="center">Dirección</h3>
             <div id="div_CPMaestro">
               <label>Código Postal:</label><input id="txt_CPMaestro" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCanMaestro',this.value); return codigoEmp('../php/PostalEmp.php','txt_CPMaestro','#codigop');"  type="text" class="form-control" name="txt_CPMaestro" value="<?php echo $val['Codigo_Postal']; ?>"><span id="span_CPMaestro" ></span>
@@ -221,7 +228,7 @@
         </div>
         <div class="tab-pane fade" id="password">
            <form action="../php/UpdateTotal.php" method="POST" role="form">
-            <div class="col-md-8 col-md-offset-1 well">
+            <div class="col-md-8 col-md-offset-1 registro1 well">
               <h3 align="center">Contraseña</h3>
               <div id="div_PswMaestro">
                 <label>Contraseña:</label><input id="txt_PswMaestro" type="password" class="form-control" name="txt_PswMaestro"><span id="span_PswMaestro" ></span>
@@ -235,11 +242,55 @@
         </div>
         <div class="tab-pane fade" id="Datos">
           <?php
-              $clave = $val['claveEscuela'];
+              if(isset($val['todo'])){
+                $numero = strlen($val['todo']);
+                $variable = $val['todo'];
+                $variable1 = "";
+                $auxPalabras = "";
+                $cont = 0;
+                $cont1 = 0;
+                for($i=0; $i < $numero; $i++){
+                  if($variable[$i] == "*"){
+                    $contenidoDetodo[$cont]=$auxPalabras;
+                    $cont++;
+                    $auxPalabras = "";
+                  }else{
+                      $auxPalabras = $auxPalabras."".$variable[$i];
+                    } 
+                }
+                $auxPalabras = "";
+                for($i=0; $i < $cont; $i++){ 
+                  $variable1 = $contenidoDetodo[$i];
+                  for($j=0; $j<strlen($contenidoDetodo[$i]); $j++){ 
+                    if($variable1[$j] == "|"){
+                      $datosR[$i][$cont1] = $auxPalabras;
+                      $cont1++;
+                      $auxPalabras = "";
+                    }else{
+                      $auxPalabras = $auxPalabras."".$variable1[$j];
+                    } 
+                  }
+                  $cont1 =0;
+                  $variable1 = "";
+                }
+                //Aqui ya con datos el arreglo datosR
+                //esto mostrara a todos sus alumnos
+                //Recordando que modalidad|clave|grado|grupo
+                for($i=0; $i<$cont; $i++){ 
+                  $clave = $datosR[$i][1];
+                  $grado = $datosR[$i][2];
+                  $grupo = $datosR[$i][3];
+                  echo "usted esta aqui en el intituto con la clave: ".$clave." y impartiendo en el grado: ".$grado."° y el grupo: ".$grupo."\n";
+                  echo '<button class="btn btn-primary" onclick="return mensajeBorra('.'"'.$clave.'"'.','.'"'.$val['todo'].'"'.');"></button>';
+                }
+              }else{
+                echo "Orale no entra al primerooo";
+              }
             ?>
            <div align="center" class="panel panel-primary">
               <div class="panel-heading">Usted actualmente está registrado en: <?php echo $val['nombreEscuela'] ?></div>
            <div class="panel-body">
+
                   <label style="margin: 5px;">Clave de la escuela residente: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['clave'];?></span>
                   <label style="margin: 5px;">Escuela: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['nombreEscuela'];?></span>
                   <label style="margin: 5px;">Zona: </label><span style="margin:10px;font-size: 15px;" class="label label-info"><?php echo $val['ZonaEscolar'];?></span>

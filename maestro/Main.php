@@ -85,10 +85,8 @@
                           <span>Sesión.</span>
                       </a>
                       <ul class="sub">
-                          <li>
                             <a  href="Actualizarinformacion.php" ><i class="fa fa-sign-out"></i>Editar datos personales.</a>
                             <a  href="../index.php" ><i class="fa fa-sign-out"></i>Cerrar sesion.</a>
-                          </li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -109,6 +107,17 @@
                             <a  href="#buscar" data-toggle="tab">Subir</a>
                       </ul>
                   </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>Informes.</span>
+                      </a>
+                      <ul class="sub">
+                            <a  href="#reporte" data-toggle="tab">Ir.</a>
+                      </ul>
+                  </li>
+                
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -127,10 +136,14 @@
                   <iframe class="embed-responsive-item" src="alumnos.php?"></iframe>
                 </div>
               </div>
-
               <div class="tab-pane fade" id="buscar" >
                 <div class="embed-responsive embed-responsive-16by9">
                   <iframe class="embed-responsive-item" src="Buscar.php"></iframe>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="reporte" >
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="Reporte.php"></iframe>
                 </div>
               </div>
           </div>

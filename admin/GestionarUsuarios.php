@@ -25,7 +25,6 @@
               <ul class="nav nav-tabs">
                 <li role="presentation" class="active" onclick="return CEmpleosAdmin('','','Consultar','Administrador','','#ConsA2');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
                 <li role="presentation" onclick="return CEmpleosAdmin('','','Eliminar','Administrador','','#ConsA');"><a href="#Eliminar" data-toggle="tab"><img src="../assets/images/Eliminar.png"  height="30px" width="30px" > Eliminar</a></li>
-                <li role="presentation" onload="return validar5();"><a href="#Agregar" onclick="return validad5();" data-toggle="tab"><img src="../assets/images/agregar.png"  height="30px" width="30px" > Agregar Supervisor</a></li>
               </ul>
           </div>
           
@@ -37,7 +36,7 @@
               <div class="tab-content"> 
                  <br>
                  <div class="tab-pane fade in active" id="Consultar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Consultar usuario</h1>
                           <div class="input-group">
                             <input type="text" id="myInputA2" class="form-control" onkeyup="return CEmpleosAdmin('',this.value,'Consultar','Administrador','','#ConsA2');" placeholder="Buscar por el nombre">
@@ -46,11 +45,11 @@
                             </div>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                           </div>
+                          <div id="ConsA2"></div>
                         </div><br><br>
-                        <div id="ConsA2"></div>
                  </div>
                 <div class="tab-pane fade" id="Eliminar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Eliminar usuario</h1>
                             <div class="input-group">
                               <input type="text" id="myInputA" class="form-control" onkeyup="return CEmpleosAdmin('',this.value,'Eliminar','Administrador','','#ConsA');" placeholder="Buscar por el nombre">
@@ -59,8 +58,8 @@
                               </div>
                               <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                             </div>
+                            <div id="ConsA"></div>
                           </div><br><br>
-                          <div id="ConsA"></div>
                  </div>
                  <div class="tab-pane fade" id="Agregar">
                       <div class="row">

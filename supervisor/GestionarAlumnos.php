@@ -60,7 +60,7 @@
               <div class="tab-content"> 
                 <br>
                 <div class="tab-pane fade" id="personal">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Consultar personal de apoyo</h1>
                           <div class="input-group">
                             <input type="text" id="myInputA3" onkeyup="return alumnosV(this.value,'PersonalA','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA3');" class="form-control"  placeholder="Buscar por el nombre">
@@ -86,7 +86,7 @@
                       </div>
               </div>
                 <div class="tab-pane fade" id="Consultar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Consultar Alumno</h1>
                           <div class="input-group">
                             <input type="text" id="myInputA2" onkeyup="return alumnosV(this.value,'Alumno','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA2');" class="form-control"  placeholder="Buscar por el nombre">
@@ -150,7 +150,7 @@
                       </div>
               </div>
                 <div class="tab-pane fade" id="Eliminar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Consultar Maestro</h1>
                             <div class="input-group">
                               <input type="text" id="myInputA" class="form-control" onkeyup="return alumnosV(this.value,'Maestro','Consulta','todos','todos',<?php echo $variable;?>,'#ConsA');" placeholder="Buscar por el nombre">
@@ -212,6 +212,8 @@
                       <div id="ConsA"></div>
                 </div>
                 <div class="tab-pane fade in active" id="Agregar">
+                  <div class="col-sm-12 registro1 well">
+                    <h1>Consultar al Director</h1>
                     <?php
                     if($val1=="si"){
                       $query2=mysqli_query($con,"select u.id_Usuario, u.Nom, d.id_Director, d.curpDirector, u.Documento FROM usuarios AS u INNER JOIN director AS d ON (d.id_Usuario=u.id_Usuario)WHERE u.claveEscuela=$variable && u.id_Usuario=d.id_Usuario");
@@ -278,6 +280,7 @@
             }
                     ?> 
                 </div>
+              </div>
               </div> 
             </div>    
         </div>

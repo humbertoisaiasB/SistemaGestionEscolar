@@ -33,7 +33,7 @@
 	<main class="content">
      <div class="container">
         <div class="row">
-            <div class="col-sm-12 registro">
+            <div class="col-sm-12 registro1">
                 <div class="input-group">
                     <h2 class="titulo"> Documentos de: <?php echo $nombre;?></h2><span class="titulo input-group-addon"><i class="glyphicon glyphicon-eye-open"></i> <?php if($DocumentosR==0){echo '';}else{echo $DocumentosR;}?></span>
                 </div>

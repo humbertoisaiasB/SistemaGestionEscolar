@@ -143,7 +143,7 @@
 
         <div class="tab-pane fade in active" id="info">
           <form action="../php/UpdateTotal.php" method="POST" role="form">
-          <div class="col-md-8 col-md-offset-1 well">
+          <div class="col-md-8 col-md-offset-1 registro1 well">
             <h3 align="center">Información del usuario</h3>
             <div id="div_NomAdmi">
               <label>Nombre:</label><input id="txt_NomAdmi" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAdmi',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAdmi" value="<?php echo $val['Nom']; ?>"><span id="span_NomAdmi" ></span>
@@ -190,7 +190,7 @@
         </div>
         <div class="tab-pane fade" id="direccion">
         <form action="../php/UpdateUpdateTotal.php" method="POST">
-          <div class="col-md-8 col-md-offset-1 well">
+          <div class="col-md-8 col-md-offset-1 registro1 well">
             <h3 align="center">Dirección</h3>
             <div id="div_CPAdmi">
               <label>Código Postal:</label><input id="txt_CPAdmi" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPAdmi',this.value); return codigoEmp('../php/PostalEmp.php','txt_CPAdmi','#codigop');"  type="text" class="form-control" name="txt_CPAdmi" value="<?php echo $val['Codigo_Postal']; ?>"><span id="span_CPAdmi" ></span>
@@ -222,7 +222,7 @@
         </div>
         <div class="tab-pane fade" id="password">
            <form action="../php/UpdateTotal.php" method="POST" role="form">
-            <div class="col-md-8 col-md-offset-1 well">
+            <div class="col-md-8 col-md-offset-1 registro1 well">
               <h3 align="center">Contraseña</h3>
               <div id="div_PswAdmi">
                 <label>Contraseña:</label><input id="txt_PswAdmi" type="password" class="form-control" name="txt_PswAdmi"><span id="span_PswAdmi" ></span>

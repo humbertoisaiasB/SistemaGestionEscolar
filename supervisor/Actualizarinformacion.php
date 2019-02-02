@@ -143,7 +143,7 @@
 
         <div class="tab-pane fade in active" id="info">
           <form action="../php/UpdateTotal.php" method="POST" role="form">
-          <div class="col-md-8 col-md-offset-1 well">
+          <div class="col-md-8 col-md-offset-1 registro1 well">
             <h3 align="center">Información del usuario</h3>
             <div id="div_NomSupervisor">
               <label>Nombre:</label><input id="txt_NomSupervisor" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomSupervisor',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomSupervisor" value="<?php echo $val['Nom']; ?>"><span id="span_NomSupervisor" ></span>
@@ -164,11 +164,11 @@
               <label>Correo:</label><input id="txt_CorreoSupervisor" onkeypress="return validarXD(helo,this.value.length,30);" onkeyup="validacion4all(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/,'CorreoSupervisor',this.value);" type="email" class="form-control" name="txt_CorreoSupervisor" value="<?php echo $val['Correo']; ?>" required><span id="span_CorreoSupervisor" ></span>
             </div>
             <div id="div_Curp">
-                <label>CURP:</label><input id="txt_Curp" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[A-Z0-9]{2}/,'Curp',this.value); return validaCurpE(this.value,'Alumno','#div_CurpRepetida');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_Curp" value="<?php echo $val['curpSupervisor']; ?>"><span id="span_Curp" ></span>
+                <label>CURP:</label><input id="txt_Curp" onkeyup="validacion4all(/[A-Za-z]{4}[0-9]{6}[Hh,Mm][A-Za-z]{5}[A-Z0-9]{2}/,'Curp',this.value); return validaCurpE(this.value,'Supervisor','#div_CurpRepetida');" onkeypress="return validateCurp(this.value.length);" style="text-transform: uppercase" type="text" class="form-control" name="txt_Curp" value="<?php echo $val['curpSupervisor']; ?>"><span id="span_Curp" ></span>
             </div>
             <div id="div_CurpRepetida" class="row"></div> 
             <br>
-            <p align="center"><input type="submit" onclick="return modifica('Alumno','info',<?php echo $val['id_Usuario'];?>,'#aqui');" class="btn btn-success" value="Actualizar" name="btn_SupervisorInfo"></p>
+            <p align="center"><input type="submit" onclick="return modifica('Supervisor','info',<?php echo $val['id_Usuario'];?>,'#aqui');" class="btn btn-success" value="Actualizar" name="btn_SupervisorInfo"></p>
             <div id="aqui"></div>
           </div>
           </form>
@@ -190,7 +190,7 @@
         </div>
         <div class="tab-pane fade" id="direccion">
         <form action="../php/UpdateTotal.php" method="POST">
-          <div class="col-md-8 col-md-offset-1 well">
+          <div class="col-md-8 col-md-offset-1 registro1 well">
             <h3 align="center">Dirección</h3>
             <div id="div_CPSupervisor">
               <label>Código Postal:</label><input id="txt_CPSupervisor" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPSupervisor',this.value); return codigoEmp('../php/PostalEmp.php','txt_CPSupervisor','#codigop');"  type="text" class="form-control" name="txt_CPSupervisor" value="<?php echo $val['Codigo_Postal']; ?>"><span id="span_CPSupervisor" ></span>
@@ -222,7 +222,7 @@
         </div>
         <div class="tab-pane fade" id="password">
            <form action="../php/UpdateTotal.php" method="POST" role="form">
-            <div class="col-md-8 col-md-offset-1 well">
+            <div class="col-md-8 col-md-offset-1 registro1 well">
               <h3 align="center">Contraseña</h3>
               <div id="div_PswSupervisor">
                 <label>Contraseña:</label><input id="txt_PswSupervisor" type="password" class="form-control" name="txt_PswSupervisor"><span id="span_PswSupervisor" ></span>

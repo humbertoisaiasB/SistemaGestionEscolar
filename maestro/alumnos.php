@@ -5,7 +5,7 @@
   header("Location: ../index.php");}
   $ruta='../assets/Profiles/';
       $archivo=$ruta.$_SESSION['id'].'.png';
-      $query1 = mysqli_query($con,"select u.id_Usuario, u.Nom, u.Ap, u.Am, u.claveEscuela, m.id_Maestro,m.curpMaestro,m.Grupo,m.Grado FROM usuarios AS u INNER JOIN maestros AS m ON (m.id_Usuario=u.id_Usuario)WHERE u.id_Usuario=".$_SESSION['id']." && u.id_Usuario=m.id_Usuario");
+      $query1 = mysqli_query($con,"select u.id_Usuario, u.Nom, u.Ap, u.Am, u.claveEscuela, m.id_Maestro,m.curpMaestro,m.Grupo,m.Grado,m.todo FROM usuarios AS u INNER JOIN maestros AS m ON (m.id_Usuario=u.id_Usuario)WHERE u.id_Usuario=".$_SESSION['id']." && u.id_Usuario=m.id_Usuario");
       $val = mysqli_fetch_array($query1);
 ?>
 <!DOCTYPE html>
@@ -31,39 +31,38 @@
   $variable = "'".$val['claveEscuela']."'";
   $Grado = $val['Grado'];
   $Grupo = "'".$val['Grupo']."'";
+  $contenedora = "'".$val['todo']."'";
 ?>
-<body class="site" onload="return alumnosV('','Alumno','Consulta',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA2');">
+<body class="site" onload="return alumnosVA('','Alumno','Consulta',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA3',<?php echo $contenedora;?>,'2');">
   <main class="content">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <div class="col-sm-12">
             <ul class="nav nav-tabs">
               <li role="presentation" class="active" onclick="return alumnosV('','Alumno','Consulta',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA2');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
-              <li role="presentation" onclick="return alumnosV('','Alumno','Eliminar',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA');"><a href="#Eliminar" data-toggle="tab"><img src="../assets/images/Eliminar.png"  height="30px" width="30px" > Eliminar</a></li>
+              <li role="presentation" onclick="return alumnosVA('','Alumno','Consulta',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA3',<?php echo $contenedora;?>,'2');"><a href="#Eliminar" data-toggle="tab"><img src="../assets/images/Eliminar.png"  height="30px" width="30px" > Eliminar</a></li>
             </ul>
           </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
               <div class="tab-content"> 
                 <br>
                 <div class="tab-pane fade in active" id="Consultar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Consultar sus alumnos</h1>
                           <div class="input-group">
-                            <input type="text" id="myInputA2" onkeyup="return alumnosV(this.value,'Alumno','Consulta',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA2');" class="form-control" aria-describedby="sizing-addon2" placeholder="Buscar por el nombre">
+                            <input type="text" id="myInputA2" onkeyup="return alumnosVA('','Alumno','Consulta',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA3',<?php echo $contenedora;?>,'2');" class="form-control" aria-describedby="sizing-addon2" placeholder="Buscar por el nombre">
                             <div class="input-group-btn">
-                              </div>
+                            </div>
                               <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
                         </div><br><br>
-                        <div id="ConsA2">
-                          
-                        </div>
-                       
+                        <div id="ConsA3">
+                        </div> 
                       </div>
-              </div>
+                </div>
                 <div class="tab-pane fade" id="Eliminar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Eliminar Alumnos</h1>
                             <div class="input-group">
                               <input type="text" id="myInputA" class="form-control" onkeyup="return alumnosV(this.value,'Alumno','Eliminar',<?php echo $Grado;?>,<?php echo $Grupo;?>,<?php echo $variable;?>,'#ConsA');" aria-describedby="sizing-addon2" placeholder="Buscar por el nombre">

@@ -9,55 +9,56 @@
 	$Clave = "";
 	$Destino1A = "";
 	$Destino2A = "";
+	$Modalidad = "";
 	if($_POST['tipoU'] == "Alumno"){
-		$DivZona = "div_ZonaA";
-		$DivLoca = "div_LocalidadA";
-		$DivNombreE = "nombreEscuelaA";
-		$idLocalidad = "localidadA";
-		$idLocalidadA = "'"."localidadA"."'";
-		$idNombreE = "destinoA";
-		$Clave = "'"."clavecitaCA"."'";
-		$Destino1A = "'"."prueba12A"."'";
-		$Destino1B = "prueba12A";
-		$Destino2A = "'"."prueba13A"."'";
-		$Destino3A = "'"."prueba13EA"."'";
+		$DivZona = "div_ZonaAlumno";
+		$DivLoca = "div_LocalidadAlumno";
+		$DivNombreE = "nombreEscuelaAlumno";
+		$idLocalidad = "localidadAlumno";
+		$idLocalidadA = "'"."localidadAlumno"."'";
+		$idNombreE = "destinoAlumno";
+		$Clave = "'"."clavecitaCAlumno"."'";
+		$Destino1A = "'"."prueba12Alumno"."'";
+		$Destino1B = "prueba12Alumno";
+		$Destino2A = "'"."prueba13Alumno"."'";
+		$Destino3A = "'"."prueba13EAlumno"."'";
 	}elseif($_POST['tipoU'] == "Maestro") {
-		$DivZona = "div_ZonaM";
-		$DivLoca = "div_LocalidadM";
-		$DivNombreE = "nombreEscuelaM";
-		$idLocalidad = "localidadM";
-		$idLocalidadA = "'"."localidadM"."'";
-		$idNombreE = "destinoM";
-		$Clave = "'"."clavecitaCM"."'";
-		$Destino1A = "'"."prueba12M"."'";
-		$Destino1B = "prueba12M";
-		$Destino2A = "'"."prueba13M"."'";
-		$Destino3A = "'"."prueba13EM"."'";
+		$DivZona = "div_ZonaMaestro";
+		$DivLoca = "div_LocalidadMaestro";
+		$DivNombreE = "nombreEscuelaMaestro";
+		$idLocalidad = "localidadMaestro";
+		$idLocalidadA = "'"."localidadMaestro"."'";
+		$idNombreE = "destinoMaestro";
+		$Clave = "'"."clavecitaCMaestro"."'";
+		$Destino1A = "'"."prueba12Maestro"."'";
+		$Destino1B = "prueba12Maestro";
+		$Destino2A = "'"."prueba13Maestro"."'";
+		$Destino3A = "'"."prueba13EMaestro"."'";
 		
 	}elseif($_POST['tipoU'] == "Director"){
-		$DivZona = "div_ZonaD";
-		$DivLoca = "div_LocalidadD";
-		$DivNombreE = "nombreEscuelaD";
-		$idLocalidad = "localidadD";
-		$idLocalidadA = "'"."localidadD"."'";
-		$idNombreE = "destinoD";
-		$Clave = "'"."clavecitaCD"."'";
-		$Destino1A = "'"."prueba12D"."'";
-		$Destino1B = "prueba12D";
-		$Destino2A = "'"."prueba13D"."'";
-		$Destino3A = "'"."prueba13ED"."'";
-	}elseif($_POST['tipoU'] == "personal"){
-		$DivZona = "div_ZonaAdmi";
-		$DivLoca = "div_LocalidadAdmi";
-		$DivNombreE = "nombreEscuelaAdmi";
-		$idLocalidad = "localidadAdmi";
-		$idLocalidadA = "'"."localidadAdmi"."'";
-		$idNombreE = "destinoAdmi";
-		$Clave = "'"."clavecitaCAdmi"."'";
-		$Destino1A = "'"."prueba12Admi"."'";
-		$Destino1B = "prueba12Admi";
-		$Destino2A = "'"."prueba13Admi"."'";
-		$Destino3A = "'"."prueba13EAdmi"."'";
+		$DivZona = "div_ZonaDirector";
+		$DivLoca = "div_LocalidadDirector";
+		$DivNombreE = "nombreEscuelaDirector";
+		$idLocalidad = "localidadDirector";
+		$idLocalidadA = "'"."localidadDirector"."'";
+		$idNombreE = "destinoDirector";
+		$Clave = "'"."clavecitaCDirector"."'";
+		$Destino1A = "'"."prueba12Director"."'";
+		$Destino1B = "prueba12Director";
+		$Destino2A = "'"."prueba13Director"."'";
+		$Destino3A = "'"."prueba13EDirector"."'";
+	}elseif($_POST['tipoU'] == "PersonalA"){
+		$DivZona = "div_ZonaPersonalA";
+		$DivLoca = "div_LocalidadPersonalA";
+		$DivNombreE = "nombreEscuelaPersonalA";
+		$idLocalidad = "localidadPersonalA";
+		$idLocalidadA = "'"."localidadPersonalA"."'";
+		$idNombreE = "destinoPersonalA";
+		$Clave = "'"."clavecitaCPersonalA"."'";
+		$Destino1A = "'"."prueba12PersonalA"."'";
+		$Destino1B = "prueba12PersonalA";
+		$Destino2A = "'"."prueba13PersonalA"."'";
+		$Destino3A = "'"."prueba13EPersonalA"."'";
 	}elseif($_POST['tipoU'] == "Supervisor") {
 		$DivZona = "div_ZonaSupervisor";
 		$DivLoca = "div_LocalidadSupervisor";
@@ -71,25 +72,58 @@
 		$Destino2A = "'"."prueba13Supervisor"."'";
 		$Destino3A = "'"."prueba13ESupervisor"."'";
 		
+	}elseif($_POST['tipoU'] == "SubDirector") {
+		$DivZona = "div_ZonaSubDirector";
+		$DivLoca = "div_LocalidadSubDirector";
+		$DivNombreE = "nombreEscuelaSubDirector";
+		$idLocalidad = "localidadSubDirector";
+		$idLocalidadA = "'"."localidadSubDirector"."'";
+		$idNombreE = "destinoSubDirector";
+		$Clave = "'"."clavecitaCSubDirector"."'";
+		$Destino1A = "'"."prueba12SubDirector"."'";
+		$Destino1B = "prueba12SubDirector";
+		$Destino2A = "'"."prueba13SubDirector"."'";
+		$Destino3A = "'"."prueba13ESubDirector"."'";
+		
 	}
 	if(isset($_POST['numeroZ'])){
-	  		$sql=mysqli_query($con,"Select clave,nombreEscuela,nombreLocalidad,Turno, ZonaEscolar from zona where ZonaEscolar=$_POST[numeroZ] and Modalidad='$_POST[modalidad]'");
-?>	
-	<div style="display:inline-flex;
+		//Modificaciones aqui
+		if($_POST['tipoU'] == "Supervisor"){
+			$sql = mysqli_query($con,"select s.claveS,s.Modalidad,z.clave,s.nombre FROM zona AS z INNER JOIN supervicion AS s ON (z.Modalidad=s.Modalidad)WHERE z.Modalidad='$_POST[modalidad]' and z.zonaEscolar=$_POST[numeroZ] and s.claveS='$_POST[claveE]' limit 0,1");
+			$row = mysqli_fetch_array($sql);
+			?>
+			<div style="display:inline-flex;
+				margin-top:20px;">
+			<div id="<?php echo $DivZona;?>" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
+					<label style="margin:4px;">Zona: <span class="label label-success"><?php echo $_POST['numeroZ']; ?></span></label>
+				</div>
+				<div id="<?php echo $DivLoca;?>" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
+					<label style="margin: 4px" for="<?php echo $idLocalidad;?>">Localidad:</label>
+	<select class="form-control" name="<?php echo $idLocalidad;?>" id="<?php echo $idLocalidad;?>" onchange="return ShowSelectedSupervisor(<?php echo $idLocalidadA;?>,<?php echo $Clave;?>,<?php echo $Destino1A;?>,<?php echo $Destino2A;?>,<?php echo $Destino3A;?>);">
+		<option value="todo">Selecione una opcion.</option>
+		<option value="<?php echo ''.$row['nombre'].'-'.$row['clave'].'';?>"><?php echo " - ".$row['nombre'];?></option>
+	</select>	
+	</div>
+<?php
+	}else{
+		$sql = mysqli_query($con,"Select clave,nombreEscuela,nombreLocalidad,Turno, ZonaEscolar from zona where ZonaEscolar=$_POST[numeroZ] and Modalidad='$_POST[modalidad]'"); 
+?>			
+			<div style="display:inline-flex;
 				margin-top:20px;">
 				<div id="<?php echo $DivZona;?>" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
 					<label style="margin:4px;">Zona: <span class="label label-success"><?php echo $_POST['numeroZ']; ?></span></label>
 				</div>
 				<div id="<?php echo $DivLoca;?>" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
-					<label style="margin: 4px" for="<?php echo $idLocalidad;?>">Localidad:</label>
+					<label style="margin: 4px" for="<?php echo $idLocalidad;?>">Escuelas:</label>
 	<select class="form-control" name="<?php echo $idLocalidad;?>" id="<?php echo $idLocalidad;?>" onchange="return ShowSelected(<?php echo $idLocalidadA;?>,<?php echo $Clave;?>,<?php echo $Destino1A;?>,<?php echo $Destino2A;?>,<?php echo $Destino3A;?>);">
 		<option value="">Seleciona una opcion</option>
 		  <?php  
 			if (mysqli_num_rows($sql)>0){ 
 				while($row=mysqli_fetch_array($sql)){
 					echo '<option value="'.$row['nombreEscuela'].'-'.$row['clave'].'">';
-					echo utf8_encode($row['nombreLocalidad']);
+					echo utf8_encode($row['nombreEscuela'])." - ".$row['clave'];
 					echo '</option>';
+					$Modalidad = $row['Modalidad'];
 				}
 				echo '</select>';
 			}else{
@@ -99,47 +133,50 @@
 		}
 ?>	
 	</div>
+
 	<div id="<?php echo $DivNombreE;?>" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
 		<label style="margin: 4px;">Nombre: <span id="<?php echo $Destino1B;?>"class="label label-info"></span></label>
 	</div>
 </div>
-<div class="principal">
-		<div class="wrap">
-			<form class="formulario" action="">
-				<!-- Aqui empieza la modificacion -->
-				<input type="hidden" id="valor1"  value="<?php echo $Destino1B;?>">
-				<input type="hidden" id="valor2"  value="<?php echo $Destino3A;?>">
-				<h4>Ingresa los grupos a tu cargo</h4>
-				<div style="display:block;margin:10px;">
-					<div id="div_S_GradoM" style="display: inline-block;margin: 20px; ">
-						<label for="S_GradoM">Grado:</label>
-						<select class="form-control" name="S_GradoM" id="S_GradoM">
-							<option value="1°">1°</option>
-							<option value="2°">2°</option>
-							<option value="3°">3°</option>
-						</select>
-					</div>
-					<div id="div_S_GrupoM" style="display: inline-block;margin: 20px;">
-						<label for="S_GrupoM">Grupo:</label>
-						<select class="form-control" name="S_GrupoM" id="S_GrupoM">
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-							<option value="D">D</option>
-							<option value="E">E</option>
-							<option value="F">F</option>
-							<option value="G">G</option>
-						</select>
-					</div>
+
+<?php  
+	if($_POST['tipoU'] != "Alumno" ){
+		?>
+		<div class="alert alert-danger" role="alert">
+      						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 	 						<strong>¡Cuidado!</strong> A continuacion tienes que selecionar tu funcion en la escuela donde laboras.
+      				</div>
+    <div id="div_S_Quehace<?php echo $_POST['tipoU'];?>" style="display: inline-flex;margin: 20px; ">
+					<label for="S_Quehace<?php echo $_POST['tipoU'];?>">Funcion:  </label>
+					<select class="form-control" name="S_Quehace<?php echo $_POST['tipoU'];?>" id="S_Quehace<?php echo $_POST['tipoU'];?>" onchange="return funcionDeterminada('S_Quehace<?php echo $_POST['tipoU']?>','#decide<?php echo $_POST['tipoU']?>','<?php echo $_POST['tipoU']?>','<?php echo $_POST['modalidad'];?>');">
+						<option value="ninguno">Elige una opcion</option>
+						<option value="super">Enlace de supervicion</option>
+						<option value="maestroG">Maestro de Grupo</option>
+						<option value="directorG">Enlace de Dirección con Grupo</option>
+						<option value="directorNG">Enlace de Dirección sin Grupo</option>
+						<option value="sub">SubDirector</option>
+						<option value="asesorP">Asesor Técnico Pedagógico</option>
+						<option value="otra">Otra funcion...</option>
+					</select>
 				</div>
-
-				<input type="button" class="btn btn-primary" id="btn-agregar" value="Agregar">
-			</form>
-		</div>
-	</div>
-	
-	<script src="assets/JS/main1.js"></script>
-	
-	
-
-	      
+				 <div id="decide<?php echo $_POST['tipoU'];?>">
+          
+        		</div>
+				<!-- Aqui empieza la modificacion -->  
+		<?php
+	}else{
+		?>
+		<div id="div_S_Quehace<?php echo $_POST['tipoU'];?>" style="display: inline-flex;margin: 10px; ">
+			<label for="S_Quehace<?php echo $_POST['tipoU'];?>"></label>
+					<select class="form-control" name="S_Quehace<?php echo $_POST['tipoU'];?>" id="S_Quehace<?php echo $_POST['tipoU'];?>" onchange="return funcionDeterminada('S_Quehace<?php echo $_POST['tipoU']?>','#decide<?php echo $_POST['tipoU']?>','<?php echo $_POST['tipoU']?>','<?php echo $_POST['modalidad'];?>');">
+						<option value="ninguno">Elige una opcion</option>
+						<option value="nuevo">Proporciona tu grado y grupo</option>
+					</select>
+				</div>
+				 <div id="decide<?php echo $_POST['tipoU'];?>">
+          
+        		</div>
+		<?php  
+	}
+?>    
+	<?php  }?>

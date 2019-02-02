@@ -36,7 +36,7 @@
               <div class="tab-content"> 
                  <br>
                  <div class="tab-pane fade in active" id="Consultar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Consultar personal</h1>
                           <div class="input-group">
                             <input type="text" id="myInputA2" class="form-control" onkeyup="return CEmpleosAdmin(this.value,'Consultar','Administrador','PersonalA','#ConsA2');" placeholder="Buscar por el nombre">
@@ -60,7 +60,7 @@
                         <div id="ConsA2"></div>
                  </div>
                 <div class="tab-pane fade" id="Eliminar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Eliminar personal</h1>
                             <div class="input-group">
                               <input type="text" id="myInputA" class="form-control" onkeyup="return CEmpleosAdmin(this.value,'Eliminar','Administrador','PersonalA','#ConsA');" placeholder="Buscar por el nombre">

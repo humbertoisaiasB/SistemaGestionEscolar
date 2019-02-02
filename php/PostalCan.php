@@ -2,7 +2,7 @@
 	include ("Conexion.php");
 	$aux = "";
 	  if(isset($_POST['codigo']) && strlen($_POST['codigo'])==5 ) {
-	  		$tipoF = (isset($_POST['tipoU']) && $_POST['tipoU']=="Alumno" || $_POST['tipoU']=="Maestro" || $_POST['tipoU']=="Director" || $_POST['tipoU']=="PersonalA" || $_POST['tipoU']=="Supervisor") ?  $_POST['tipoU']:"No";
+	  		$tipoF = (isset($_POST['tipoU']) && $_POST['tipoU']=="Alumno" || $_POST['tipoU']=="Maestro" || $_POST['tipoU']=="Director" || $_POST['tipoU']=="PersonalA" || $_POST['tipoU']=="Supervisor" || $tipoU['SubDirector']) ?  $_POST['tipoU']:"No";
 	  		$result=mysqli_query($con,"Select estado, ciudad, asentamiento from sepomex where cp=$_POST[codigo]");
 	  		$row=mysqli_fetch_array($result);	
 	  		if(mysqli_num_rows($result)>0){

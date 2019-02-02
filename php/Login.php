@@ -62,6 +62,12 @@
 				window.location.assign("admin/Main.php"); 
 				</script>';
 				exit;
+				//Aqui el subdirector
+			}else if($row['Tipo']=="SubDirector"){
+				echo '<script type="text/javascript">
+				window.location.assign("subDirector/Main.php"); 
+				</script>';
+				exit;
 			}
 		}else 
 		{

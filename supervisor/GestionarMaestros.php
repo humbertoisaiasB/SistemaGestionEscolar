@@ -47,7 +47,7 @@
               <div class="tab-content"> 
                 <br>
                 <div class="tab-pane fade in active" id="Consultar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Consultar Maestro</h1>
                           <div class="input-group">
                             <input type="text" id="myInputA2" onkeyup="return alumnosV(this.value,'Maestro','Consulta','todos','todos',<?php echo $variable;?>);" class="form-control"  placeholder="Buscar por el nombre">
@@ -111,7 +111,7 @@
                       </div>
               </div>
                 <div class="tab-pane fade" id="Eliminar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Eliminar Maestro</h1>
                             <div class="input-group">
                               <input type="text" id="myInputA" class="form-control" onkeyup="return CEmpleosAdmin(<?php echo $variable;?>,this.value,'Eliminar','Administrador','Alumno','#ConsA');" placeholder="Buscar por el nombre">

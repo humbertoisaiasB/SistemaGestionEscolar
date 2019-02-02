@@ -41,5 +41,13 @@
 			$sql=mysqli_query($con,"select d.curpDirector from director AS d WHERE d.curpDirector like '".$_POST['curpC']."%' LIMIT 0, 6");
 			$row = mysqli_fetch_array($sql);
 			compara($row['curpDirector'],$aux,$num);
+		}elseif(isset($_POST['tipoU']) && $_POST['tipoU']=="Supervisor") {
+			$sql=mysqli_query($con,"select s.curpSupervisor from supervisor AS s WHERE s.curpSupervisor like '".$_POST['curpC']."%' LIMIT 0, 6");
+			$row = mysqli_fetch_array($sql);
+			compara($row['curpSupervisor'],$aux,$num);
+		}elseif(isset($_POST['tipoU']) && $_POST['tipoU']=="SubDirector") {
+			$sql=mysqli_query($con,"select s.curpSubDirector from subDirector AS sb WHERE sb.curpSubDirector like '".$_POST['curpC']."%' LIMIT 0, 6");
+			$row = mysqli_fetch_array($sql);
+			compara($row['curpSubDirector'],$aux,$num);
 		}
 ?>

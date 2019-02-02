@@ -147,7 +147,7 @@
 
         <div class="tab-pane fade in active" id="info">
           <form action="../php/UpdateTotal.php" method="POST" role="form">
-          <div class="col-md-12 well">
+          <div class="col-md-12 registro1 well">
             <h3 align="center">Información del alumno</h3>
             <div id="div_NomAlumno">
               <label>Nombre:</label><input id="txt_NomAlumno" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAlumno',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAlumno" value="<?php echo $val['Nom']; ?>"><span id="span_NomAlumno" ></span>
@@ -194,7 +194,7 @@
         </div>
         <div class="tab-pane fade" id="direccion">
         <form action="../php/UpdateTotal.php" method="POST">
-          <div class="col-md-12 well">
+          <div class="col-md-12 registro1 well">
             <h3 align="center">Dirección</h3>
             <div id="div_CPCan">
               <label>Código Postal:</label><input id="txt_CP" onkeypress="return validarXD(numeric,this.value.length,5);" onkeyup="validacion4all(/^\d{4,5}$/,'CPCan',this.value); return codigoEmp('../php/PostalEmp.php','txt_CP','#codigop');"  type="text" class="form-control" name="txt_CP" value="<?php echo $val['Codigo_Postal']; ?>"><span id="span_CPCan" ></span>
@@ -226,7 +226,7 @@
         </div>
         <div class="tab-pane fade" id="password">
            <form action="../php/UpdateTotal.php" method="POST" role="form">
-            <div class="col-md-8 col-md-offset-1 well">
+            <div class="col-md-8 col-md-offset-1 registro1 well">
               <h3 align="center">Contraseña</h3>
               <div id="div_PswCan">
                 <label>Contraseña:</label><input id="txt_PswCan" type="password" class="form-control" name="txt_Psw"><span id="span_Psw" ></span>

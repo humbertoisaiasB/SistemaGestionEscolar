@@ -5,7 +5,7 @@
   header("Location: ../index.php");}
   $ruta='../assets/Profiles/';
       $archivo=$ruta.$_SESSION['id'].'.png';
-      $query1 = mysqli_query($con,"select id_Usuario,claveEscuela FROM usuarios WHERE id_Usuario=".$_SESSION['id']."");
+      $query1 = mysqli_query($con,"select u.id_Usuario, u.Nom, u.Documento, u.claveEscuela, z.ZonaEscolar FROM usuarios AS u INNER JOIN zona AS z ON (z.clave=u.claveEscuela)WHERE u.id_Usuario=".$_SESSION['id']."");
       $val = mysqli_fetch_array($query1);
 ?>
 <!DOCTYPE html>
@@ -29,14 +29,15 @@
 </head>
 <?php
   $variable = "'".$val['claveEscuela']."'";
+  $zona = $val['ZonaEscolar'];
 ?>
-<body class="site" onload="return escuelas(<?php echo $variable;?>,9,'#dataT','Escuelas','');">
+<body class="site" onload="return escuelas(<?php echo $variable;?>,<?php echo $zona;?>,'#dataT','Escuelas','');">
   <main class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12">
             <ul class="nav nav-tabs">
-              <li role="presentation" class="active" onclick="return escuelas(<?php echo $variable;?>,9,'#dataT','Escuelas','');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
+              <li role="presentation" class="active" onclick="return escuelas(<?php echo $variable;?>,<?php echo $zona;?>,'#dataT','Escuelas','');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
             </ul>
           </div>
         </div>
@@ -45,10 +46,10 @@
               <div class="tab-content"> 
                 <br>
                 <div class="tab-pane fade in active" id="Consultar">
-                      <div class="col-sm-12 busca well">
+                      <div class="col-sm-12 registro1 well">
                         <h1>Consultar escuelas</h1>
                           <div class="input-group">
-                            <input type="text" id="myBuscador" onkeyup="return escuelas(<?php echo $variable;?>,9,'#dataT','Escuelas',this.value);" class="form-control"  placeholder="Buscar por el nombre">
+                            <input type="text" id="myBuscador" onkeyup="return escuelas(<?php echo $variable;?>,<?php echo $zona;?>,'#dataT','Escuelas',this.value);" class="form-control"  placeholder="Buscar por el nombre">
                             <div class="input-group-btn">
                               <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-primary dropdown-toggle"
