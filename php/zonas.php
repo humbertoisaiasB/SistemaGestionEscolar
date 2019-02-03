@@ -142,7 +142,7 @@
 <?php  
 	if($_POST['tipoU'] != "Alumno" ){
 		?>
-		<div class="alert alert-danger" role="alert">
+		<div class="alert alert-danger" role="alert" style="display: inline-flex; margin-bottom: 3px; margin: 5px;">
       						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
  	 						<strong>¡Cuidado!</strong> A continuacion tienes que selecionar tu funcion en la escuela donde laboras.
       				</div>

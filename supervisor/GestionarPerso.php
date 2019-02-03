@@ -21,7 +21,7 @@
   <main class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-7">
+          <div class="col-sm-12">
               <ul class="nav nav-tabs">
                 <li role="presentation" class="active" onclick="return CEmpleosAdmin('','Consultar','Administrador','PersonalA','#ConsA2');"> <a href="#Consultar" data-toggle="tab"><img src="../assets/images/Consultar.png"  height="30px" width="30px" >  Consultar</a></li>
                 <li role="presentation" onclick="return CEmpleosAdmin('','Eliminar','Administrador','PersonalA','#ConsA');"><a href="#Eliminar" data-toggle="tab"><img src="../assets/images/Eliminar.png"  height="30px" width="30px" > Eliminar</a></li>
@@ -31,7 +31,7 @@
         </div>  
 
         <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-12">
 
               <div class="tab-content"> 
                  <br>
@@ -44,13 +44,13 @@
                               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ariahaspopup="true" ariaexpanded="false">Filtros<span class="caret"></span></button>
                               <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                  <a href="#">Solo usuarios de tipo "Empresa"</a>
+                                  <a href="#"></a>
                                 </li>
                                 <li>
-                                  <a href="#">Solo usuarios de tipo "Empleador"</a>
+                                  <a href="#"></a>
                                 </li>
                                 <li>
-                                  <a href="#">Solo usuarios de tipo "Candidato"</a>
+                                  <a href="#"></a>
                                 </li>
                               </ul>
                             </div>

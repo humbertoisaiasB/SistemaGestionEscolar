@@ -36,7 +36,7 @@ include 'Conexion.php';
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal"  >&times;</button>
-              <h4 align="center" class="modal-title">Acciones para el usuario: <?php echo "<p>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";?></h4> 
+              <h4 align="center" class="modal-title"><?php echo "<p>".$row['Nom']." ".$row['Ap']." ".$row['Am']."</p>";?></h4> 
             </div>
             <div class="modal-body" align="center">
               <!-- Aqui agregaremos cosas -->
@@ -137,12 +137,12 @@ include 'Conexion.php';
                     $row1 = mysqli_fetch_array($sql);
                     $nombreArchivoC = "";
                     $compara = $row1['curpAlumno']."_";
-                    $nombreDocu = array("".$compara."BG","".$compara."CP","".$compara."CU","".$compara."IMF","".$compara."IMD","".$compara."IPF","".$compara."IPD","".$compara."CD","".$compara."CM","".$compara."AN");
-                    $nombreBoton = array("Reporte de evaluciacion del grado Anterior.","Certificado de primaria.","CURP del alumno.","INE de la madre(Frontal).","INE de la madre(Atras).","INE del padre(Frontal).","INE del padre(Atras).","Comprobante de domicilio.","Certificado Médico.","Acta de nacimiento.");
-                    $existente = array("","","","","","","","","","");
+                    $nombreDocu = array("".$compara."BG","".$compara."CP","".$compara."CU","".$compara."IMF","".$compara."IMD","".$compara."IPF","".$compara."IPD","".$compara."CD","".$compara."CM","".$compara."AN","".$compara."SP");
+                    $nombreBoton = array("Reporte de evaluciacion del grado Anterior.","Certificado de primaria.","CURP del alumno.","INE de la madre(Frontal).","INE de la madre(Atras).","INE del padre(Frontal).","INE del padre(Atras).","Comprobante de domicilio.","Certificado Médico.","Acta de nacimiento.","Solicitud de preinscripción.");
+                    $existente = array("","","","","","","","","","","");
                     $aux1 = "f";
                     $aux2 = 0; 
-                    $documentos = 10;
+                    $documentos = 11;
                     $directorio = opendir("../php/documentos/alumno/".$row1['curpAlumno']."/"); //ruta actual
                     while($archivo = readdir($directorio)){
                       if (!is_dir($archivo)) {
@@ -193,12 +193,12 @@ include 'Conexion.php';
                     $row1 = mysqli_fetch_array($sql);
                     $nombreArchivoC = "";
                     $compara = $row1['curpMaestro']."_";
-                    $nombreDocu = array("".$compara."FUP","".$compara."CI","".$compara."CD","".$compara."CURP","".$compara."INEF","".$compara."INED","".$compara."CEL","".$compara."CEM","".$compara."CPLF","".$compara."CPLA","".$compara."CPMF","".$compara."CPMA","".$compara."OB","".$compara."AN","".$compara."TL","".$compara."TM","".$compara."SAT","".$compara."CL","".$compara."AP","".$compara."SA");
-                    $nombreArchivos = array("Formato único de personal.","Comprobante de ingresos.","Comprobante de domicilio.","CURP","INE(Frontal)","INE(Detras)","Certificado estudios licenciatura","Certificado de estudios maestria","Cédula profesional de licenciatura(Frontal)","Cédula profesional de licenciatura(Detras)","Cédula profesional de maestria(Frontal)","Cédula profesional de maestria(Detras)","Oficio de basificación.","Acta de nacimiento","Título Licenciatura","Título Maestria","Alta al SAT(RFC)","Cartilla Militar(SMN)","No Antecedentes Penales.","No Sanción Administrativa");
+                    $nombreDocu = array("".$compara."FUP","".$compara."CI","".$compara."CD","".$compara."CURP","".$compara."INEF","".$compara."INED","".$compara."CEL","".$compara."CEM","".$compara."CPLF","".$compara."CPLA","".$compara."CPMF","".$compara."CPMA","".$compara."OB","".$compara."AN","".$compara."TL","".$compara."TM","".$compara."SAT","".$compara."CL","".$compara."AP","".$compara."SA","".$compara."NPA");
+                    $nombreArchivos = array("Formato único de personal.","Comprobante de ingresos.","Comprobante de domicilio.","CURP","INE(Frontal)","INE(Detras)","Certificado estudios licenciatura","Certificado de estudios maestria","Cédula profesional de licenciatura(Frontal)","Cédula profesional de licenciatura(Detras)","Cédula profesional de maestria(Frontal)","Cédula profesional de maestria(Detras)","Oficio de basificación.","Acta de nacimiento","Título Licenciatura","Título Maestria","Alta al SAT(RFC)","Cartilla Militar(SMN)","No Antecedentes Penales.","No Sanción Administrativa","Nombramiento por ascenso");
                     $aux = array("no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no","no");
                     $aux1 = "f";
                     $aux2 = 0; 
-                    $documentos = 20;
+                    $documentos = 21;
                     $directorio = opendir("../php/documentos/maestro/".$row1['curpMaestro']."/"); //ruta actual
                     while($archivo = readdir($directorio)){
                       if (!is_dir($archivo)) {

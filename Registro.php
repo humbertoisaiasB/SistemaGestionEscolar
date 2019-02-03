@@ -105,7 +105,7 @@
 												<!-- Aqui tenemos que empresa desaparecera y ahora sera alumnos-->
 												<form  action="php/AddAlumno.php" method="POST">
 													<div id="div_NomAlumno">
-														<label>Nombre:</label><input id="txt_NomAlumno" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAlumno',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAlumno"><span id="span_NomAlumno" ></span>
+														<label>Nombre:</label><input id="txt_NomAlumno" onkeypress="return validarXD(alphaxd,this.value.length,50);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAlumno',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAlumno"><span id="span_NomAlumno" ></span>
 													</div>
 													<div id="div_Ap">
 														<label>Apellido paterno:</label><input id="txt_Ap" onkeypress="return validarXD(alphaxd,this.value.length,25);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,25}$/,'Ap',this.value);NomValid(this);" type="text" class="form-control"  name="txt_Ap"><span id="span_Ap" ></span>
@@ -121,7 +121,7 @@
 															<div class="principal">
 																<div class="wrap">
 																<!-- Aqui empieza la modificacion -->
-																	<h4>Ingresa tus datos!</h4>
+																	<h4>¡Ingresa tu centro de estudio!</h4>
 																	<div class="input-group">
 															      		<input type="text" class="form-control" placeholder="Search for...">
 															      		<span class="input-group-btn">
@@ -218,7 +218,7 @@
 												</div>
 												<form  action="php/AddMaestro.php" method="POST">
 													<div id="div_NomMaestro">
-														<label>Nombre:</label><input id="txt_NomMaestro" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomMaestro',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomMaestro"><span id="span_NomMaestro" ></span>
+														<label>Nombre:</label><input id="txt_NomMaestro" onkeypress="return validarXD(alphaxd,this.value.length,50);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomMaestro',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomMaestro"><span id="span_NomMaestro" ></span>
 													</div>
 													<div id="div_ApMaestro">
 														<label>Apellido paterno:</label><input id="txt_ApMaestro" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'ApMaestro',this.value);NomValid(this);" type="text" class="form-control"  name="txt_ApMaestro"><span id="span_ApMaestro" ></span>
@@ -233,7 +233,7 @@
 															<div class="principal">
 																<div class="wrap">
 																<!-- Aqui empieza la modificacion -->
-																	<h4>Ingresa tus datos!</h4>
+																	<h4>¡Ingresa todos tus centros de trabajo!</h4>
 																	<div class="input-group">
 															      		<input type="text" class="form-control" placeholder="Search for...">
 															      		<span class="input-group-btn">
@@ -333,7 +333,7 @@
 												<form  action="php/AddAdmi.php" method="POST">
 													<!-- Aqui em pieza de maestro-->
 													<div id="div_NomAdmi">
-														<label>Nombre:</label><input id="txt_NomAdmi" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAdmi',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAdmi"><span id="span_NomAdmi"></span>
+														<label>Nombre:</label><input id="txt_NomAdmi" onkeypress="return validarXD(alphaxd,this.value.length,50);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomAdmi',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomAdmi"><span id="span_NomAdmi"></span>
 													</div>
 													<div id="div_ApAdmi">
 														<label>Apellido paterno:</label><input id="txt_ApAdmi" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'ApAdmi',this.value);NomValid(this);" type="text" class="form-control"  name="txt_ApAdmi"><span id="span_ApAdmi" ></span>
@@ -348,7 +348,7 @@
 															<div class="principal">
 																<div class="wrap">
 																<!-- Aqui empieza la modificacion -->
-																	<h4>Ingresa tus datos</h4>
+																<h4>¡Ingresa todos tus centros de trabajo!</h4>
 																	<div class="input-group">
 															      		<input type="text" class="form-control" placeholder="Search for...">
 
@@ -420,7 +420,7 @@
 												</div>
 												<form  action="php/AddDirector.php" method="POST">
 													<div id="div_NomDirector">
-														<label>Nombre:</label><input id="txt_NomDirector" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomDirector',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomDirector"><span id="span_NomDirector" ></span>
+														<label>Nombre:</label><input id="txt_NomDirector" onkeypress="return validarXD(alphaxd,this.value.length,50);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomDirector',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomDirector"><span id="span_NomDirector" ></span>
 													</div>
 													<div id="div_ApDirector">
 														<label>Apellido paterno:</label><input id="txt_ApDirector" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'ApDirector',this.value);NomValid(this);" type="text" class="form-control"  name="txt_ApDirector"><span id="span_ApDirector" ></span>
@@ -435,7 +435,7 @@
 															<div class="principal">
 																<div class="wrap">
 																<!-- Aqui empieza la modificacion -->
-																	<h4>Ingresa los grupos a tu cargo</h4>
+																<h4>¡Ingresa todos tus centros de trabajo!</h4>																	<h4>Ingresa los grupos a tu cargo</h4>
 																	<div class="input-group">
 															      		<input type="text" class="form-control" placeholder="Search for...">
 															      		<span class="input-group-btn">
@@ -512,7 +512,7 @@
 												</div>
 												<form  action="php/AddSupervisor.php" method="POST">
 													<div id="div_NomSupervisor">
-														<label>Nombre:</label><input id="txt_NomSupervisor" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomSupervisor',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomSupervisor"><span id="span_NomSupervisor" ></span>
+														<label>Nombre:</label><input id="txt_NomSupervisor" onkeypress="return validarXD(alphaxd,this.value.length,50);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomSupervisor',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomSupervisor"><span id="span_NomSupervisor" ></span>
 													</div>
 													<div id="div_ApSupervisor">
 														<label>Apellido paterno:</label><input id="txt_ApSupervisor" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'ApSupervisor',this.value);NomValid(this);" type="text" class="form-control"  name="txt_ApSupervisor"><span id="span_ApSupervisor" ></span>
@@ -527,7 +527,7 @@
 															<div class="principal">
 																<div class="wrap">
 																<!-- Aqui empieza la modificacion -->
-																	<h4>Ingresa tus datos!</h4>
+																<h4>¡Ingresa todos tus centros de trabajo!</h4>
 																	<div class="input-group">
 															      		<input type="text" class="form-control" placeholder="Search for...">
 															      		<span class="input-group-btn">
@@ -595,7 +595,7 @@
       			   								</div>
 												<form  action="php/AddSubDirector.php" method="POST">
 													<div id="div_NomSubDirector">
-														<label>Nombre:</label><input id="txt_NomSubDirector" onkeypress="return validarXD(alphaxd,this.value.length,20);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomSubDirector',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomSubDirector"><span id="span_NomSubDirector" ></span>
+														<label>Nombre:</label><input id="txt_NomSubDirector" onkeypress="return validarXD(alphaxd,this.value.length,50);" onkeyup="validacion4all(/[a-zA-Z]{3,}/,'NomSubDirector',this.value);NomValid(this);"  type="text" class="form-control" name="txt_NomSubDirector"><span id="span_NomSubDirector" ></span>
 													</div>
 													<div id="div_ApSubDirector">
 														<label>Apellido paterno:</label><input id="txt_ApSubDirector" onkeypress="return validarXD(alphaxd,this.value.length,11);" onkeyup="validacion4all(/^[a-zA-Z](\s?[a-zA-Z]){2,10}$/,'ApSubDirector',this.value);NomValid(this);" type="text" class="form-control"  name="txt_ApSubDirector"><span id="span_ApSubDirector" ></span>
@@ -610,7 +610,7 @@
 															<div class="principal">
 																<div class="wrap">
 																<!-- Aqui empieza la modificacion -->
-																	<h4>Ingresa tus datos!</h4>
+																<h4>¡Ingresa todos tus centros de trabajo!</h4>
 																	<div class="input-group">
 															      		<input type="text" class="form-control" placeholder="Search for...">
 															      		<span class="input-group-btn">

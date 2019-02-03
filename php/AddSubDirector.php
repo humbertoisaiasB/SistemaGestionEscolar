@@ -50,7 +50,7 @@ if (isset($_POST['btn_SubDirector'])){
       
   echo '<script type="text/javascript">
        alert ("Registrado Correctamente");
-       
+       window.location.assign("../index.php");
     </script>';
     exit;
 }

@@ -20,7 +20,7 @@ $hoy = getdate(); //La gecha
     <script type="text/javascript" src="../assets/JS/MyJS.js"></script>
 
 </head>
-<body class="site" onload="return Solicitudes();">
+<body class="site" >
 	 
   <main class="content">
     <div class="container-fluid">
